@@ -1,26 +1,48 @@
-import { Button } from "react-bootstrap";
-import SafeZone from "../components/global/SafeZone";
-import Navbar from "../components/Navbar";
+import React from "react";
 import FrontPage from "../components/homecomponents/FrontPage";
 import Offering from "../components/homecomponents/Offering";
-import RealtimeProject from "../components/homecomponents/RealtimeProject";
-import { JobOffered } from "../components/homecomponents/JobOffered";
 import { ProjectShowCase } from "../components/homecomponents/ProjectShowCase";
-import Pastworks from "../components/homecomponents/Pastworks";
-import Review from "../components/homecomponents/Review";
+import RealtimeProject from "../components/homecomponents/RealtimeProject";
 import MobileProjects from "../components/homecomponents/MobileProjects";
+import Review from "../components/homecomponents/Review";
+import { JobOffered } from "../components/homecomponents/JobOffered";
+import Pastworks from "../components/homecomponents/Pastworks";
+import { Teammates } from "../components/aboutcomponents/Teammates";
+import GetinTouch from "../components/GetinTouch";
+
 const Home = () => {
   return (
-    <SafeZone>
+    <div className="home-page-wrapper">
+      {/* 1. Hero Section - Client Value Proposition */}
       <FrontPage />
+
+      {/* 2. Core IT Solutions & Services (What We Build For Clients) */}
       <Offering />
-      <Review />
-      <RealtimeProject />
-      <JobOffered />
+
+      {/* 3. Featured Production Projects & Client Case Studies (Proof) */}
       <ProjectShowCase />
+
+      {/* 4. Client Engagement Models (Fixed-Price, Dedicated Teams, BPO) */}
+      <RealtimeProject />
+
+      {/* 5. Mobile & Cross-Platform Production Applications */}
       <MobileProjects />
+
+      {/* 6. Verified Client Testimonials & B2B Success Stories */}
+      <Review />
+
+      {/* 7. Enterprise Engineering Standards & Security */}
+      <JobOffered />
+
+      {/* 8. Institutional MoUs & Outreach */}
       <Pastworks />
-    </SafeZone>
+
+      {/* 9. Leadership & Engineering Team */}
+      <Teammates />
+
+      {/* 10. Project Proposal & Free Cost Estimate Form */}
+      <GetinTouch isEmbedded={true} />
+    </div>
   );
 };
 

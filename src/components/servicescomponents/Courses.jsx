@@ -1,113 +1,162 @@
 import React from "react";
+import { Link } from "react-router-dom";
+import { FaGraduationCap, FaCheckCircle, FaArrowRight } from "react-icons/fa";
 
-const CourseCard = ({ title, price, description, features, highlight }) => {
+const TrackCard = ({ title, badge, duration, description, features, highlight }) => {
   return (
     <div
-      className="p-4 shadow-sm"
+      className="p-4 d-flex flex-column justify-content-between"
       style={{
-        background: highlight ? "#68D53D" : "#1a1a1a",
-        color: highlight ? "#000" : "#fff",
+        background: highlight ? "#16a34a" : "#ffffff",
+        color: highlight ? "#ffffff" : "#0f172a",
         borderRadius: "16px",
-        width: "280px",
-        transform: highlight ? "scale(1.05)" : "scale(1)",
-        transition: "0.3s",
+        width: "285px",
+        border: highlight ? "2px solid #15803d" : "1px solid #e2e8f0",
+        transform: highlight ? "scale(1.02)" : "scale(1)",
+        boxShadow: highlight 
+          ? "0 10px 25px rgba(22, 163, 74, 0.25)" 
+          : "0 4px 14px rgba(0, 0, 0, 0.04)",
+        transition: "all 0.25s ease",
       }}
     >
-      {/* Title */}
-      <h5
-        className="mb-2 fw-semibold"
-        style={{ color: highlight ? "#000" : "#68D53D" }}
-      >
-        {title}
-      </h5>
+      <div>
+        {/* Track Badge */}
+        <span 
+          className="badge px-3 py-1 rounded-pill mb-3 fw-semibold"
+          style={{
+            background: highlight ? "rgba(255, 255, 255, 0.2)" : "#f0fdf4",
+            color: highlight ? "#ffffff" : "#16a34a",
+            border: highlight ? "1px solid rgba(255, 255, 255, 0.4)" : "1px solid #bbf7d0",
+            fontSize: "0.75rem"
+          }}
+        >
+          {badge}
+        </span>
 
-      {/* Price */}
-      <h4 className="mb-3 fw-bold">{price}</h4>
+        {/* Title */}
+        <h5
+          className="mb-2 fw-bold"
+          style={{ color: highlight ? "#ffffff" : "#0f172a" }}
+        >
+          {title}
+        </h5>
 
-      {/* Description */}
-      <p style={{ fontSize: "0.9rem", opacity: 0.8 }}>{description}</p>
+        {/* Duration */}
+        <div 
+          className="mb-3 small fw-semibold d-flex align-items-center gap-1"
+          style={{ color: highlight ? "#dcfce7" : "#15803d" }}
+        >
+          <FaGraduationCap /> {duration}
+        </div>
 
-      {/* Features */}
-      <ul className="list-unstyled mt-3 mb-4">
-        {features.map((feature, index) => (
-          <li key={index} className="mb-2">
-            ✔ {feature}
-          </li>
-        ))}
-      </ul>
+        {/* Description */}
+        <p style={{ fontSize: "0.9rem", color: highlight ? "#f0fdf4" : "#475569", lineHeight: "1.5" }}>
+          {description}
+        </p>
 
-      {/* Button */}
-      {/* <button
-        className="btn w-100"
+        {/* Features */}
+        <ul className="list-unstyled mt-3 mb-4">
+          {features.map((feature, index) => (
+            <li key={index} className="mb-2 small d-flex align-items-start gap-2" style={{ color: highlight ? "#ffffff" : "#334155" }}>
+              <span style={{ color: highlight ? "#ffffff" : "#16a34a", fontWeight: "bold" }}>✓</span>
+              <span>{feature}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <Link
+        to="/getintouch"
+        className="text-decoration-none py-2 px-3 rounded-3 text-center fw-semibold d-flex align-items-center justify-content-center gap-2"
         style={{
-          background: highlight ? "#000" : "#68D53D",
-          color: "#fff",
-          borderRadius: "8px",
+          background: highlight ? "#ffffff" : "#f0fdf4",
+          color: highlight ? "#15803d" : "#16a34a",
+          border: highlight ? "none" : "1px solid #bbf7d0",
+          fontSize: "0.88rem",
+          transition: "all 0.2s ease"
         }}
       >
-        Enroll Now
-      </button> */}
+        <span>Inquire Syllabus</span>
+        <FaArrowRight size={11} />
+      </Link>
     </div>
   );
 };
 
 const Courses = () => {
-  const coursePlans = [
+  const courseTracks = [
     {
-      title: "3 Months Program",
-      price: "₹15,000 + Job (₹5k/month fees)",
-      description: "Fast-track training with job opportunity.",
+      title: "Fast-Track Immersion",
+      badge: "Flagship Track",
+      duration: "3 Months Intensive",
+      description: "Hands-on full-stack software training paired with live enterprise production projects.",
       features: [
-        "Job support",
-        "Monthly earning opportunity",
-        "Practical projects",
+        "Live client project deployment",
+        "Git team workflow & code reviews",
+        "Direct placement support",
+        "Industry-recognized certificate",
       ],
       highlight: true,
     },
     {
-      title: "1 Year Program",
-      price: "₹1,200/Month + Job)",
-      description: "For 2nd, 3rd & final year students.",
+      title: "Campus Academic Track",
+      badge: "College Integrated",
+      duration: "1 Year Immersion",
+      description: "Designed for 2nd, 3rd & final year engineering students alongside university academics.",
       features: [
-        "Long-term learning",
-        "College-friendly schedule",
-        "Career guidance",
+        "Weekend & flexible schedules",
+        "Academic project guidance",
+        "Mock interviews & aptitude training",
+        "Technical portfolio building",
       ],
     },
     {
-      title: "2 Months Course",
-      price: "₹5,000/Month",
-      description: "Intermediate level skill development.",
+      title: "Specialized Tech Track",
+      badge: "Skill Development",
+      duration: "2 Months Focused",
+      description: "Deep-dive module on specific in-demand stacks like React, Node.js, Flutter or Python.",
       features: [
-        "Skill-based training",
-        "Project work",
-        "Flexible duration",
-        "Certificate",
+        "Project-driven curriculum",
+        "Real-time database architectures",
+        "RESTful API design & testing",
+        "Course completion credential",
       ],
     },
     {
-      title: "2 Month Basic",
-      price: "₹3,000/Month",
-      description: "Excel, Word & basic computer skills.",
+      title: "Office Productivity Track",
+      badge: "Foundation Track",
+      duration: "2 Months Core",
+      description: "Comprehensive office computing, advanced spreadsheets, data management & typing skills.",
       features: [
-        "Beginner friendly",
-        "Office tools training",
-        "Quick completion",
-        "Certificate",
+        "Advanced Excel formulas & pivots",
+        "Business documentation & formatting",
+        "Data hygiene & keyboard mastery",
+        "Official proficiency certificate",
       ],
     },
   ];
 
   return (
-    <div className="py-5" style={{ background: "#f5f5f5" }}>
-      <h1 className="text-center mb-5">
-        Courses <span style={{ color: "#3a7b20" }}>Structure</span>
-      </h1>
+    <div className="py-5" style={{ background: "#f8fafc" }}>
+      <div className="container">
+        <div className="text-center mb-5">
+          <span className="tech-pill mb-2">
+            <span className="tech-pill-dot"></span>
+            STRUCTURED LEARNING PATHS
+          </span>
+          <h2 className="display-6 fw-bold mt-2 text-dark">
+            Industry Training <span style={{ color: "#16a34a" }}>Curriculum Tracks</span>
+          </h2>
+          <p className="text-secondary mx-auto" style={{ maxWidth: "620px", fontSize: "1.05rem" }}>
+            Practical, mentor-led programs designed to bridge the gap between academic theory and enterprise engineering.
+          </p>
+        </div>
 
-      <div className="d-flex flex-wrap justify-content-center gap-4">
-        {coursePlans.map((plan, index) => (
-          <CourseCard key={index} {...plan} />
-        ))}
+        <div className="d-flex flex-wrap justify-content-center gap-4">
+          {courseTracks.map((plan, index) => (
+            <TrackCard key={index} {...plan} />
+          ))}
+        </div>
       </div>
     </div>
   );

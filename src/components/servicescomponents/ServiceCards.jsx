@@ -5,87 +5,95 @@ const ServiceCardsDark = () => {
 
   const styles = {
     section: {
-      padding: "80px 0",
-      background: "#000000",
+      padding: "70px 0",
+      background: "#f8fafc",
+      borderTop: "1px solid #e2e8f0",
+      borderBottom: "1px solid #e2e8f0",
     },
     heading: {
-      fontSize: "42px",
-      fontWeight: "700",
-      color: "#ffffff",
+      fontSize: "36px",
+      fontWeight: "800",
+      color: "#0f172a",
       letterSpacing: "-0.5px",
-    },
-    highlight: {
-      color: "#68D53D",
     },
     subheading: {
       fontSize: "16px",
-      color: "#888888",
+      color: "#475569",
       maxWidth: "550px",
       margin: "0 auto",
     },
     card: (isHovered) => ({
-      background: "#111111",
-      border: isHovered ? `1px solid ${"#68D53D"}` : "1px solid #222222",
-      borderRadius: "12px",
-      padding: "40px",
-      transition: "all 0.3s ease",
+      background: "#ffffff",
+      border: isHovered 
+        ? "1px solid #86efac" 
+        : "1px solid #e2e8f0",
+      borderRadius: "16px",
+      padding: "36px",
+      transition: "all 0.25s ease",
+      transform: isHovered ? "translateY(-4px)" : "translateY(0)",
+      boxShadow: isHovered 
+        ? "0 10px 25px rgba(0, 0, 0, 0.08)" 
+        : "0 4px 14px rgba(0, 0, 0, 0.04)",
       cursor: "pointer",
     }),
     iconWrapper: {
-      width: "64px",
-      height: "64px",
-      marginBottom: "24px",
+      width: "56px",
+      height: "56px",
+      marginBottom: "20px",
       display: "flex",
       alignItems: "center",
       justifyContent: "center",
-      background: "#1a1a1a",
+      background: "#f0fdf4",
+      border: "1px solid #bbf7d0",
       borderRadius: "12px",
     },
     icon: {
-      fontSize: "32px",
+      fontSize: "26px",
     },
     cardTitle: {
-      fontSize: "24px",
-      fontWeight: "600",
-      color: "#ffffff",
-      marginBottom: "16px",
+      fontSize: "22px",
+      fontWeight: "700",
+      color: "#0f172a",
+      marginBottom: "14px",
     },
     divider: {
-      width: "40px",
-      height: "2px",
-      background: "#68D53D",
-      margin: "0 0 24px 0",
+      width: "44px",
+      height: "3px",
+      background: "#16a34a",
+      borderRadius: "100px",
+      margin: "0 0 20px 0",
     },
     description: {
       fontSize: "15px",
-      lineHeight: "1.6",
-      color: "#888888",
-      marginBottom: "24px",
+      lineHeight: "1.65",
+      color: "#475569",
+      marginBottom: "22px",
     },
     featureItem: {
       fontSize: "14px",
-      color: "#999999",
-      marginBottom: "12px",
+      color: "#334155",
+      marginBottom: "10px",
       display: "flex",
       alignItems: "center",
       gap: "10px",
     },
     button: {
-      background: "transparent",
-      border: "1px solid #333333",
-      padding: "10px 24px",
-      borderRadius: "6px",
+      background: "#16a34a",
+      border: "none",
+      padding: "10px 22px",
+      borderRadius: "8px",
       color: "#ffffff",
-      fontWeight: "500",
+      fontWeight: "600",
       fontSize: "14px",
-      transition: "all 0.3s ease",
-      marginTop: "24px",
+      transition: "all 0.25s ease",
+      marginTop: "20px",
       cursor: "pointer",
+      boxShadow: "0 2px 6px rgba(22, 163, 74, 0.2)",
     },
     buttonHover: {
-      background: "#68D53D",
-      border: "1px solid #68D53D",
-      color: "#000000",
+      background: "#15803d",
+      transform: "translateY(-1px)",
+      boxShadow: "0 4px 12px rgba(22, 163, 74, 0.3)",
     },
   };
 
@@ -94,10 +102,10 @@ const ServiceCardsDark = () => {
       <div className="container">
         <div className="text-center mb-5">
           <h2 style={styles.heading}>
-            Our <span style={styles.highlight}>Services</span>
+            Enterprise <span className="text-success-corporate">Solutions</span>
           </h2>
           <p style={styles.subheading}>
-            Premium IT solutions for modern businesses
+            Premium IT infrastructure and digital transformation for modern businesses
           </p>
         </div>
 
@@ -111,22 +119,21 @@ const ServiceCardsDark = () => {
               <div style={styles.iconWrapper}>
                 <span style={styles.icon}>🖥️</span>
               </div>
-              <h3 style={styles.cardTitle}>Hardware</h3>
+              <h3 style={styles.cardTitle}>Hardware & Cloud Infrastructure</h3>
               <div style={styles.divider}></div>
               <p style={styles.description}>
                 Enterprise-grade hardware solutions including servers,
-                networking devices, and high-performance workstations.
+                networking devices, hybrid cloud setups, and high-performance workstations.
               </p>
               <ul style={{ listStyle: "none", padding: 0 }}>
                 <li style={styles.featureItem}>
-                  <span style={{ color: "#68D53D" }}>⟶</span> Enterprise Servers
+                  <span style={{ color: "#16a34a", fontWeight: "bold" }}>⟶</span> Enterprise Multi-Region Servers
                 </li>
                 <li style={styles.featureItem}>
-                  <span style={{ color: "#68D53D" }}>⟶</span> Networking
-                  Solutions
+                  <span style={{ color: "#16a34a", fontWeight: "bold" }}>⟶</span> High-Throughput Networking
                 </li>
                 <li style={styles.featureItem}>
-                  <span style={{ color: "#68D53D" }}>⟶</span> 24/7 Support
+                  <span style={{ color: "#16a34a", fontWeight: "bold" }}>⟶</span> 24/7 Monitored Infrastructure SLA
                 </li>
               </ul>
               <button
@@ -149,21 +156,21 @@ const ServiceCardsDark = () => {
               <div style={styles.iconWrapper}>
                 <span style={styles.icon}>⚡</span>
               </div>
-              <h3 style={styles.cardTitle}>Software</h3>
+              <h3 style={styles.cardTitle}>Custom Software & Cloud Apps</h3>
               <div style={styles.divider}></div>
               <p style={styles.description}>
-                Custom software development, cloud solutions, and AI/ML
-                integration for digital transformation.
+                Custom software engineering, scalable cloud microservices, and AI/ML
+                integration architected for maximum business growth.
               </p>
               <ul style={{ listStyle: "none", padding: 0 }}>
                 <li style={styles.featureItem}>
-                  <span style={{ color: "#68D53D" }}>⟶</span> Custom Development
+                  <span style={{ color: "#16a34a", fontWeight: "bold" }}>⟶</span> Full-Stack React & Node Applications
                 </li>
                 <li style={styles.featureItem}>
-                  <span style={{ color: "#68D53D" }}>⟶</span> Cloud Solutions
+                  <span style={{ color: "#16a34a", fontWeight: "bold" }}>⟶</span> Cloud Automation & DevOps CI/CD
                 </li>
                 <li style={styles.featureItem}>
-                  <span style={{ color: "#68D53D" }}>⟶</span> AI/ML Integration
+                  <span style={{ color: "#16a34a", fontWeight: "bold" }}>⟶</span> Enterprise AI/ML Business Integration
                 </li>
               </ul>
               <button

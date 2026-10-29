@@ -1,0 +1,375 @@
+﻿/* =====================================
+   COURSE DETAIL PAGE
+===================================== */
+
+.gnt-course-detail-page {
+  background: #f8fafc;
+  min-height: 100vh;
+}
+
+.gnt-detail-hero {
+  color: #ffffff;
+  padding: 45px 0 55px;
+}
+
+.gnt-detail-breadcrumbs {
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.85);
+  margin-bottom: 15px;
+}
+
+.gnt-detail-breadcrumbs a {
+  color: #ffffff;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.gnt-detail-badge {
+  display: inline-block;
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(4px);
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 12px;
+}
+
+.gnt-detail-title {
+  font-size: clamp(32px, 4vw, 44px);
+  font-weight: 800;
+  line-height: 1.15;
+  margin-bottom: 12px;
+}
+
+.gnt-detail-subtitle {
+  font-size: 16px;
+  max-width: 650px;
+  color: rgba(255, 255, 255, 0.9);
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+.gnt-detail-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 18px;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.gnt-detail-cta-box {
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(8px);
+  padding: 22px;
+  border-radius: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  display: inline-block;
+  text-align: center;
+}
+
+.gnt-start-learning-btn {
+  background: #ffffff;
+  color: #1b5e20;
+  border: none;
+  font-weight: 800;
+  font-size: 16px;
+  padding: 12px 28px;
+  border-radius: 8px;
+  cursor: pointer;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  transition: all 0.3s ease;
+}
+
+.gnt-start-learning-btn:hover {
+  transform: translateY(-2px);
+  background: #f0faf2;
+  color: #117a29;
+}
+
+/* SECTION HEADINGS */
+.gnt-section-title {
+  font-size: 24px;
+  font-weight: 800;
+  color: #0f172a;
+  margin-bottom: 8px;
+}
+
+.gnt-course-full-desc {
+  font-size: 15px;
+  color: #475569;
+  line-height: 1.7;
+}
+
+/* YOUTUBE INTRO PLAYER */
+.gnt-intro-player-container {
+  position: relative;
+  padding-bottom: 56.25%;
+  height: 0;
+  background: #000000;
+  margin-top: 15px;
+}
+
+.gnt-intro-player-container iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+/* HIGHLIGHTS GRID */
+.gnt-highlights-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+}
+
+.gnt-highlight-card {
+  display: flex;
+  gap: 14px;
+  padding: 16px;
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+}
+
+.gnt-highlight-icon {
+  font-size: 26px;
+}
+
+.gnt-highlight-card h5 {
+  margin: 0 0 4px;
+  font-size: 15px;
+  font-weight: 700;
+  color: #1e293b;
+}
+
+.gnt-highlight-card p {
+  margin: 0;
+  font-size: 12px;
+  color: #64748b;
+  line-height: 1.4;
+}
+
+/* SYLLABUS CARD */
+.gnt-syllabus-card {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 16px;
+  overflow: hidden;
+  position: sticky;
+  top: 90px;
+}
+
+.gnt-syllabus-header {
+  padding: 20px;
+  border-bottom: 1px solid #e2e8f0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #f8fafc;
+}
+
+.gnt-syllabus-body {
+  max-height: 480px;
+  overflow-y: auto;
+}
+
+.gnt-module-item {
+  border-bottom: 1px solid #f1f5f9;
+}
+
+.gnt-module-header {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 18px;
+  background: #ffffff;
+  border: none;
+  text-align: left;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.gnt-module-header:hover {
+  background: #f8fafc;
+}
+
+.gnt-module-header.open {
+  background: #f0faf2;
+  border-bottom: 1px solid #dcf2e1;
+}
+
+.gnt-module-number {
+  font-size: 11px;
+  font-weight: 800;
+  background: #e2e8f0;
+  color: #475569;
+  padding: 3px 6px;
+  border-radius: 4px;
+}
+
+.gnt-module-header.open .gnt-module-number {
+  background: #179a37;
+  color: #ffffff;
+}
+
+.gnt-module-title-wrap {
+  flex: 1;
+}
+
+.gnt-module-title {
+  display: block;
+  font-size: 14px;
+  font-weight: 700;
+  color: #1e293b;
+}
+
+.gnt-module-count {
+  font-size: 11px;
+  color: #94a3b8;
+}
+
+.gnt-module-chevron {
+  font-size: 10px;
+  color: #64748b;
+}
+
+.gnt-module-lessons {
+  padding: 8px 14px 12px 14px;
+  background: #fbfcfd;
+}
+
+.gnt-lesson-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 10px;
+  border-radius: 6px;
+  margin-bottom: 4px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.gnt-lesson-row:hover {
+  background: #edf7ef;
+}
+
+.gnt-lesson-left {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  color: #334155;
+}
+
+.gnt-lock-icon {
+  font-size: 12px;
+  color: #94a3b8;
+}
+
+.gnt-lesson-name {
+  font-weight: 500;
+}
+
+.gnt-lesson-duration {
+  font-size: 11px;
+  color: #94a3b8;
+  font-family: monospace;
+}
+
+/* SYLLABUS FOOTER */
+.gnt-syllabus-footer {
+  padding: 18px 20px;
+  background: #f8fafc;
+  border-top: 1px solid #e2e8f0;
+}
+
+.gnt-access-notice {
+  display: flex;
+  gap: 10px;
+  padding: 10px 12px;
+  border-radius: 8px;
+  background: #fef3c7;
+  border: 1px solid #fde68a;
+  color: #92400e;
+  font-size: 12px;
+}
+
+.gnt-notice-icon {
+  font-size: 18px;
+}
+
+.gnt-access-notice p {
+  margin: 0;
+  line-height: 1.35;
+}
+
+/* AUTH MODAL */
+.gnt-auth-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(15, 23, 42, 0.75);
+  backdrop-filter: blur(4px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 99999;
+  padding: 20px;
+}
+
+.gnt-auth-modal-content {
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 30px;
+  max-width: 460px;
+  width: 100%;
+  text-align: center;
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.3);
+  animation: gntScaleUp 0.25s ease-out;
+}
+
+.gnt-auth-modal-icon {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: #eaf8ec;
+  color: #179a37;
+  font-size: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 16px;
+}
+
+.gnt-auth-modal-content h3 {
+  font-size: 20px;
+  font-weight: 800;
+  color: #0f172a;
+  margin-bottom: 8px;
+}
+
+.gnt-auth-modal-content p {
+  font-size: 14px;
+  margin-bottom: 24px;
+}
+
+.gnt-auth-modal-buttons {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+}
+
+@media (max-width: 768px) {
+  .gnt-highlights-grid {
+    grid-template-columns: 1fr;
+  }
+}

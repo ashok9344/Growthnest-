@@ -1,0 +1,149 @@
+﻿/* =====================================
+   STUDENT LOGIN CSS
+===================================== */
+
+.gnt-student-login-container {
+  min-height: calc(100vh - 120px);
+  background: radial-gradient(circle at 10% 20%, rgba(79, 210, 119, 0.12), transparent 40%),
+              linear-gradient(135deg, #f8fafc 0%, #edf7ee 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 20px;
+}
+
+.gnt-student-login-card {
+  background: #ffffff;
+  border-radius: 20px;
+  box-shadow: 0 20px 45px rgba(27, 94, 32, 0.08), 0 1px 3px rgba(0, 0, 0, 0.05);
+  border: 1px solid #e2e8f0;
+  max-width: 460px;
+  width: 100%;
+  padding: 38px 34px;
+}
+
+.gnt-login-logo {
+  font-size: 22px;
+  font-weight: 800;
+  color: #1e293b;
+  margin-bottom: 6px;
+}
+
+.gnt-logo-highlight {
+  color: #179a37;
+}
+
+.gnt-login-badge {
+  display: inline-block;
+  background: #eaf8ec;
+  color: #179a37;
+  font-size: 11px;
+  font-weight: 800;
+  padding: 4px 10px;
+  border-radius: 20px;
+  letter-spacing: 0.5px;
+  margin-bottom: 12px;
+}
+
+.gnt-login-title {
+  font-size: 24px;
+  font-weight: 800;
+  color: #0f172a;
+  margin-bottom: 6px;
+}
+
+.gnt-login-subtitle {
+  font-size: 13px;
+  color: #64748b;
+  line-height: 1.5;
+  margin: 0;
+}
+
+.gnt-form-label {
+  font-size: 13px;
+  font-weight: 600;
+  color: #334155;
+  margin-bottom: 6px;
+}
+
+.gnt-form-input {
+  padding: 11px 14px;
+  border-radius: 8px;
+  border: 1px solid #cbd5e1;
+  font-size: 14px;
+  transition: all 0.2s;
+}
+
+.gnt-form-input:focus {
+  border-color: #179a37;
+  box-shadow: 0 0 0 3px rgba(23, 154, 55, 0.15);
+  outline: none;
+}
+
+.gnt-forgot-link {
+  font-size: 12px;
+  color: #179a37;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.gnt-forgot-link:hover {
+  text-decoration: underline;
+}
+
+.gnt-login-submit-btn {
+  background: #179a37;
+  color: #ffffff;
+  font-weight: 700;
+  padding: 12px;
+  border-radius: 8px;
+  border: none;
+  font-size: 14px;
+  transition: all 0.2s;
+  box-shadow: 0 6px 16px rgba(23, 154, 55, 0.2);
+}
+
+.gnt-login-submit-btn:hover {
+  background: #117e2b;
+  color: #ffffff;
+  transform: translateY(-1px);
+}
+
+.gnt-demo-divider {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  margin: 22px 0 16px;
+}
+
+.gnt-demo-divider::before,
+.gnt-demo-divider::after {
+  content: '';
+  flex: 1;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.gnt-demo-divider span {
+  padding: 0 10px;
+  color: #94a3b8;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+.gnt-demo-btn {
+  border-color: #179a37;
+  color: #179a37;
+  font-weight: 700;
+  padding: 10px;
+  border-radius: 8px;
+  font-size: 13px;
+  background: #f0faf2;
+  transition: all 0.2s;
+}
+
+.gnt-demo-btn:hover {
+  background: #179a37;
+  color: #ffffff;
+  border-color: #179a37;
+}

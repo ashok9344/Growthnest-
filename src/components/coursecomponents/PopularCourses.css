@@ -1,0 +1,363 @@
+﻿/* =====================================
+   POPULAR COURSES
+===================================== */
+
+.gnt-popular-courses {
+    width: 100%;
+    padding: 65px 0 85px;
+    background: #ffffff;
+}
+
+/* =====================================
+   HEADING
+===================================== */
+
+.gnt-popular-heading {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 30px;
+    margin-bottom: 30px;
+}
+
+.gnt-popular-small-title {
+    display: inline-block;
+    margin-bottom: 7px;
+    color: #19963a;
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 1px;
+}
+
+.gnt-popular-heading h2 {
+    margin: 0 0 7px;
+    color: #172019;
+    font-size: 32px;
+    font-weight: 800;
+}
+
+.gnt-popular-heading p {
+    max-width: 580px;
+    margin: 0;
+    color: #6a756d;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+.gnt-view-all-btn {
+    border: none;
+    background: transparent;
+    color: #15952d;
+    font-size: 14px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.gnt-view-all-btn:hover {
+    transform: translateX(3px);
+}
+
+/* =====================================
+   GRID
+===================================== */
+
+.gnt-popular-course-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 20px;
+}
+
+/* =====================================
+   CARD
+===================================== */
+
+.gnt-popular-course-card {
+    overflow: hidden;
+    border: 1px solid #e3e9e4;
+    border-radius: 11px;
+    background: #ffffff;
+    box-shadow: 0 7px 24px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.gnt-popular-course-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 14px 35px rgba(0, 0, 0, 0.09);
+}
+
+/* =====================================
+   COURSE THUMBNAIL
+===================================== */
+
+.gnt-course-thumbnail {
+    height: 155px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.gnt-course-thumbnail span {
+    color: #ffffff;
+    font-size: 45px;
+    font-weight: 800;
+}
+
+.gnt-html-course {
+    background: linear-gradient(135deg, #ff9541, #f3562d);
+}
+
+.gnt-css-course {
+    background: linear-gradient(135deg, #318dd0, #087bd2);
+}
+
+.gnt-react-course {
+    background: linear-gradient(135deg, #48c7f5, #0791d0);
+}
+
+.gnt-flutter-course {
+    background: linear-gradient(135deg, #ad6aff, #704be5);
+}
+
+/* =====================================
+   CARD CONTENT
+===================================== */
+
+.gnt-popular-card-content {
+    padding: 18px;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.gnt-popular-card-content h3 {
+    margin: 0 0 7px;
+    color: #172019;
+    font-size: 20px;
+    font-weight: 800;
+}
+
+.gnt-popular-card-content > p {
+    min-height: 58px;
+    margin: 0 0 14px;
+    color: #707a72;
+    font-size: 13px;
+    line-height: 1.55;
+    flex: 1;
+}
+
+/* =====================================
+   META
+===================================== */
+
+.gnt-popular-meta {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+    margin-bottom: 16px;
+    color: #4f5a51;
+    font-size: 12px;
+}
+
+.gnt-popular-meta div {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+}
+
+.gnt-meta-icon {
+    color: #169a37;
+}
+
+/* =====================================
+   BUTTONS
+===================================== */
+
+.gnt-view-course-btn,
+.gnt-watch-course-btn {
+    width: 100%;
+    padding: 10px 12px;
+    border-radius: 6px;
+    font-size: 13px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.gnt-view-course-btn {
+    margin-bottom: 9px;
+    border: none;
+    background: #15952d;
+    color: #ffffff;
+}
+
+.gnt-view-course-btn:hover {
+    background: #117a29;
+}
+
+.gnt-watch-course-btn {
+    border: 1px solid #15952d;
+    background: #ffffff;
+    color: #15952d;
+}
+
+.gnt-watch-course-btn:hover {
+    background: #f0faf2;
+}
+
+/* =====================================
+   VIDEO MODAL PREVIEW
+===================================== */
+
+.gnt-video-modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(15, 23, 42, 0.75);
+    backdrop-filter: blur(4px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    padding: 20px;
+    animation: gntFadeIn 0.25s ease-out;
+}
+
+.gnt-video-modal-content {
+    background: #ffffff;
+    border-radius: 16px;
+    width: 100%;
+    max-width: 800px;
+    overflow: hidden;
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.3);
+    animation: gntScaleUp 0.25s ease-out;
+}
+
+.gnt-video-modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 22px;
+    background: #f8fafc;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.gnt-modal-badge {
+    display: inline-block;
+    padding: 3px 8px;
+    border-radius: 4px;
+    background: #eaf8ec;
+    color: #179a37;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin-bottom: 4px;
+}
+
+.gnt-video-modal-header h4 {
+    margin: 0;
+    font-size: 18px;
+    color: #1e293b;
+    font-weight: 700;
+}
+
+.gnt-modal-close-btn {
+    background: none;
+    border: none;
+    font-size: 28px;
+    line-height: 1;
+    color: #64748b;
+    cursor: pointer;
+    transition: color 0.2s;
+}
+
+.gnt-modal-close-btn:hover {
+    color: #0f172a;
+}
+
+.gnt-video-modal-player {
+    position: relative;
+    padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+    height: 0;
+    background: #000000;
+}
+
+.gnt-video-modal-player iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+}
+
+.gnt-video-modal-footer {
+    padding: 16px 22px;
+    background: #f8fafc;
+    border-top: 1px solid #e2e8f0;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.gnt-video-modal-footer p {
+    margin: 0;
+    font-size: 13px;
+    color: #64748b;
+    line-height: 1.5;
+}
+
+.gnt-modal-actions {
+    display: flex;
+    gap: 10px;
+    justify-content: flex-end;
+    flex-wrap: wrap;
+}
+
+@keyframes gntFadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes gntScaleUp {
+    from { transform: scale(0.95); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
+
+/* =====================================
+   RESPONSIVENESS
+===================================== */
+
+@media (max-width: 991px) {
+    .gnt-popular-course-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 576px) {
+    .gnt-popular-courses {
+        padding: 50px 0 65px;
+    }
+
+    .gnt-popular-heading {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .gnt-popular-heading h2 {
+        font-size: 28px;
+    }
+
+    .gnt-popular-course-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .gnt-popular-card-content > p {
+        min-height: auto;
+    }
+}

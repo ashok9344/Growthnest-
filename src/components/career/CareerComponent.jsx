@@ -1,25 +1,25 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useEffect, useState, useRef } from "react";
+import { Link } from "react-router-dom";
 import {
-  FaMobile,
-  FaServer,
-  FaLaptopCode,
   FaBriefcase,
-  FaGraduationCap,
   FaClock,
-  FaMapMarkerAlt,
   FaRupeeSign,
-  FaRegHeart,
-  FaShareAlt,
   FaArrowRight,
+  FaRegHeart,
 } from "react-icons/fa";
+import {
+  MdWork,
+  MdSchool,
+  MdVerified,
+  MdLayers,
+  MdCode,
+} from "react-icons/md";
 import { GiSkills } from "react-icons/gi";
-import { MdWork, MdSchool, MdVerified } from "react-icons/md";
-import { Link } from "react-router";
+
 const CareerComponent = () => {
   const [isVisible, setIsVisible] = useState(false);
-  const [selectedCategory, setSelectedCategory] = useState("all");
-  const [selectedLevel, setSelectedLevel] = useState("all");
   const [hoveredJob, setHoveredJob] = useState(null);
+  const [selectedCategory, setSelectedCategory] = useState("all");
   const sectionRef = useRef(null);
 
   useEffect(() => {
@@ -45,65 +45,118 @@ const CareerComponent = () => {
 
   const jobCategories = {
     flutter: {
-      icon: <FaMobile size={24} />,
-      color: "#3a7b20",
-      jobs: [
-        {
-          id: 1,
-          title: "Trainer",
-          level: "Trainer",
-          experience: "1-2 Years",
-          salary: "₹10,000 above / Month",
-          location: "Remote / Bangalore",
-          type: "Internship",
-          skills: ["C", "C++", "Java"],
-          description:
-            "Dedicated Mentor committed to bridging the gap between theoretical knowledge and professional excellence through structured training, hands-on project guidance, and industry-aligned skill development.",
-          openings: 3,
-          deadline: "2026-05-31",
-        },
-        {
-          id: 2,
-          title: "Junior Flutter Developer",
-          level: "fresher",
-          experience: "0-1 year",
-          salary: "₹15,000 to ₹20,000 / Month",
-          location: "Bangalore",
-          type: "Full-time",
-          skills: ["Flutter", "Dart", "Git", "Provider/GetX"],
-          description:
-            "Entry-level position for freshers with Flutter knowledge. Great learning opportunity.",
-          openings: 3,
-          deadline: "2026-06-15",
-        },
-      ],
+      name: "Flutter Developer",
+      icon: <MdLayers size={24} />,
+      color: "#16a34a",
+    },
+    backend: {
+      name: "Backend Developer",
+      icon: <MdCode size={24} />,
+      color: "#0284c7",
+    },
+    frontend: {
+      name: "Frontend Developer",
+      icon: <FaBriefcase size={24} />,
+      color: "#15803d",
     },
   };
 
+  const jobListings = [
+    {
+      id: 1,
+      title: "Junior Flutter Developer",
+      category: "flutter",
+      type: "Full Time",
+      experience: "0-1 years",
+      salary: "Competitive Industry Standard",
+      deadline: "30 days left",
+      skills: ["Flutter", "Dart", "Firebase", "REST APIs"],
+      description:
+        "Looking for a motivated Flutter developer to build cross-platform mobile applications. Freshers with strong project portfolio welcome.",
+      openings: 2,
+      level: "Entry Level",
+    },
+    {
+      id: 2,
+      title: "Backend Developer (Node.js)",
+      category: "backend",
+      type: "Full Time",
+      experience: "1-2 years",
+      salary: "Best in Industry + Perks",
+      deadline: "25 days left",
+      skills: ["Node.js", "Express", "MongoDB", "REST APIs"],
+      description:
+        "Join our backend team to develop robust APIs and microservices. Experience with database design and cloud deployment preferred.",
+      openings: 1,
+      level: "Intermediate",
+    },
+    {
+      id: 3,
+      title: "Frontend Developer (React)",
+      category: "frontend",
+      type: "Full Time",
+      experience: "0-2 years",
+      salary: "Competitive Package",
+      deadline: "20 days left",
+      skills: ["React.js", "JavaScript", "HTML/CSS", "Tailwind"],
+      description:
+        "Seeking a creative frontend developer to craft responsive, performant user interfaces for our web applications.",
+      openings: 2,
+      level: "Entry Level",
+    },
+    {
+      id: 4,
+      title: "Senior Flutter Architect",
+      category: "flutter",
+      type: "Full Time",
+      experience: "3+ years",
+      salary: "Attractive Package + Incentives",
+      deadline: "15 days left",
+      skills: ["Flutter", "Bloc", "Clean Architecture", "CI/CD"],
+      description:
+        "Lead our mobile development initiatives, architect scalable solutions, and mentor junior developers in best practices.",
+      openings: 1,
+      level: "Senior",
+    },
+  ];
+
   const getFilteredJobs = () => {
-    let jobs = [];
-    Object.keys(jobCategories).forEach((category) => {
-      if (selectedCategory === "all" || selectedCategory === category) {
-        jobCategories[category].jobs.forEach((job) => {
-          if (selectedLevel === "all" || selectedLevel === job.level) {
-            jobs.push({ ...job, category });
-          }
-        });
-      }
-    });
-    return jobs;
+    if (selectedCategory === "all") {
+      return jobListings;
+    }
+    return jobListings.filter((job) => job.category === selectedCategory);
   };
 
   const getLevelBadgeStyle = (level) => {
     switch (level) {
-      case "internship":
-        return { bg: "#3a7b20", text: "Internship" };
-      case "fresher":
-        return { bg: "#2c5a18", text: "Fresher" };
-      case "experience":
-        return { bg: "#1a3a0f", text: "Experienced" };
+      case "Entry Level":
+        return {
+          bg: "#f0fdf4",
+          color: "#16a34a",
+          border: "#bbf7d0",
+          text: "Entry Level",
+        };
+      case "Intermediate":
+        return {
+          bg: "#eff6ff",
+          color: "#2563eb",
+          border: "#bfdbfe",
+          text: "Intermediate",
+        };
+      case "Senior":
+        return {
+          bg: "#faf5ff",
+          color: "#9333ea",
+          border: "#e9d5ff",
+          text: "Senior Level",
+        };
       default:
-        return { bg: "#666", text: level };
+        return {
+          bg: "#f1f5f9",
+          color: "#475569",
+          border: "#cbd5e1",
+          text: level,
+        };
     }
   };
 
@@ -112,377 +165,252 @@ const CareerComponent = () => {
   return (
     <section
       ref={sectionRef}
-      className="position-relative overflow-hidden"
+      className="position-relative overflow-hidden career-portal-section py-5"
       style={{
         background: "#ffffff",
-        padding: "80px 0",
         minHeight: "100vh",
       }}
     >
-      {/* Animated Background Pattern */}
-      <div
-        className="position-absolute w-100 h-100"
-        style={{ top: 0, left: 0, overflow: "hidden", pointerEvents: "none" }}
-      >
-        <div
-          className="position-absolute w-100 h-100"
-          style={{
-            backgroundImage: `radial-gradient(circle at 20% 50%, rgba(58,123,32,0.05) 0%, transparent 50%)`,
-          }}
-        />
-        {[...Array(20)].map((_, i) => (
-          <div
-            key={i}
-            className="position-absolute"
-            style={{
-              width: `${Math.random() * 3 + 1}px`,
-              height: `${Math.random() * 3 + 1}px`,
-              background: `rgba(58,123,32, ${Math.random() * 0.3 + 0.1})`,
-              top: `${Math.random() * 100}%`,
-              left: `${Math.random() * 100}%`,
-              animation: `float ${Math.random() * 10 + 5}s ease-in-out infinite`,
-              borderRadius: "50%",
-            }}
-          />
-        ))}
-      </div>
-
-      <div className="container position-relative" style={{ zIndex: 2 }}>
+      <div className="container position-relative py-3" style={{ zIndex: 2 }}>
         {/* Header Section */}
         <div
           className="text-center mb-5"
           style={{
             opacity: isVisible ? 1 : 0,
-            transform: isVisible ? "translateY(0)" : "translateY(30px)",
-            transition: "all 0.8s cubic-bezier(0.4, 0, 0.2, 1)",
+            transform: isVisible ? "translateY(0)" : "translateY(20px)",
+            transition: "all 0.6s ease-out",
           }}
         >
-          <span
-            className="px-4 py-2 rounded-pill d-inline-block mb-3"
-            style={{
-              background: "#1a1a1a",
-              border: "1px solid #3a7b20",
-              color: "#ffffff",
-              fontSize: "14px",
-              fontWeight: "bold",
-              letterSpacing: "1px",
-            }}
-          >
-            🚀 WE'RE HIRING
+          <span className="tech-pill mb-2">
+            <span className="tech-pill-dot"></span>
+            WE'RE HIRING
           </span>
 
-          <h1 className="display-3 fw-bold text-dark mb-3">
-            Career<span style={{ color: "#3a7b20" }}> Opportunities</span>
+          <h1 className="display-5 fw-bold mb-3" style={{ color: "#0f172a" }}>
+            Career <span className="text-success-corporate">Opportunities</span>
           </h1>
 
-          <div
-            className="mx-auto mb-3"
-            style={{ width: "60px", height: "3px", background: "#3a7b20" }}
-          />
-
-          <p className="text-dark-50 fs-5">
+          <p className="fs-5 mx-auto" style={{ maxWidth: "650px", color: "#475569" }}>
             Build your career with us. Explore exciting opportunities in
-            Flutter, Backend, and Frontend development.
+            Flutter, Backend, and Frontend engineering.
           </p>
         </div>
 
         {/* Jobs Grid */}
         <div className="row g-4">
           {filteredJobs.length > 0 ? (
-            filteredJobs.map((job, index) => {
+            filteredJobs.map((job) => {
               const category = jobCategories[job.category];
               const levelBadge = getLevelBadgeStyle(job.level);
 
               return (
                 <div key={job.id} className="col-md-6 col-lg-4">
                   <div
-                    className="position-relative h-100"
-                    style={{
-                      opacity: isVisible ? 1 : 0,
-                      transform: isVisible
-                        ? "translateY(0)"
-                        : "translateY(50px)",
-                      transition: `all 0.6s cubic-bezier(0.4, 0, 0.2, 1) ${0.3 + index * 0.05}s`,
-                    }}
+                    className="corporate-job-card h-100 p-4"
                     onMouseEnter={() => setHoveredJob(job.id)}
                     onMouseLeave={() => setHoveredJob(null)}
                   >
-                    {/* Main Card */}
-                    <div
-                      className="card h-100 border-0 position-relative overflow-hidden"
+                    {/* Header */}
+                    <div className="d-flex justify-content-between align-items-start mb-3">
+                      <div
+                        className="rounded-3 d-flex align-items-center justify-content-center"
+                        style={{
+                          width: "48px",
+                          height: "48px",
+                          background: "#f0fdf4",
+                          border: "1px solid #bbf7d0",
+                          color: "#16a34a",
+                        }}
+                      >
+                        {category.icon}
+                      </div>
+                      <span
+                        className="px-3 py-1 rounded-pill"
+                        style={{
+                          background: levelBadge.bg,
+                          color: levelBadge.color,
+                          border: `1px solid ${levelBadge.border}`,
+                          fontSize: "12px",
+                          fontWeight: "700",
+                        }}
+                      >
+                        {levelBadge.text}
+                      </span>
+                    </div>
+
+                    {/* Job Title */}
+                    <h5
+                      className="fw-bold mb-1"
+                      style={{ fontSize: "19px", color: "#0f172a" }}
+                    >
+                      {job.title}
+                    </h5>
+
+                    {/* Department */}
+                    <p
+                      className="mb-3 fw-semibold"
+                      style={{ color: "#16a34a", fontSize: "14px" }}
+                    >
+                      {category.name || "Software Engineering"}
+                    </p>
+
+                    {/* Details */}
+                    <div className="mb-3">
+                      <div className="d-flex align-items-center gap-2 mb-2">
+                        <FaBriefcase style={{ color: "#16a34a", fontSize: "14px" }} />
+                        <span style={{ fontSize: "14px", color: "#475569" }}>
+                          {job.experience} experience
+                        </span>
+                      </div>
+                      <div className="d-flex align-items-center gap-2 mb-2">
+                        <FaRupeeSign style={{ color: "#16a34a", fontSize: "14px" }} />
+                        <span style={{ fontSize: "14px", color: "#475569" }}>
+                          {job.salary}
+                        </span>
+                      </div>
+                      <div className="d-flex align-items-center gap-2">
+                        <FaClock style={{ color: "#16a34a", fontSize: "14px" }} />
+                        <span style={{ fontSize: "14px", color: "#475569" }}>
+                          Apply by: {job.deadline}
+                        </span>
+                      </div>
+                    </div>
+
+                    {/* Skills */}
+                    <div className="mb-3">
+                      <div className="d-flex flex-wrap gap-1">
+                        {job.skills.map((skill, idx) => (
+                          <span
+                            key={idx}
+                            className="px-2 py-1 rounded-pill"
+                            style={{
+                              background: "#f8fafc",
+                              color: "#334155",
+                              fontSize: "11px",
+                              fontWeight: "600",
+                              border: "1px solid #e2e8f0",
+                            }}
+                          >
+                            {skill}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+
+                    {/* Description */}
+                    <p
+                      className="mb-3 small"
                       style={{
-                        background: "#111111",
-                        borderRadius: "16px",
-                        transition:
-                          "all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275)",
-                        transform:
-                          hoveredJob === job.id
-                            ? "translateY(-8px)"
-                            : "translateY(0)",
-                        boxShadow:
-                          hoveredJob === job.id
-                            ? "0 20px 40px rgba(0,0,0,0.5)"
-                            : "0 4px 15px rgba(0,0,0,0.3)",
-                        border: `1px solid ${hoveredJob === job.id ? "#3a7b20" : "#222"}`,
-                        cursor: "pointer",
+                        color: "#64748b",
+                        lineHeight: "1.6",
                       }}
                     >
-                      {/* Top Border Highlight */}
-                      <div
-                        className="position-absolute top-0 start-0 w-100"
-                        style={{
-                          height: "3px",
-                          background: "#3a7b20",
-                          transform:
-                            hoveredJob === job.id ? "scaleX(1)" : "scaleX(0)",
-                          transition: "transform 0.3s ease",
-                          transformOrigin: "left",
-                        }}
-                      />
+                      {job.description}
+                    </p>
 
-                      <div className="card-body p-4">
-                        {/* Header */}
-                        <div className="d-flex justify-content-between align-items-start mb-3">
-                          <div
-                            className="rounded-circle d-flex align-items-center justify-content-center"
-                            style={{
-                              width: "50px",
-                              height: "50px",
-                              background: "#1a1a1a",
-                              border: `2px solid #3a7b20`,
-                              color: "#3a7b20",
-                              transition: "transform 0.3s ease",
-                              transform:
-                                hoveredJob === job.id
-                                  ? "scale(1.1)"
-                                  : "scale(1)",
-                            }}
-                          >
-                            {category.icon}
-                          </div>
-                          <span
-                            className="px-3 py-1 rounded-pill"
-                            style={{
-                              background: levelBadge.bg,
-                              color: "white",
-                              fontSize: "12px",
-                              fontWeight: "bold",
-                            }}
-                          >
-                            {levelBadge.text}
-                          </span>
-                        </div>
-
-                        {/* Job Title */}
-                        <h5
-                          className="fw-bold mb-2"
-                          style={{ fontSize: "20px", color: "#ffffff" }}
-                        >
-                          {job.title}
-                        </h5>
-
-                        {/* Department */}
-                        <p
-                          className="mb-3"
-                          style={{ color: "#3a7b20", fontSize: "14px" }}
-                        >
-                          {category.name}
-                        </p>
-
-                        {/* Details */}
-                        <div className="mb-3">
-                          <div className="d-flex align-items-center gap-2 mb-2">
-                            <FaBriefcase
-                              style={{ color: "#3a7b20", fontSize: "14px" }}
-                            />
-                            <span style={{ fontSize: "14px", color: "#aaa" }}>
-                              {job.experience} experience
-                            </span>
-                          </div>
-                          <div className="d-flex align-items-center gap-2 mb-2">
-                            <FaRupeeSign
-                              style={{ color: "#3a7b20", fontSize: "14px" }}
-                            />
-                            <span style={{ fontSize: "14px", color: "#aaa" }}>
-                              {job.salary}
-                            </span>
-                          </div>
-                          {/* <div className="d-flex align-items-center gap-2 mb-2">
-                            <FaMapMarkerAlt
-                              style={{ color: "#3a7b20", fontSize: "14px" }}
-                            />
-                            <span style={{ fontSize: "14px", color: "#aaa" }}>
-                              {job.location}
-                            </span>
-                          </div> */}
-                          <div className="d-flex align-items-center gap-2">
-                            <FaClock
-                              style={{ color: "#3a7b20", fontSize: "14px" }}
-                            />
-                            <span style={{ fontSize: "14px", color: "#aaa" }}>
-                              Apply by: {job.deadline}
-                            </span>
-                          </div>
-                        </div>
-
-                        {/* Skills */}
-                        <div className="mb-3">
-                          <div className="d-flex flex-wrap gap-2">
-                            {job.skills.map((skill, idx) => (
-                              <span
-                                key={idx}
-                                className="px-2 py-1 rounded-pill"
-                                style={{
-                                  background: "rgba(58,123,32,0.1)",
-                                  color: "#3a7b20",
-                                  fontSize: "11px",
-                                  fontWeight: "500",
-                                  border: "1px solid rgba(58,123,32,0.3)",
-                                }}
-                              >
-                                {skill}
-                              </span>
-                            ))}
-                          </div>
-                        </div>
-
-                        {/* Description */}
-                        <p
-                          className="mb-3"
-                          style={{
-                            color: "#aaa",
-                            fontSize: "13px",
-                            lineHeight: "1.5",
-                          }}
-                        >
-                          {job.description}
-                        </p>
-
-                        {/* Footer */}
-                        <div
-                          className="d-flex justify-content-between align-items-center mt-3 pt-2"
-                          style={{ borderTop: "1px solid #222" }}
-                        >
-                          <div className="d-flex align-items-center gap-2">
-                            <MdVerified style={{ color: "#3a7b20" }} />
-                            <span style={{ fontSize: "12px", color: "#aaa" }}>
-                              {job.openings} openings
-                            </span>
-                          </div>
-                        </div>
+                    {/* Footer */}
+                    <div
+                      className="d-flex justify-content-between align-items-center mt-auto pt-3 border-top border-light-subtle"
+                    >
+                      <div className="d-flex align-items-center gap-1 text-secondary small">
+                        <MdVerified style={{ color: "#16a34a" }} />
+                        <span>{job.openings} openings</span>
                       </div>
+                      <Link
+                        to="/applyjob"
+                        state={{ jobRole: job.title, category: "IT" }}
+                        className="action-btn text-decoration-none py-1 px-3 small"
+                      >
+                        <span>Apply</span>
+                        <FaArrowRight size={11} className="ms-1" />
+                      </Link>
                     </div>
                   </div>
                 </div>
               );
             })
           ) : (
-            <div className="text-center text-white py-5">
+            <div className="text-center py-5">
               <h3>No jobs found matching your criteria</h3>
-              <p style={{ color: "#aaa" }}>Try adjusting your filters</p>
+              <p className="text-muted">Try adjusting your filters</p>
             </div>
           )}
         </div>
 
-        {/* Benefits Section */}
-
         {/* CTA Section */}
-        <div
-          className="text-center mt-5 pt-4"
-          style={{
-            opacity: isVisible ? 1 : 0,
-            transform: isVisible ? "translateY(0)" : "translateY(30px)",
-            transition: "all 0.8s cubic-bezier(0.4, 0, 0.2, 1) 0.7s",
-          }}
-        >
+        <div className="text-center mt-5 pt-3">
           <div
-            className="p-4 rounded-4"
+            className="p-5 rounded-4"
             style={{
-              background: "#aabda7",
-              border: "1px solid #222",
+              background: "#f8fafc",
+              border: "1px solid #e2e8f0",
+              boxShadow: "0 4px 14px rgba(0, 0, 0, 0.04)",
             }}
           >
-            <p className="text-black mb-3">Don't see the perfect role?</p>
-            <Link to="/applyjob">
-              <button
-                className="btn px-5 py-3 rounded-pill fw-bold"
-                style={{
-                  background: "transparent",
-                  border: "2px solid #3a7b20",
-                  color: "#3a7b20",
-                  transition: "all 0.3s ease",
-                }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.background = "#3a7b20";
-                  e.currentTarget.style.color = "white";
-                  e.currentTarget.style.transform = "scale(1.05)";
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.background = "transparent";
-                  e.currentTarget.style.color = "#3a7b20";
-                  e.currentTarget.style.transform = "scale(1)";
-                }}
-              >
-                Send Your Resume →
-              </button>
+            <h4 className="fw-bold mb-2" style={{ color: "#0f172a" }}>Don't see the perfect role?</h4>
+            <p className="mb-4 text-muted">
+              We're always on the lookout for visionary talent. Send us your resume and let's explore opportunities together.
+            </p>
+            <Link to="/applyjob" className="action-btn text-decoration-none">
+              <span>Send Your Resume</span>
+              <FaArrowRight size={13} className="ms-1" />
             </Link>
           </div>
         </div>
 
-        <div
-          className="mt-5 pt-5"
-          style={{
-            opacity: isVisible ? 1 : 0,
-            transform: isVisible ? "translateY(0)" : "translateY(30px)",
-            transition: "all 0.8s cubic-bezier(0.4, 0, 0.2, 1) 0.5s",
-          }}
-        >
-          <h3 className="text-center text-dark mb-4">Why Join Us?</h3>
+        {/* Why Join Us */}
+        <div className="mt-5 pt-4">
+          <h3 className="text-center fw-bold mb-4" style={{ color: "#0f172a" }}>
+            Why Join <span className="text-success-corporate">GrowthNest?</span>
+          </h3>
           <div className="row g-4">
             {[
               {
-                icon: <MdWork size={30} />,
+                icon: <MdWork size={28} />,
                 title: "Growth Opportunities",
-                desc: "Fast-paced growth and learning",
+                desc: "Fast-paced growth, production responsibilities, and clear career ladders.",
               },
               {
-                icon: <FaRegHeart size={30} />,
+                icon: <FaRegHeart size={28} />,
                 title: "Great Culture",
-                desc: "Collaborative and inclusive environment",
+                desc: "Collaborative, transparent, and highly empowering work environment.",
               },
               {
-                icon: <GiSkills size={30} />,
-                title: "Learning & Development",
-                desc: "Regular workshops and training",
+                icon: <GiSkills size={28} />,
+                title: "Continuous Learning",
+                desc: "Regular engineering masterclasses, tech sessions, and architecture workshops.",
               },
               {
-                icon: <MdSchool size={30} />,
-                title: "Mentorship",
-                desc: "Learn from industry experts",
+                icon: <MdSchool size={28} />,
+                title: "Executive Mentorship",
+                desc: "Learn directly from senior software architects and industry leaders.",
               },
             ].map((benefit, idx) => (
               <div key={idx} className="col-md-3 col-sm-6">
                 <div
-                  className="text-center p-4 rounded-4"
+                  className="text-center p-4 rounded-4 h-100"
                   style={{
-                    background: "#111111",
-                    border: "1px solid #222",
-                    transition: "all 0.3s ease",
+                    background: "#ffffff",
+                    border: "1px solid #e2e8f0",
+                    boxShadow: "0 2px 10px rgba(0, 0, 0, 0.03)",
+                    transition: "all 0.25s ease",
                   }}
                   onMouseEnter={(e) => {
-                    e.currentTarget.style.transform = "translateY(-5px)";
-                    e.currentTarget.style.borderColor = "#3a7b20";
+                    e.currentTarget.style.transform = "translateY(-4px)";
+                    e.currentTarget.style.borderColor = "#86efac";
+                    e.currentTarget.style.boxShadow = "0 8px 20px rgba(0, 0, 0, 0.06)";
                   }}
                   onMouseLeave={(e) => {
                     e.currentTarget.style.transform = "translateY(0)";
-                    e.currentTarget.style.borderColor = "#222";
+                    e.currentTarget.style.borderColor = "#e2e8f0";
+                    e.currentTarget.style.boxShadow = "0 2px 10px rgba(0, 0, 0, 0.03)";
                   }}
                 >
-                  <div style={{ color: "#3a7b20" }} className="mb-3">
+                  <div style={{ color: "#16a34a" }} className="mb-3">
                     {benefit.icon}
                   </div>
-                  <h6 className="text-white fw-bold mb-2">{benefit.title}</h6>
-                  <p style={{ color: "#aaa", fontSize: "13px" }}>
+                  <h6 className="fw-bold mb-2" style={{ color: "#0f172a" }}>{benefit.title}</h6>
+                  <p className="text-muted small mb-0" style={{ lineHeight: "1.6" }}>
                     {benefit.desc}
                   </p>
                 </div>
@@ -492,25 +420,21 @@ const CareerComponent = () => {
         </div>
       </div>
 
-      <style jsx>{`
-        @keyframes float {
-          0%,
-          100% {
-            transform: translateY(0px);
-          }
-          50% {
-            transform: translateY(-20px);
-          }
+      <style>{`
+        .corporate-job-card {
+          background: #ffffff;
+          border: 1px solid #e2e8f0;
+          border-radius: 16px;
+          box-shadow: 0 4px 14px rgba(0, 0, 0, 0.04);
+          transition: all 0.25s ease;
+          display: flex;
+          flex-direction: column;
         }
 
-        @media (max-width: 768px) {
-          .display-3 {
-            font-size: 2rem;
-          }
-        }
-
-        .card {
-          transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        .corporate-job-card:hover {
+          transform: translateY(-4px);
+          border-color: #86efac;
+          box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
         }
       `}</style>
     </section>

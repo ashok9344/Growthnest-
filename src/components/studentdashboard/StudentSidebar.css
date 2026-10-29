@@ -1,0 +1,130 @@
+﻿/* =====================================
+   STUDENT SIDEBAR CSS (Dark theme as in reference image)
+===================================== */
+
+.gnt-student-sidebar {
+  width: 240px;
+  background: #0f1c16; /* Deep dark green-black matching reference */
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  padding: 24px 16px;
+  flex-shrink: 0;
+  border-right: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.gnt-student-brand {
+  padding: 0 8px 24px 8px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  margin-bottom: 20px;
+}
+
+.gnt-brand-name {
+  font-size: 20px;
+  font-weight: 800;
+  color: #ffffff;
+  line-height: 1.2;
+}
+
+.gnt-brand-name span {
+  color: #179a37;
+}
+
+.gnt-brand-sub {
+  font-size: 13px;
+  color: #8b9991;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+}
+
+.gnt-student-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  flex: 1;
+}
+
+.gnt-nav-btn {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 11px 16px;
+  background: transparent;
+  border: none;
+  border-radius: 8px;
+  color: #a3b3aa;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+  text-align: left;
+  width: 100%;
+}
+
+.gnt-nav-btn:hover {
+  background: rgba(255, 255, 255, 0.05);
+  color: #ffffff;
+}
+
+.gnt-nav-btn.active {
+  background: #179a37;
+  color: #ffffff;
+  box-shadow: 0 4px 12px rgba(23, 154, 55, 0.3);
+}
+
+.gnt-nav-icon {
+  font-size: 16px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.gnt-student-sidebar-footer {
+  padding-top: 16px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.gnt-logout-btn {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 11px 16px;
+  background: transparent;
+  border: none;
+  border-radius: 8px;
+  color: #e06d6d;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+  width: 100%;
+  text-align: left;
+}
+
+.gnt-logout-btn:hover {
+  background: rgba(224, 109, 109, 0.12);
+  color: #ff8585;
+}
+
+@media (max-width: 991px) {
+  .gnt-student-sidebar {
+    width: 100%;
+    min-height: auto;
+    padding: 16px;
+  }
+
+  .gnt-student-nav {
+    flex-direction: row;
+    overflow-x: auto;
+    padding-bottom: 8px;
+  }
+
+  .gnt-nav-btn {
+    white-space: nowrap;
+    padding: 8px 12px;
+  }
+
+  .gnt-student-sidebar-footer {
+    display: none;
+  }
+}

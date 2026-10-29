@@ -1,0 +1,170 @@
+﻿/* =====================================
+   LESSON VIEWER CSS
+===================================== */
+
+.gnt-lesson-viewer {
+  padding: 0;
+}
+
+.gnt-viewer-topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.gnt-viewer-breadcrumbs {
+  font-size: 13px;
+  color: #64748b;
+}
+
+.gnt-crumb-link {
+  color: #179a37;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.gnt-crumb-link:hover {
+  text-decoration: underline;
+}
+
+.gnt-lesson-header-card {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 18px 22px;
+}
+
+.gnt-lesson-main-title {
+  font-size: 20px;
+  font-weight: 800;
+  color: #0f172a;
+  margin: 0;
+}
+
+.gnt-course-progress-header {
+  min-width: 200px;
+}
+
+.gnt-progress-mini {
+  height: 6px;
+  border-radius: 6px;
+  background: #e2e8f0;
+}
+
+/* VIDEO PLAYER */
+.gnt-player-frame-wrap {
+  position: relative;
+  padding-bottom: 56.25%;
+  height: 0;
+  background: #000000;
+}
+
+.gnt-player-frame-wrap iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+.gnt-player-action-bar {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+}
+
+/* TABS BELOW VIDEO */
+.gnt-viewer-tabs-card {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 14px;
+  overflow: hidden;
+}
+
+.gnt-viewer-tabs-header {
+  display: flex;
+  background: #f8fafc;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.gnt-tab-btn {
+  padding: 14px 22px;
+  background: transparent;
+  border: none;
+  font-size: 14px;
+  font-weight: 600;
+  color: #64748b;
+  cursor: pointer;
+  border-bottom: 2px solid transparent;
+  transition: all 0.2s;
+}
+
+.gnt-tab-btn:hover {
+  color: #1e293b;
+}
+
+.gnt-tab-btn.active {
+  color: #179a37;
+  border-bottom-color: #179a37;
+  background: #ffffff;
+}
+
+.gnt-pdf-row {
+  background: #ffffff;
+  transition: all 0.2s;
+}
+
+.gnt-pdf-row:hover {
+  border-color: #179a37 !important;
+  background: #fbfdfb;
+}
+
+.gnt-pdf-icon {
+  font-size: 24px;
+}
+
+/* PLAYLIST CARD */
+.gnt-playlist-card {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  max-height: 680px;
+  display: flex;
+  flex-direction: column;
+}
+
+.gnt-playlist-body {
+  overflow-y: auto;
+  flex: 1;
+}
+
+.gnt-playlist-item {
+  cursor: pointer;
+  transition: all 0.2s;
+  border: 1px solid transparent;
+}
+
+.gnt-playlist-item:hover {
+  background: #f1f5f9;
+}
+
+.gnt-playlist-item.active {
+  background: #eaf8ec;
+  border-color: #c0ebd0;
+}
+
+.gnt-play-indicator {
+  font-size: 11px;
+  color: #179a37;
+}
+
+.gnt-playlist-title {
+  font-weight: 600;
+  color: #1e293b;
+}
+
+.gnt-playlist-item.active .gnt-playlist-title {
+  color: #179a37;
+  font-weight: 700;
+}

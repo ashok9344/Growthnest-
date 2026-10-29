@@ -1,81 +1,104 @@
-/* SECTION */
+/* ============================================================
+   GROWTHNEST TECH SOLUTION - CASE STUDIES (CORPORATE CLEAN)
+   ============================================================ */
+
 .showcase-section {
-  background: linear-gradient(to right, #f8f9fa, #eef7ea);
+  position: relative;
+  background: #ffffff;
+  border-bottom: 1px solid #e2e8f0;
+  padding: 70px 0;
 }
 
-/* CARD */
-.showcase-card {
-  position: relative;
+.enterprise-case-card {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
   border-radius: 16px;
   overflow: hidden;
-  cursor: pointer;
-  transition: 0.4s ease;
-}
-
-/* IMAGE */
-.showcase-card img {
-  width: 100%;
-  height: 280px;
-  object-fit: cover;
-  transition: 0.4s ease;
-}
-
-/* OVERLAY */
-.overlay {
-  position: absolute;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.5);
-  color: white;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.04);
+  transition: all 0.25s ease;
+  height: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+}
+
+.enterprise-case-card:hover {
+  transform: translateY(-4px);
+  border-color: #86efac;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+}
+
+.case-img-box {
+  position: relative;
+  width: 100%;
+  height: 220px;
+  overflow: hidden;
+  background: #f1f5f9;
+}
+
+.case-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.enterprise-case-card:hover .case-img {
+  transform: scale(1.05);
+}
+
+.case-category-pill {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  background: #ffffff;
+  color: #16a34a;
+  border: 1px solid #bbf7d0;
+  font-size: 0.78rem;
+  font-weight: 700;
+  padding: 5px 14px;
+  border-radius: 9999px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.case-body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.case-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #0f172a;
+}
+
+.case-desc {
+  font-size: 0.94rem;
+  line-height: 1.6;
+  color: #475569;
+}
+
+.case-metric {
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: #16a34a;
+  display: flex;
   align-items: center;
-  opacity: 0;
-  transition: 0.4s ease;
-  text-align: center;
 }
 
-/* HOVER EFFECT */
-.showcase-card:hover img {
-  transform: scale(1.1);
+.case-tags-wrap {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: auto;
 }
 
-.showcase-card:hover .overlay {
-  opacity: 1;
-}
-
-/* ANIMATIONS */
-.fade-in {
-  animation: fadeIn 1s ease;
-}
-
-.fade-up {
-  opacity: 0;
-  transform: translateY(40px);
-  animation: fadeUp 0.8s ease forwards;
-}
-
-/* STAGGER */
-.fade-up:nth-child(1) {
-  animation-delay: 0.2s;
-}
-.fade-up:nth-child(2) {
-  animation-delay: 0.4s;
-}
-
-/* KEYFRAMES */
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
-
-@keyframes fadeUp {
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+.case-tag-pill {
+  font-size: 0.78rem;
+  font-weight: 600;
+  background: #f8fafc;
+  color: #475569;
+  padding: 4px 10px;
+  border-radius: 6px;
+  border: 1px solid #e2e8f0;
 }

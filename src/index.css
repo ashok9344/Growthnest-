@@ -1,241 +1,299 @@
+/* ============================================================
+   GROWTHNEST TECH SOLUTION - PROFESSIONAL CORPORATE DESIGN SYSTEM
+   Clean, authentic, human-crafted IT corporate style (like ismdatatech.com)
+   Primary: Corporate Forest Green (#16a34a / #15803d) | Surface: White (#ffffff) | Neutral: Slate (#f8fafc / #0f172a)
+   ============================================================ */
+
+:root {
+  /* Brand Corporate Colors */
+  --primary-color: #16a34a;
+  --primary-dark: #15803d;
+  --primary-darker: #166534;
+  --primary-light: #22c55e;
+  --primary-subtle: #f0fdf4;
+  --primary-border: #bbf7d0;
+
+  /* Corporate Neutrals */
+  --color-heading: #0f172a;
+  --color-body: #334155;
+  --color-muted: #64748b;
+  --color-border: #e2e8f0;
+  --color-bg-page: #ffffff;
+  --color-bg-alt: #f8fafc;
+  --color-bg-card: #ffffff;
+
+  /* Typography */
+  --font-heading: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-body: 'Roboto', -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
+
+  /* Radii & Shadows */
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 16px;
+  --radius-full: 9999px;
+
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.05);
+  --shadow-card: 0 4px 16px rgba(0, 0, 0, 0.05);
+  --shadow-card-hover: 0 10px 25px rgba(0, 0, 0, 0.08);
+
+  /* Bootstrap Variable Alignments */
+  --bs-body-color: #334155;
+  --bs-body-bg: #ffffff;
+  --bs-secondary-color: #64748b;
+  --bs-secondary-color-rgb: 100, 116, 139;
+  --bs-border-color: #e2e8f0;
+}
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family:
-    Google Sans,
-    Noto Sans,
-    Noto Sans JP,
-    Noto Sans KR,
-    Noto Naskh Arabic,
-    Noto Sans Thai,
-    Noto Sans Hebrew,
-    Noto Sans Bengali,
-    sans-serif;
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
+
 html,
 body {
   margin: 0;
   padding: 0;
-  overflow-x: hidden; /* prevent side scroll */
+  overflow-x: hidden;
+  background-color: #ffffff;
+  color: #334155;
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.65;
+  text-rendering: optimizeLegibility;
+  scroll-behavior: smooth;
 }
-.ls-wide {
-  letter-spacing: 0.1em;
+
+h1, h2, h3, h4, h5, h6,
+.hero-heading,
+.partner-heading,
+.display-1, .display-2, .display-3, .display-4, .display-5, .display-6,
+.brand-title,
+button {
+  font-family: var(--font-heading) !important;
+  color: #0f172a;
+  font-weight: 700;
+  letter-spacing: -0.01em;
 }
-/* hide scrollbar but keep scroll */
-body::-webkit-scrollbar {
-  display: none;
+
+p, span, li, a, label, input, textarea, select {
+  font-family: var(--font-body);
 }
+
+p {
+  color: #475569 !important;
+  line-height: 1.7;
+}
+
+/* Ensure secondary text has clean corporate contrast */
+.text-muted {
+  color: #64748b !important;
+}
+
+.text-secondary {
+  color: #64748b !important;
+}
+
+.stat-txt {
+  color: #64748b !important;
+  font-size: 0.88rem;
+  font-weight: 500;
+}
+
+/* Brand Green Text Highlights (Replacing AI Neon Gradients) */
+.text-cyan,
+.text-royal,
+.text-sapphire,
+.text-emerald,
+.text-mint,
+.gradient-text,
+.gradient-text-aurora,
+.gradient-text-cyan,
+.gradient-text-sapphire,
+.gradient-text-emerald,
+.gradient-text-peach,
+.gradient-text-dark {
+  color: #16a34a !important;
+  background: none !important;
+  -webkit-text-fill-color: initial !important;
+  filter: none !important;
+  font-weight: 700;
+  display: inline;
+}
+
+/* Clean Corporate Section Divider */
+.aurora-line {
+  height: 3px;
+  width: 60px;
+  margin: 15px auto;
+  background: #16a34a;
+  border-radius: 4px;
+}
+
+/* Clean Corporate Badge / Tech Pill */
+.tech-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 14px;
+  border-radius: var(--radius-full);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  background: #f0fdf4;
+  color: #16a34a;
+  border: 1px solid #bbf7d0;
+  box-shadow: none;
+}
+
+.tech-pill-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #16a34a;
+}
+
+/* Clean Corporate Inputs */
 .custom-input {
-  border: 1px solid #ddd;
+  border: 1px solid #cbd5e1;
+  background: #ffffff;
+  color: #0f172a;
   border-radius: 8px;
-  padding: 10px;
+  padding: 10px 14px;
   font-size: 14px;
-  transition: 0.3s;
+  transition: all 0.2s ease;
 }
 
 .custom-input:focus {
-  border-color: #3a7b20;
-  box-shadow: 0 0 0 0.1rem rgba(104, 213, 61, 0.2);
+  border-color: #16a34a;
+  box-shadow: 0 0 0 3px rgba(22, 163, 74, 0.15);
   outline: none;
+  background: #ffffff;
+  color: #0f172a;
 }
 
 /* Calendar styling */
 .custom-calendar {
-  border: none !important;
+  border: 1px solid #e2e8f0 !important;
+  border-radius: 12px;
   width: 100%;
   font-size: 14px;
+  background: #ffffff;
 }
 
-/* Optional hover */
-button:hover {
-  transform: translateY(-1px);
-  box-shadow: 0 4px 10px rgba(104, 213, 61, 0.3);
-}
-.hero-img {
-  width: 100%;
-  max-width: 750px; /* 🔥 bigger image */
-  object-fit: contain;
-}
-
-/* =----------------------------------------------------- */
-/* SECTION */
-
-/* TEXT ANIMATION */
-.hero-text {
-  animation: fadeSlideLeft 1s ease forwards;
-}
-
-.highlight {
-  color: #3a7b20;
-}
-
-/* SUBTEXT */
-.hero-title {
-  font-size: 48px;
-  line-height: 1.2;
-}
-
-.hero-subtext {
-  font-size: 20px;
-}
-
-.hero-img {
-  width: 85%;
-  max-width: 650px;
-  animation:
-    floatImage 4s ease-in-out infinite,
-    fadeSlideRight 1s ease forwards;
-}
-
-/* BUTTON */
-.hero-btn {
-  margin-top: 20px;
-  animation: fadeIn 2s ease forwards;
-  animation-delay: 0.8s;
-}
-/* Tablet (<= 991px) */
-@media (max-width: 991px) {
-  .hero-title {
-    font-size: 26px; /* decrease font */
-    text-align: start;
-  }
-
-  .hero-subtext {
-    font-size: 16px;
-    text-align: start;
-  }
-
-  .hero-text {
-    text-align: center !important;
-  }
-
-  .hero-img {
-    width: 100%; /* increase image size */
-    max-width: 800px; /* bigger than desktop */
-  }
-}
-
-/* Mobile (<= 576px) */
-@media (max-width: 576px) {
-  .hero-title {
-    font-size: 32px;
-  }
-
-  .hero-subtext {
-    font-size: 16px;
-    text-align: start;
-  }
-
-  .hero-img {
-    width: 100%;
-    max-width: 100%;
-    animation:
-      floatImage 4s ease-in-out infinite,
-      fadeSlideRight 1s ease forwards;
-  }
-}
-
-/* ANIMATIONS */
-@keyframes fadeSlideLeft {
-  from {
-    opacity: 0;
-    transform: translateX(-40px);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
-
-@keyframes fadeSlideRight {
-  from {
-    opacity: 0;
-    transform: translateX(40px);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
-
-@keyframes fadeIn {
-  to {
-    opacity: 1;
-  }
-}
-
-/* FLOAT EFFECT */
-@keyframes floatImage {
-  0% {
-    transform: translateY(0px);
-  }
-  50% {
-    transform: translateY(-15px);
-  }
-  100% {
-    transform: translateY(0px);
-  }
-}
-
-/* BUTTON HOVER */
-button:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
-}
-
-/* --------------------------- */
+/* Clean Corporate Cards */
 .course-card {
   border-radius: 12px;
   transition: all 0.25s ease;
   cursor: pointer;
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  box-shadow: var(--shadow-card);
 }
 
 .course-icon {
   font-size: 28px;
-  color: #198754; /* Bootstrap green */
+  color: #16a34a;
   transition: 0.3s;
 }
 
-/* Hover */
 .course-card:hover {
-  transform: translateY(-5px);
-  background-color: #198754;
-  color: white;
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  transform: translateY(-4px);
+  background: #16a34a;
+  color: white !important;
+  box-shadow: var(--shadow-card-hover);
+  border-color: #16a34a;
 }
 
+.course-card:hover h1,
+.course-card:hover h2,
+.course-card:hover h3,
+.course-card:hover h4,
+.course-card:hover h5,
+.course-card:hover h6,
+.course-card:hover p,
+.course-card:hover span,
+.course-card:hover .text-white,
 .course-card:hover .course-icon {
-  color: white;
-  transform: scale(1.2);
+  color: #ffffff !important;
 }
-/* -------------------- */
-/* CARD */
+
 .career-card {
-  border-radius: 16px;
-  transition: 0.3s ease;
+  border-radius: 12px;
+  transition: 0.25s ease;
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  box-shadow: var(--shadow-card);
 }
 
-/* HOVER */
 .career-card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-card-hover);
+  border-color: #86efac;
 }
 
-/* BUTTON */
-.btn-success {
-  background-color: #198754;
-  border: none;
-}
-/* ------------------------------------------ */
 .team-card {
   border-radius: 12px;
   overflow: hidden;
-  transition: 0.3s ease;
+  transition: 0.25s ease;
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  box-shadow: var(--shadow-card);
 }
 
-/* Hover */
 .team-card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.1);
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-card-hover);
+}
+
+/* Standard Corporate Action Buttons */
+.action-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 10px 22px;
+  background: #16a34a;
+  color: #ffffff !important;
+  font-weight: 600;
+  font-size: 0.94rem;
+  border-radius: 8px;
+  border: 1px solid #16a34a;
+  text-decoration: none;
+  transition: all 0.25s ease;
+  box-shadow: 0 2px 6px rgba(22, 163, 74, 0.2);
+}
+
+.action-btn:hover {
+  background: #15803d;
+  border-color: #15803d;
+  color: #ffffff !important;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(22, 163, 74, 0.3);
+}
+
+.action-btn-outline {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 10px 22px;
+  background: #ffffff;
+  color: #16a34a !important;
+  font-weight: 600;
+  font-size: 0.94rem;
+  border-radius: 8px;
+  border: 1.5px solid #16a34a;
+  text-decoration: none;
+  transition: all 0.25s ease;
+}
+
+.action-btn-outline:hover {
+  background: #16a34a;
+  color: #ffffff !important;
+  transform: translateY(-1px);
 }

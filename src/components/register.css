@@ -46,7 +46,7 @@
 
 /* BUTTON HOVER */
 .submit-btn:hover {
-  background: #2e5f18 !important;
+  background: #2e5f18;
   transform: scale(1.05);
 }
 

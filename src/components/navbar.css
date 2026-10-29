@@ -1,83 +1,160 @@
-/* WRAPPER */
+/* ============================================================
+   GROWTHNEST TECH SOLUTION - PROFESSIONAL CORPORATE NAVBAR
+   Clean, human-designed IT header (like ismdatatech.com)
+   ============================================================ */
+
 .navbar-wrapper {
   position: sticky;
   top: 0;
-  z-index: 999;
-  backdrop-filter: blur(10px);
+  z-index: 1050;
+  width: 100%;
 }
 
-/* NAVBAR */
 .custom-navbar {
-  background: rgba(255, 255, 255, 0.9);
-  border-radius: 14px;
-  padding: 12px 20px;
-  box-shadow: 0 20px 20px rgba(0,0,0,0.05);
-  animation: slideDown 0.6s ease;
+  background: #ffffff !important;
+  border-bottom: 1px solid #e2e8f0;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  padding: 12px 0 !important;
+  transition: all 0.25s ease;
 }
 
-/* LOGO */
-.logo-anim {
-  transition: 0.3s;
+/* BRAND STYLING */
+.brand-container {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
 }
 
-.logo-anim:hover {
-  transform: scale(1.05);
+.brand-logo-wrap {
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.brand-logo-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.brand-text-wrap {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.15;
+}
+
+.brand-title {
+  font-size: 1.35rem;
+  font-weight: 800;
+  color: #0f172a !important;
+  letter-spacing: -0.02em;
+}
+
+.text-success-corporate {
+  color: #16a34a !important;
+}
+
+.brand-tagline {
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: #64748b;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
 }
 
 /* NAV ITEMS */
 .nav-item-custom {
   position: relative;
-  font-size: 16px;
-  color: #000 !important;
-  transition: 0.3s;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #334155 !important;
+  padding: 8px 14px !important;
+  border-radius: 6px;
+  transition: all 0.2s ease;
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-/* ACTIVE */
-.nav-item-custom.active {
-  color: #3a7b20 !important;
+.nav-item-custom:hover {
+  color: #16a34a !important;
 }
 
-/* UNDERLINE ANIMATION */
-.nav-item-custom::after {
-  content: "";
+.nav-active-bar {
   position: absolute;
-  width: 0%;
+  bottom: 0;
+  left: 14px;
+  right: 14px;
+  height: 2.5px;
+  background: #16a34a;
+  border-radius: 2px;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.nav-item-custom.active {
+  color: #16a34a !important;
+  font-weight: 700;
+}
+
+.nav-item-custom.active .nav-active-bar {
+  opacity: 1;
+}
+
+/* ACTION BUTTON */
+.nav-action-btn {
+  font-size: 0.9rem !important;
+  padding: 8px 18px !important;
+}
+
+/* MOBILE TOGGLE BUTTON */
+.corporate-toggle {
+  border: 1px solid #cbd5e1 !important;
+  padding: 8px 10px !important;
+  border-radius: 6px !important;
+  outline: none !important;
+  box-shadow: none !important;
+  background: #f8fafc !important;
+}
+
+.corporate-toggle .toggle-line {
+  display: block;
+  width: 22px;
   height: 2px;
-  background: #3a7b20;
-  left: 0;
-  bottom: -4px;
-  transition: 0.3s;
+  background-color: #334155;
+  margin: 4px 0;
+  transition: 0.2s;
+  border-radius: 2px;
 }
 
-.nav-item-custom:hover::after {
-  width: 100%;
-}
-
-/* BUTTON HOVER */
-.btn-hover:hover {
-  transform: translateY(-2px);
-  transition: 0.3s;
-}
-
-/* SLIDE DOWN */
-@keyframes slideDown {
-  from {
-    opacity: 0;
-    transform: translateY(-20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* MOBILE FIX */
+/* RESPONSIVE COLLAPSE */
 @media (max-width: 991px) {
-  .custom-navbar {
-    border-radius: 10px;
+  .custom-navbar .navbar-collapse {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 16px;
+    margin-top: 12px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
   }
 
   .nav-item-custom {
-    padding: 10px 0;
+    padding: 10px 16px !important;
+    width: 100%;
+    text-align: left;
+    align-items: flex-start;
+  }
+
+  .nav-active-bar {
+    display: none;
+  }
+
+  .nav-item-custom.active {
+    background: #f0fdf4;
+    border-radius: 6px;
   }
 }

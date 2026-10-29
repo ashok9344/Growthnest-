@@ -1,5 +1,5 @@
 import React from "react";
-import { Container, Row, Col, Card, Button } from "react-bootstrap";
+import { Container, Row, Col, Card } from "react-bootstrap";
 import {
   FaGamepad,
   FaRocket,
@@ -13,67 +13,70 @@ const Events = () => {
     {
       title: "7-Day Foundation Program",
       description:
-        "Kickstart your journey with a powerful 7-day structured learning program.",
+        "Kickstart your journey with a powerful 7-day structured learning program with live mentorship.",
       icon: <FaRocket />,
     },
     {
-      title: "Weekly Events",
+      title: "Weekly Tech Hackathons",
       description:
-        "Stay consistent with engaging weekly sessions and community activities.",
+        "Stay consistent with engaging weekly code sessions, architecture reviews, and community builds.",
       icon: <FaCalendarAlt />,
     },
     {
-      title: "Sunday Business Events",
+      title: "Weekend Innovation Meets",
       description:
-        "Explore Mehandi, Embroidery, Freelancing & business opportunities.",
+        "Explore freelancing, open-source contribution, client project demos, and startup opportunities.",
       icon: <FaBriefcase />,
     },
     {
-      title: "Stress Booster Games",
+      title: "Tech Culture & Team Gaming",
       description:
-        "Fun and interactive games designed to refresh your mind and reduce stress.",
+        "Interactive team activities, logic puzzles, and gaming sessions designed to refresh and connect.",
       icon: <FaGamepad />,
     },
   ];
 
-  // 🔥 Animation Variants
   const containerVariant = {
     hidden: {},
     visible: {
       transition: {
-        staggerChildren: 0.2,
+        staggerChildren: 0.12,
       },
     },
   };
 
   const cardVariant = {
-    hidden: { opacity: 0, y: 40 },
+    hidden: { opacity: 0, y: 20 },
     visible: {
       opacity: 1,
       y: 0,
-      transition: { duration: 0.6, ease: "easeOut" },
+      transition: { duration: 0.4, ease: "easeOut" },
     },
   };
 
   return (
-    <section className="events-section py-5">
-      <Container>
+    <section className="events-section py-5 position-relative">
+      <Container className="py-4">
         {/* HERO */}
         <motion.div
           className="text-center mb-5"
-          initial={{ opacity: 0, y: -30 }}
+          initial={{ opacity: 0, y: -20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
+          transition={{ duration: 0.5 }}
         >
-          <h1 className="fw-bold display-4">
-            Discover Our <span style={{color:"#3a7b20"}}>Events</span>
+          <span className="tech-pill mb-3">
+            <span className="tech-pill-dot"></span>
+            COMMUNITY & WORKSHOPS
+          </span>
+          <h1 className="fw-bold display-5 mb-3" style={{ color: "#0f172a" }}>
+            Discover Our <span className="text-success-corporate">Events</span>
           </h1>
-          <p className="lead text-muted">
-            Learn, grow, and explore exciting opportunities every week 🚀
+          <p className="lead mx-auto" style={{ maxWidth: "600px", color: "#475569" }}>
+            Learn, build, network, and explore exciting production opportunities every week 🚀
           </p>
         </motion.div>
 
-        {/* EVENTS */}
+        {/* EVENTS GRID */}
         <motion.div
           variants={containerVariant}
           initial="hidden"
@@ -83,27 +86,20 @@ const Events = () => {
           <Row className="g-4">
             {events.map((event, index) => (
               <Col xs={12} md={6} lg={3} key={index}>
-                <motion.div variants={cardVariant}>
-                  <Card className="event-card h-100 border-0 text-center p-4">
-                    <motion.div
-                      className="icon-box mb-3"
-                      whileHover={{ scale: 1.2, rotate: 5 }}
-                    >
+                <motion.div variants={cardVariant} className="h-100">
+                  <Card className="corporate-event-card h-100 text-center p-4">
+                    <div className="corporate-icon-box mb-3">
                       {event.icon}
-                    </motion.div>
+                    </div>
 
-                    <Card.Body>
-                      <Card.Title className="fw-bold fs-5 mb-2">
+                    <Card.Body className="p-0 d-flex flex-column justify-content-between">
+                      <Card.Title className="fw-bold fs-5 mb-2" style={{ color: "#0f172a" }}>
                         {event.title}
                       </Card.Title>
 
-                      <Card.Text className="text-muted small">
+                      <Card.Text className="small" style={{ color: "#475569", lineHeight: "1.6" }}>
                         {event.description}
                       </Card.Text>
-
-                      {/* <motion.div whileHover={{ scale: 1.05 }}>
-                        <Button className="mt-3 event-btn">Explore →</Button>
-                      </motion.div> */}
                     </Card.Body>
                   </Card>
                 </motion.div>
@@ -114,53 +110,40 @@ const Events = () => {
       </Container>
 
       {/* STYLES */}
-      <style>
-        {`
-          .events-section {
-            background: linear-gradient(to bottom, #f8fff5, #ffffff);
-          }
+      <style>{`
+        .events-section {
+          background: #ffffff;
+          min-height: 80vh;
+        }
 
-          .event-card {
-            border-radius: 20px;
-            background: #ffffff;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
-            transition: 0.3s;
-          }
+        .corporate-event-card {
+          border-radius: 16px;
+          background: #ffffff;
+          border: 1px solid #e2e8f0 !important;
+          box-shadow: 0 4px 14px rgba(0, 0, 0, 0.04);
+          transition: all 0.25s ease;
+        }
 
-          .event-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 50px rgba(58,123,32,0.2);
-          }
+        .corporate-event-card:hover {
+          transform: translateY(-4px);
+          border-color: #86efac !important;
+          box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+        }
 
-          .icon-box {
-            font-size: 28px;
-            width: 60px;
-            height: 60px;
-            margin: 0 auto;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: rgba(58,123,32,0.1);
-            color: #3a7b20;
-            border-radius: 50%;
-          }
-
-          .event-btn {
-            background: transparent;
-            color: #3a7b20;
-            border: 1px solid #3a7b20;
-            border-radius: 8px;
-            padding: 5px 12px;
-            font-size: 14px;
-            transition: 0.3s;
-          }
-
-          .event-btn:hover {
-            background: #3a7b20;
-            color: white;
-          }
-        `}
-      </style>
+        .corporate-icon-box {
+          font-size: 24px;
+          width: 56px;
+          height: 56px;
+          margin: 0 auto;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          background: #f0fdf4;
+          color: #16a34a;
+          border: 1px solid #bbf7d0;
+          border-radius: 12px;
+        }
+      `}</style>
     </section>
   );
 };

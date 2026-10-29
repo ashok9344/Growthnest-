@@ -1,43 +1,69 @@
 import React, { useState } from "react";
-import { Link } from "react-router";
+import { Container, Row, Col } from "react-bootstrap";
+import { Link } from "react-router-dom";
+import { motion, AnimatePresence } from "framer-motion";
+import { 
+  FaMapMarkerAlt, 
+  FaPhoneAlt, 
+  FaEnvelope, 
+  FaClock, 
+  FaShieldAlt, 
+  FaPaperPlane, 
+  FaCheckCircle, 
+  FaUser, 
+  FaBuilding, 
+  FaComments,
+  FaArrowRight,
+  FaSpinner,
+  FaWhatsapp,
+  FaFileContract,
+  FaCalendarAlt
+} from "react-icons/fa";
 import { sendMessage } from "../api/contactApi";
-import { motion } from "framer-motion";
-import GlobalBtn from "./global/GlobalBtn";
-const GetinTouch = () => {
+
+const GetinTouch = ({ isEmbedded = false }) => {
   const [formData, setFormData] = useState({
     name: "",
+    company: "",
     email: "",
+    phone: "",
+    service: "Custom Web Platform / SaaS Development",
+    timeline: "1 - 3 Months",
     message: "",
   });
 
-  const [errors, setErrors] = useState({});
   const [loading, setLoading] = useState(false);
   const [success, setSuccess] = useState("");
+  const [errors, setErrors] = useState({});
 
-  // handle change
-  const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
-    setErrors({ ...errors, [e.target.name]: "" });
-  };
-
-  // validation
+  // validation rules
   const validate = () => {
     const newErrors = {};
-
-    if (!formData.name.trim()) newErrors.name = "Name is required";
-
-    if (!formData.email) newErrors.email = "Email is required";
-    else if (!/^\S+@\S+\.\S+$/.test(formData.email))
-      newErrors.email = "Invalid email";
-
-    if (!formData.message.trim()) newErrors.message = "Message is required";
-    else if (formData.message.length < 10)
-      newErrors.message = "Minimum 10 characters required";
-
+    if (!formData.name.trim()) newErrors.name = "Full name is required";
+    if (!formData.email.trim()) {
+      newErrors.email = "Work email is required";
+    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
+      newErrors.email = "Please enter a valid email address";
+    }
+    if (!formData.phone.trim()) {
+      newErrors.phone = "Contact / WhatsApp number is required for quote communication";
+    }
+    if (!formData.message.trim()) {
+      newErrors.message = "Please describe your project requirements or scope";
+    }
     return newErrors;
   };
 
-  // submit
+  // input change handler
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({ ...prev, [name]: value }));
+    if (errors[name]) {
+      setErrors((prev) => ({ ...prev, [name]: "" }));
+    }
+  };
+
+  // submit handler
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -50,176 +76,485 @@ const GetinTouch = () => {
     try {
       setLoading(true);
       setSuccess("");
-
-      await sendMessage(formData);
-
-      setSuccess("Message sent successfully!");
-      setFormData({ name: "", email: "", message: "" });
       setErrors({});
-    } catch (err) {
-      setErrors({ api: "Failed to send message" });
+
+      const compositeMessage = `[PROJECT INQUIRY]\n` +
+        `Company: ${formData.company ? formData.company.trim() : "N/A"}\n` +
+        `Service: ${formData.service}\n` +
+        `Timeline: ${formData.timeline}\n` +
+        `Phone: ${formData.phone.trim()}\n\n` +
+        `Project Scope & Requirements:\n${formData.message.trim()}`;
+
+      await sendMessage({
+        name: formData.name.trim(),
+        email: formData.email.trim(),
+        message: compositeMessage,
+      });
+
+      setSuccess("Thank you! Your project inquiry has been received. Our senior solution architect will review your requirements and provide an initial proposal & estimate within 24 hours under NDA.");
+      setFormData({
+        name: "",
+        company: "",
+        email: "",
+        phone: "",
+        service: "Custom Web Platform / SaaS Development",
+        timeline: "1 - 3 Months",
+        message: "",
+      });
+    } catch {
+      setErrors({ api: "Failed to send project inquiry. Please click the WhatsApp button to chat with our technical lead directly." });
     } finally {
       setLoading(false);
     }
   };
 
   return (
-    <section className="contact-section">
-      <div className="container">
-        {/* HEADER */}
-        <motion.div
-          className="text-center mb-5"
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-        >
-          <h2 className="fw-bold">
-            Get in <span>Touch</span>
+    <section id="contact" className={`contact-master-section ${isEmbedded ? "py-5" : "pt-5 pb-5"}`}>
+      <Container className="position-relative py-3">
+        {/* Section Header */}
+        <div className="text-center mb-5">
+          <span className="tech-pill mb-2">
+            <span className="tech-pill-dot"></span>
+            REQUEST A PROJECT PROPOSAL & FREE ESTIMATE
+          </span>
+          <h2 className="display-6 fw-bold mt-2 text-dark">
+            Let's Build Your Next <span style={{ color: "#16a34a" }}>Software Solution</span>
           </h2>
-          <p className="text-muted">We'd love to hear from you</p>
-        </motion.div>
+          <p className="text-secondary mx-auto" style={{ maxWidth: "700px", fontSize: "1.05rem" }}>
+            Have a project in mind, need to automate workflows, or require a dedicated engineering team? Share your requirements below to receive a comprehensive technical proposal within 24 hours.
+          </p>
+        </div>
 
-        {/* FORM */}
-        <motion.form
-          onSubmit={handleSubmit}
-          className="contact-form mx-auto"
-          initial={{ opacity: 0, y: 40 }}
-          animate={{ opacity: 1, y: 0 }}
-        >
-          {/* SUCCESS */}
-          {success && (
-            <motion.div
-              className="alert alert-success"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-            >
-              {success}
-            </motion.div>
-          )}
+        {/* Master 2-Column Responsive Grid */}
+        <Row className="g-4 g-lg-5 align-items-stretch">
+          {/* LEFT COLUMN: CONTACT INFORMATION & CLIENT ASSURANCE */}
+          <Col lg={5} className="d-flex flex-column justify-content-between">
+            <div className="corporate-info-panel h-100 p-4 p-md-5 d-flex flex-column justify-content-between">
+              <div>
+                <div className="d-flex align-items-center gap-2 mb-3">
+                  <span className="corporate-info-badge">
+                    Direct Client Advisory
+                  </span>
+                  <span className="badge bg-light text-secondary border px-2 py-1 small fw-semibold">
+                    <FaClock className="me-1 text-success" /> &lt; 2h Response Time
+                  </span>
+                </div>
 
-          {/* API ERROR */}
-          {errors.api && <div className="alert alert-danger">{errors.api}</div>}
+                <h3 className="h4 fw-bold mb-3 text-dark">
+                  Connect Directly With Our Solution Leads
+                </h3>
+                <p className="text-secondary mb-4" style={{ fontSize: "0.95rem", lineHeight: "1.6" }}>
+                  Every project at GrowthNest is managed by experienced software architects. We sign mutual Non-Disclosure Agreements (NDAs) to protect your business ideas and proprietary data.
+                </p>
 
-          {/* NAME */}
-          <div className="mb-3">
-            <label className="form-label">Full Name</label>
-            <motion.input
-              whileFocus={{ scale: 1.02 }}
-              type="text"
-              name="name"
-              value={formData.name}
-              onChange={handleChange}
-              className={`form-control custom-input ${
-                errors.name ? "is-invalid" : ""
-              }`}
-              placeholder="Enter your name"
-            />
-            <div className="invalid-feedback">{errors.name}</div>
-          </div>
+                {/* Info Cards Stack */}
+                <div className="contact-cards-stack d-flex flex-column gap-3 mb-4">
+                  {/* Tirunelveli Campus */}
+                  <div className="corporate-info-card d-flex align-items-start gap-3 p-3">
+                    <div className="corporate-icon-bubble">
+                      <FaMapMarkerAlt />
+                    </div>
+                    <div>
+                      <div className="corporate-card-label">DEVELOPMENT LAB & HEADQUARTERS</div>
+                      <div className="corporate-card-value">
+                        GrowthNest Tech Solution, Tirunelveli, Tamil Nadu, India - 627001
+                      </div>
+                    </div>
+                  </div>
 
-          {/* EMAIL */}
-          <div className="mb-3">
-            <label className="form-label">Email</label>
-            <motion.input
-              whileFocus={{ scale: 1.02 }}
-              type="email"
-              name="email"
-              value={formData.email}
-              onChange={handleChange}
-              className={`form-control custom-input ${
-                errors.email ? "is-invalid" : ""
-              }`}
-              placeholder="Enter your email"
-            />
-            <div className="invalid-feedback">{errors.email}</div>
-          </div>
+                  {/* Phone Line */}
+                  <a 
+                    href="tel:+916369347439" 
+                    className="corporate-info-card d-flex align-items-start gap-3 p-3 text-decoration-none"
+                  >
+                    <div className="corporate-icon-bubble">
+                      <FaPhoneAlt />
+                    </div>
+                    <div>
+                      <div className="corporate-card-label">DIRECT PROJECT LINE (CLICK TO CALL)</div>
+                      <div className="corporate-card-value fw-bold text-dark">
+                        +91 63693 47439
+                      </div>
+                      <div className="small text-secondary">
+                        Mon – Sat • 9:00 AM – 7:00 PM IST
+                      </div>
+                    </div>
+                  </a>
 
-          {/* MESSAGE */}
-          <div className="mb-3">
-            <label className="form-label">Message</label>
-            <motion.textarea
-              whileFocus={{ scale: 1.02 }}
-              name="message"
-              rows="4"
-              value={formData.message}
-              onChange={handleChange}
-              className={`form-control custom-input ${
-                errors.message ? "is-invalid" : ""
-              }`}
-              placeholder="Write your message"
-            ></motion.textarea>
-            <div className="invalid-feedback">{errors.message}</div>
-          </div>
+                  {/* Corporate Email */}
+                  <a 
+                    href="mailto:growthnesttechsolution@gmail.com" 
+                    className="corporate-info-card d-flex align-items-start gap-3 p-3 text-decoration-none"
+                  >
+                    <div className="corporate-icon-bubble">
+                      <FaEnvelope />
+                    </div>
+                    <div>
+                      <div className="corporate-card-label">PROJECT PROPOSALS & RFPs</div>
+                      <div className="corporate-card-value text-break text-dark">
+                        growthnesttechsolution@gmail.com
+                      </div>
+                    </div>
+                  </a>
+                </div>
+              </div>
 
-          {/* BUTTON */}
-          <GlobalBtn btnName="Submit" px="5" style={{ width: "100%" }} />
-        </motion.form>
+              {/* Instant WhatsApp Chat */}
+              <div className="pt-3 border-top border-light-subtle">
+                <a
+                  href="https://wa.me/916369347439?text=Hello%20GrowthNest,%20I%20have%20a%20project%20requirement%20and%20would%20like%20to%20discuss%20timelines%20and%20costs."
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="whatsapp-corporate-btn d-flex align-items-center justify-content-center gap-2 w-100 text-decoration-none"
+                >
+                  <FaWhatsapp size={20} />
+                  <span>Chat With Our Technical Lead on WhatsApp</span>
+                </a>
+              </div>
+            </div>
+          </Col>
 
-        {/* CTA */}
-        <motion.div
-          className="cta-box mt-5 text-center"
-          initial={{ opacity: 0, y: 40 }}
-          animate={{ opacity: 1, y: 0 }}
-        >
-          <h4 className="fw-bold">Wanna Join Our Team?</h4>
-          <p>Have a Happy Learning Journey</p>
+          {/* RIGHT COLUMN: PROJECT INQUIRY FORM */}
+          <Col lg={7}>
+            <div className="corporate-form-wrapper p-4 p-md-5">
+              <div className="form-heading-group mb-4">
+                <div className="d-flex align-items-center justify-content-between">
+                  <h3 className="h4 fw-bold mb-1 text-dark">
+                    Tell Us About Your Project
+                  </h3>
+                  <span className="badge bg-success-subtle text-success border border-success-subtle px-2 py-1 small">
+                    <FaShieldAlt className="me-1" /> NDA Protected
+                  </span>
+                </div>
+                <p className="text-secondary small mb-0">
+                  Fill in your project requirements below. Our engineering team will prepare an architectural roadmap and cost estimate.
+                </p>
+              </div>
 
-          <Link to="/appljob">
-            <GlobalBtn btnName="Apply" px="5" />
-          </Link>
-        </motion.div>
-      </div>
+              {/* Alerts */}
+              <AnimatePresence>
+                {success && (
+                  <motion.div
+                    className="alert alert-success d-flex align-items-center gap-2 mb-4"
+                    initial={{ opacity: 0, y: -10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0 }}
+                  >
+                    <FaCheckCircle className="flex-shrink-0" size={18} />
+                    <div className="small">{success}</div>
+                  </motion.div>
+                )}
 
-      {/* STYLES */}
-      <style>
-        {`
-        .contact-section {
-          padding: 70px 0;
-          background: #f7f9f6;
-        }
+                {errors.api && (
+                  <motion.div
+                    className="alert alert-danger mb-4 small"
+                    initial={{ opacity: 0, y: -10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0 }}
+                  >
+                    <div>{errors.api}</div>
+                  </motion.div>
+                )}
+              </AnimatePresence>
 
-        h2 span {
-          color: #3a7b20;
-        }
+              {/* Form */}
+              <form onSubmit={handleSubmit} noValidate>
+                {/* Row 1: Full Name & Company Name */}
+                <Row className="g-3 mb-3">
+                  <Col md={6}>
+                    <div>
+                      <label htmlFor="contact-name" className="form-label small fw-bold text-dark">
+                        Your Name <span className="text-danger">*</span>
+                      </label>
+                      <div className="input-group">
+                        <span className="input-group-text bg-light text-muted">
+                          <FaUser size={13} />
+                        </span>
+                        <input
+                          id="contact-name"
+                          type="text"
+                          name="name"
+                          value={formData.name}
+                          onChange={handleChange}
+                          placeholder="e.g. Rajesh Kumar"
+                          className={`form-control ${errors.name ? "is-invalid" : ""}`}
+                        />
+                      </div>
+                      {errors.name && (
+                        <div className="text-danger small mt-1">{errors.name}</div>
+                      )}
+                    </div>
+                  </Col>
 
-        .contact-form {
-          max-width: 600px;
-          background: white;
-          padding: 30px;
-          border-radius: 12px;
-          box-shadow: 0 5px 20px rgba(0,0,0,0.05);
-        }
+                  <Col md={6}>
+                    <div>
+                      <label htmlFor="contact-company" className="form-label small fw-bold text-dark">
+                        Company / Business Name <span className="text-muted fw-normal">(Optional)</span>
+                      </label>
+                      <div className="input-group">
+                        <span className="input-group-text bg-light text-muted">
+                          <FaBuilding size={13} />
+                        </span>
+                        <input
+                          id="contact-company"
+                          type="text"
+                          name="company"
+                          value={formData.company}
+                          onChange={handleChange}
+                          placeholder="e.g. Acme Tech / Startup"
+                          className="form-control"
+                        />
+                      </div>
+                    </div>
+                  </Col>
+                </Row>
 
-        .custom-input {
-          border-radius: 8px;
-          border: 1px solid #ddd;
-          padding: 10px;
-        }
+                {/* Row 2: Work Email & Contact Phone */}
+                <Row className="g-3 mb-3">
+                  <Col md={6}>
+                    <div>
+                      <label htmlFor="contact-email" className="form-label small fw-bold text-dark">
+                        Work Email <span className="text-danger">*</span>
+                      </label>
+                      <div className="input-group">
+                        <span className="input-group-text bg-light text-muted">
+                          <FaEnvelope size={13} />
+                        </span>
+                        <input
+                          id="contact-email"
+                          type="email"
+                          name="email"
+                          value={formData.email}
+                          onChange={handleChange}
+                          placeholder="name@company.com"
+                          className={`form-control ${errors.email ? "is-invalid" : ""}`}
+                        />
+                      </div>
+                      {errors.email && (
+                        <div className="text-danger small mt-1">{errors.email}</div>
+                      )}
+                    </div>
+                  </Col>
 
-        .custom-input:focus {
-          border-color: #3a7b20;
-          box-shadow: none;
-        }
+                  <Col md={6}>
+                    <div>
+                      <label htmlFor="contact-phone" className="form-label small fw-bold text-dark">
+                        Phone / WhatsApp <span className="text-danger">*</span>
+                      </label>
+                      <div className="input-group">
+                        <span className="input-group-text bg-light text-muted">
+                          <FaPhoneAlt size={13} />
+                        </span>
+                        <input
+                          id="contact-phone"
+                          type="tel"
+                          name="phone"
+                          value={formData.phone}
+                          onChange={handleChange}
+                          placeholder="+91 98765 43210"
+                          className={`form-control ${errors.phone ? "is-invalid" : ""}`}
+                        />
+                      </div>
+                      {errors.phone && (
+                        <div className="text-danger small mt-1">{errors.phone}</div>
+                      )}
+                    </div>
+                  </Col>
+                </Row>
 
-        .submit-btn {
-          background: #3a7b20;
-          color: white;
-          border-radius: 8px;
-          padding: 10px;
-          font-weight: 600;
-        }
+                {/* Row 3: Service Type & Estimated Timeline */}
+                <Row className="g-3 mb-3">
+                  <Col md={6}>
+                    <div>
+                      <label htmlFor="contact-service" className="form-label small fw-bold text-dark">
+                        Project / Service Category
+                      </label>
+                      <div className="input-group">
+                        <span className="input-group-text bg-light text-muted">
+                          <FaFileContract size={13} />
+                        </span>
+                        <select
+                          id="contact-service"
+                          name="service"
+                          value={formData.service}
+                          onChange={handleChange}
+                          className="form-select"
+                        >
+                          <option>Custom Web Platform / SaaS Development</option>
+                          <option>Mobile App Development (iOS & Android)</option>
+                          <option>Enterprise ERP / CRM / Business Software</option>
+                          <option>AI, Machine Learning & Computer Vision</option>
+                          <option>Data Entry & Image Annotation (BPO)</option>
+                          <option>Hire Dedicated Developers (Monthly Retainer)</option>
+                          <option>Cloud Infrastructure & DevOps Setup</option>
+                        </select>
+                      </div>
+                    </div>
+                  </Col>
 
-        .submit-btn:hover {
-          background: #2f6419;
-        }
+                  <Col md={6}>
+                    <div>
+                      <label htmlFor="contact-timeline" className="form-label small fw-bold text-dark">
+                        Estimated Target Timeline
+                      </label>
+                      <div className="input-group">
+                        <span className="input-group-text bg-light text-muted">
+                          <FaCalendarAlt size={13} />
+                        </span>
+                        <select
+                          id="contact-timeline"
+                          name="timeline"
+                          value={formData.timeline}
+                          onChange={handleChange}
+                          className="form-select"
+                        >
+                          <option>1 - 3 Months (Standard)</option>
+                          <option>Urgent (&lt; 1 Month MVP)</option>
+                          <option>3 - 6 Months (Enterprise)</option>
+                          <option>Flexible / Ongoing Retainer</option>
+                        </select>
+                      </div>
+                    </div>
+                  </Col>
+                </Row>
 
-        .cta-box {
+                {/* Message / Project Description */}
+                <div className="mb-4">
+                  <label htmlFor="contact-message" className="form-label small fw-bold text-dark">
+                    Project Requirements / Problem Statement <span className="text-danger">*</span>
+                  </label>
+                  <div className="input-group">
+                    <span className="input-group-text bg-light text-muted align-items-start pt-2">
+                      <FaComments size={13} />
+                    </span>
+                    <textarea
+                      id="contact-message"
+                      name="message"
+                      rows={4}
+                      value={formData.message}
+                      onChange={handleChange}
+                      placeholder="Please outline the key features, required user roles, target platforms, or data processing scope..."
+                      className={`form-control ${errors.message ? "is-invalid" : ""}`}
+                    ></textarea>
+                  </div>
+                  {errors.message && (
+                    <div className="text-danger small mt-1">{errors.message}</div>
+                  )}
+                </div>
+
+                {/* Submit Action */}
+                <button
+                  type="submit"
+                  disabled={loading}
+                  className="action-btn w-100 py-3 border-0 d-flex align-items-center justify-content-center gap-2"
+                  style={{ fontSize: "1rem" }}
+                >
+                  {loading ? (
+                    <>
+                      <FaSpinner className="spinner-border spinner-border-sm" />
+                      <span>Transmitting Project Brief...</span>
+                    </>
+                  ) : (
+                    <>
+                      <FaPaperPlane size={14} />
+                      <span>Submit Project Brief For Free Estimate</span>
+                      <FaArrowRight size={12} className="ms-1" />
+                    </>
+                  )}
+                </button>
+              </form>
+            </div>
+          </Col>
+        </Row>
+      </Container>
+
+      <style>{`
+        .contact-master-section {
           background: #ffffff;
-          padding: 25px;
-          border-radius: 12px;
-          border: 1px solid #eee;
+          border-bottom: 1px solid #e2e8f0;
         }
-        `}
-      </style>
+
+        .corporate-info-panel {
+          background: #f8fafc;
+          border: 1px solid #e2e8f0;
+          border-radius: 16px;
+        }
+
+        .corporate-info-badge {
+          background: #f0fdf4;
+          color: #16a34a;
+          border: 1px solid #bbf7d0;
+          font-size: 0.75rem;
+          font-weight: 700;
+          padding: 4px 12px;
+          border-radius: 9999px;
+        }
+
+        .corporate-info-card {
+          background: #ffffff;
+          border: 1px solid #e2e8f0;
+          border-radius: 12px;
+          box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02);
+          transition: all 0.2s ease;
+        }
+
+        .corporate-info-card:hover {
+          border-color: #86efac;
+          transform: translateY(-2px);
+          box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        }
+
+        .corporate-icon-bubble {
+          width: 42px;
+          height: 42px;
+          border-radius: 10px;
+          background: #f0fdf4;
+          color: #16a34a;
+          border: 1px solid #bbf7d0;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          font-size: 16px;
+          flex-shrink: 0;
+        }
+
+        .corporate-card-label {
+          font-size: 0.74rem;
+          font-weight: 700;
+          color: #16a34a;
+          letter-spacing: 0.05em;
+          text-transform: uppercase;
+          margin-bottom: 3px;
+        }
+
+        .corporate-card-value {
+          font-size: 0.94rem;
+          color: #0f172a;
+        }
+
+        .whatsapp-corporate-btn {
+          background: #16a34a;
+          color: #ffffff;
+          font-weight: 600;
+          font-size: 0.95rem;
+          padding: 12px;
+          border-radius: 8px;
+          transition: all 0.2s ease;
+          box-shadow: 0 2px 6px rgba(22, 163, 74, 0.25);
+        }
+
+        .whatsapp-corporate-btn:hover {
+          background: #15803d;
+          color: #ffffff;
+        }
+
+        .corporate-form-wrapper {
+          background: #ffffff;
+          border: 1px solid #e2e8f0;
+          border-radius: 16px;
+          box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+        }
+      `}</style>
     </section>
   );
 };

@@ -1,4 +1,8 @@
-const BASE_URL = "https://gnt-official-website-backend.onrender.com/api";
+const BASE_URL =
+  typeof window !== "undefined" &&
+  (window.location.hostname === "localhost" || window.location.hostname === "127.0.0.1")
+    ? "http://localhost:5000/api"
+    : "https://gnt-official-website-backend.onrender.com/api";
 
 export const sendMessage = async (data) => {
   try {

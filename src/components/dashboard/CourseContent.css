@@ -1,0 +1,31 @@
+﻿/* =====================================
+   COURSE CONTENT CSS
+===================================== */
+
+.gnt-course-content-manager {
+  padding: 0;
+}
+
+.gnt-content-submenu-card {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+}
+
+.gnt-content-submenu-card .list-group-item {
+  font-size: 13px;
+  font-weight: 600;
+  padding: 12px 16px;
+  color: #334155;
+  border-left: 3px solid transparent;
+}
+
+.gnt-content-submenu-card .list-group-item.active {
+  background-color: #f0faf2 !important;
+  color: #179a37 !important;
+  border-color: #e2e8f0 !important;
+  border-left-color: #179a37 !important;
+}
+
+.gnt-manager-header-bar {
+  border: 1px solid #e2e8f0;
+}

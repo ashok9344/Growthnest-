@@ -1,79 +1,67 @@
-/* SECTION BACKGROUND */
+/* ============================================================
+   GROWTHNEST TECH SOLUTION - VISION & MISSION (CORPORATE CLEAN)
+   ============================================================ */
+
 .vision-section {
-  background: linear-gradient(to right, #f5f5f5, #eef7ea);
+  background: #f8fafc;
+  border-top: 1px solid #e2e8f0;
+  border-bottom: 1px solid #e2e8f0;
+  padding: 70px 0;
 }
 
-/* CARD */
 .vision-card {
-  background: #fff;
-  padding: 30px 25px;
-  border-radius: 20px;
+  background: #ffffff;
+  padding: 38px 30px;
+  border-radius: 16px;
   text-align: center;
-  transition: 0.3s ease;
+  transition: all 0.25s ease;
   height: 100%;
   position: relative;
-  overflow: hidden;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.04);
 }
 
-/* ICON */
 .vision-card .icon {
-  font-size: 40px;
-  margin-bottom: 10px;
+  font-size: 38px;
+  margin-bottom: 16px;
 }
 
-/* TEXT */
+.vision-card h4 {
+  color: #0f172a;
+}
+
 .vision-card p {
-  font-size: 15px;
-  color: #555;
+  font-size: 1.05rem;
+  color: #475569 !important;
   line-height: 1.7;
 }
 
-/* HOVER EFFECT */
 .vision-card:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
-}
-
-/* BORDER GLOW EFFECT */
-.vision-card::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  border-radius: 20px;
-  border: 2px solid transparent;
-  background: linear-gradient(120deg, #3a7b20, #68d53d) border-box;
-  -webkit-mask:
-    linear-gradient(#fff 0 0) padding-box,
-    linear-gradient(#fff 0 0);
-  -webkit-mask-composite: xor;
-  mask-composite: exclude;
+  transform: translateY(-4px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+  border-color: #86efac;
 }
 
 /* ANIMATIONS */
 .fade-in {
-  animation: fadeIn 1s ease forwards;
+  animation: fadeIn 0.8s ease forwards;
 }
 
 .fade-left {
   opacity: 0;
-  transform: translateX(-50px);
+  transform: translateX(-40px);
   animation: fadeLeft 0.8s ease forwards;
 }
 
 .fade-right {
   opacity: 0;
-  transform: translateX(50px);
+  transform: translateX(40px);
   animation: fadeRight 0.8s ease forwards;
 }
 
-/* KEYFRAMES */
 @keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
+  from { opacity: 0; }
+  to { opacity: 1; }
 }
 
 @keyframes fadeLeft {

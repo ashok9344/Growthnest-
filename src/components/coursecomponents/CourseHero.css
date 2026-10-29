@@ -1,0 +1,476 @@
+/* =====================================
+   COURSE HERO
+===================================== */
+
+.gnt-course-hero {
+    width: 100%;
+
+    padding-top: 55px;
+
+    background:
+        radial-gradient(circle at 85% 30%,
+            rgba(79, 210, 119, 0.22),
+            transparent 30%),
+        linear-gradient(120deg,
+            #fbfffc 0%,
+            #effcf3 100%);
+
+    overflow: hidden;
+}
+
+
+.gnt-course-hero-wrapper {
+    min-height: 430px;
+
+    display: grid;
+
+    grid-template-columns:
+        1.1fr 0.9fr;
+
+    align-items: center;
+
+    gap: 40px;
+}
+
+
+/* =====================================
+   LEFT CONTENT
+===================================== */
+
+.gnt-course-hero-content {
+    max-width: 650px;
+}
+
+
+.gnt-course-label {
+    width: fit-content;
+
+    display: flex;
+    align-items: center;
+
+    gap: 8px;
+
+    margin-bottom: 17px;
+
+    padding: 7px 14px;
+
+    border-radius: 30px;
+
+    background: #eaf8ec;
+
+    color: #218838;
+
+    font-size: 13px;
+
+    font-weight: 700;
+}
+
+
+.gnt-course-label span {
+    width: 7px;
+    height: 7px;
+
+    display: block;
+
+    border-radius: 50%;
+
+    background: #28a745;
+}
+
+
+.gnt-course-hero-content h1 {
+    margin: 0 0 22px;
+
+    color: #142219;
+
+    font-size: clamp(43px,
+            5.5vw,
+            70px);
+
+    font-weight: 800;
+
+    line-height: 1.06;
+
+    letter-spacing: -1.5px;
+}
+
+
+.gnt-course-hero-content h1 span {
+    color: #20a540;
+}
+
+
+.gnt-course-hero-content p {
+    max-width: 570px;
+
+    margin-bottom: 30px;
+
+    color: #667168;
+
+    font-size: 17px;
+
+    line-height: 1.75;
+}
+
+
+/* =====================================
+   BUTTONS
+===================================== */
+
+.gnt-course-hero-buttons {
+    display: flex;
+
+    align-items: center;
+
+    gap: 14px;
+
+    flex-wrap: wrap;
+}
+
+
+.gnt-explore-course-btn,
+.gnt-student-login-btn {
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 10px;
+
+    padding: 13px 24px;
+
+    border-radius: 7px;
+
+    font-size: 14px;
+
+    font-weight: 700;
+
+    text-decoration: none;
+
+    transition: 0.3s ease;
+}
+
+
+.gnt-explore-course-btn {
+    background: #179a37;
+
+    color: #ffffff;
+
+    box-shadow:
+        0 8px 22px rgba(23, 154, 55, 0.2);
+}
+
+
+.gnt-explore-course-btn:hover {
+    color: #ffffff;
+
+    background: #117e2b;
+
+    transform: translateY(-2px);
+}
+
+
+.gnt-student-login-btn {
+    border: 1px solid #179a37;
+
+    background: #ffffff;
+
+    color: #179a37;
+}
+
+
+.gnt-student-login-btn:hover {
+    background: #179a37;
+
+    color: #ffffff;
+
+    transform: translateY(-2px);
+}
+
+
+/* =====================================
+   HERO RIGHT SIDE
+===================================== */
+
+.gnt-course-hero-design {
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+}
+
+
+.gnt-hero-main-circle {
+    width: 360px;
+    height: 360px;
+
+    position: relative;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background:
+        linear-gradient(145deg,
+            #c8f7db,
+            #80dfb2);
+
+    box-shadow:
+        0 25px 60px rgba(58, 159, 105, 0.18);
+}
+
+
+.gnt-student-illustration {
+    width: 220px;
+    height: 220px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background: rgba(255,
+            255,
+            255,
+            0.35);
+}
+
+
+.gnt-student-head {
+    font-size: 125px;
+
+    line-height: 1;
+}
+
+
+/* =====================================
+   FLOATING CARDS
+===================================== */
+
+.gnt-code-card {
+    width: 58px;
+    height: 58px;
+
+    position: absolute;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border-radius: 14px;
+
+    background: #ffffff;
+
+    box-shadow:
+        0 10px 30px rgba(0, 0, 0, 0.09);
+
+    color: #169a37;
+
+    font-size: 24px;
+
+    font-weight: 800;
+}
+
+
+.gnt-code-card-left {
+    top: 35px;
+
+    left: 10px;
+}
+
+
+.gnt-code-card-right {
+    top: 45px;
+
+    right: 5px;
+}
+
+
+.gnt-code-card-bottom {
+    right: -5px;
+
+    bottom: 60px;
+}
+
+
+/* =====================================
+   BENEFITS
+===================================== */
+
+.gnt-course-benefits {
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, minmax(0, 1fr));
+
+    gap: 20px;
+
+    margin-top: 30px;
+
+    padding: 24px 0;
+
+    border-top: 1px solid #e6eee8;
+
+    background: #ffffff;
+}
+
+
+.gnt-course-benefit {
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    padding: 5px 15px;
+}
+
+
+.gnt-benefit-icon {
+    width: 46px;
+    height: 46px;
+
+    flex-shrink: 0;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background: #e9f9ed;
+
+    font-size: 21px;
+}
+
+
+.gnt-course-benefit h4 {
+    margin: 0 0 4px;
+
+    color: #17231a;
+
+    font-size: 14px;
+
+    font-weight: 700;
+}
+
+
+.gnt-course-benefit p {
+    margin: 0;
+
+    color: #737d75;
+
+    font-size: 12px;
+}
+
+
+/* =====================================
+   TABLET
+===================================== */
+
+@media (max-width: 991px) {
+
+    .gnt-course-hero-wrapper {
+        grid-template-columns: 1fr;
+
+        padding-bottom: 40px;
+    }
+
+
+    .gnt-course-hero-content {
+        max-width: 100%;
+    }
+
+
+    .gnt-course-hero-design {
+        padding-top: 20px;
+    }
+
+
+    .gnt-course-benefits {
+        grid-template-columns:
+            repeat(2, 1fr);
+    }
+}
+
+
+/* =====================================
+   MOBILE
+===================================== */
+
+@media (max-width: 576px) {
+
+    .gnt-course-hero {
+        padding-top: 35px;
+    }
+
+
+    .gnt-course-hero-content h1 {
+        font-size: 40px;
+
+        letter-spacing: -0.5px;
+    }
+
+
+    .gnt-course-hero-content p {
+        font-size: 15px;
+    }
+
+
+    .gnt-course-hero-buttons {
+        flex-direction: column;
+
+        align-items: stretch;
+    }
+
+
+    .gnt-explore-course-btn,
+    .gnt-student-login-btn {
+        width: 100%;
+    }
+
+
+    .gnt-hero-main-circle {
+        width: 280px;
+        height: 280px;
+    }
+
+
+    .gnt-student-illustration {
+        width: 170px;
+        height: 170px;
+    }
+
+
+    .gnt-student-head {
+        font-size: 90px;
+    }
+
+
+    .gnt-code-card {
+        width: 48px;
+        height: 48px;
+
+        font-size: 19px;
+    }
+
+
+    .gnt-course-benefits {
+        grid-template-columns: 1fr;
+
+        gap: 12px;
+    }
+}

@@ -1,4 +1,4 @@
-import "./vision.css"; // 👈 add this CSS
+import "./vision.css";
 
 const VisionMission = () => {
   return (
@@ -6,7 +6,7 @@ const VisionMission = () => {
       <div className="container">
         {/* Title */}
         <h1 className="text-center fw-bold mb-5 fade-in">
-          More <span className="text-success">about</span> us 🌍
+          More <span className="text-success-corporate">About</span> Us 🌍
         </h1>
 
         <div className="row g-4">
