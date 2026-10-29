@@ -12,8 +12,11 @@ import {
   FaMapMarkerAlt,
   FaClock,
   FaArrowRight,
-  FaAward
+  FaAward,
+  FaCheckCircle,
+  FaFileExcel
 } from "react-icons/fa";
+import dataImage from "../assets/home/enterprise-devops-dashboard.jpg";
 
 const nonItRoles = [
   {
@@ -150,6 +153,139 @@ const NonITWork = () => {
               );
             })}
           </div>
+        </div>
+
+        {/* Featured Data Entry & Excel Project Showcase */}
+        <div 
+          className="p-4 p-lg-5 rounded-4 mb-5"
+          style={{
+            background: "#ffffff",
+            border: "1px solid #e2e8f0",
+            boxShadow: "0 8px 30px rgba(0, 0, 0, 0.05)"
+          }}
+        >
+          <Row className="align-items-center g-4">
+            <Col lg={6}>
+              <div 
+                className="position-relative rounded-3 overflow-hidden shadow-sm"
+                style={{ border: "1px solid #e2e8f0", background: "#0f172a" }}
+              >
+                <img
+                  src={dataImage}
+                  alt="Enterprise Excel Sheet Creation and Data Entry Operations"
+                  className="w-100 img-fluid"
+                  style={{ height: "320px", objectFit: "cover" }}
+                />
+                <div 
+                  className="position-absolute"
+                  style={{
+                    top: "14px",
+                    left: "14px",
+                    background: "rgba(15, 23, 42, 0.88)",
+                    backdropFilter: "blur(6px)",
+                    color: "#ffffff",
+                    padding: "6px 14px",
+                    borderRadius: "8px",
+                    fontSize: "0.8rem",
+                    fontWeight: "600",
+                    border: "1px solid rgba(255, 255, 255, 0.15)"
+                  }}
+                >
+                  <FaFileExcel className="me-2 text-success" />
+                  Excel & Data Entry Operations
+                </div>
+                <div 
+                  className="position-absolute"
+                  style={{
+                    bottom: "14px",
+                    left: "14px",
+                    right: "14px",
+                    background: "rgba(15, 23, 42, 0.90)",
+                    backdropFilter: "blur(8px)",
+                    color: "#ffffff",
+                    padding: "10px 16px",
+                    borderRadius: "10px",
+                    border: "1px solid rgba(255, 255, 255, 0.15)"
+                  }}
+                >
+                  <div className="fw-bold small text-white">Live Data Compilation & Validation Hub</div>
+                  <div style={{ fontSize: "0.75rem", color: "#a7f3d0" }}>
+                    Tirunelveli Operations Center • 99.8% Alphanumeric Accuracy
+                  </div>
+                </div>
+              </div>
+            </Col>
+
+            <Col lg={6}>
+              <div className="ps-lg-3">
+                <span className="badge px-3 py-2 rounded-pill fw-semibold mb-2" style={{ background: "#f0fdf4", color: "#15803d", border: "1px solid #bbf7d0" }}>
+                  DATA ENTRY & EXCEL SPREADSHEETS
+                </span>
+                <h2 className="fw-bold text-dark mb-3 fs-3">
+                  Custom Excel Workbook Creation & Alphanumeric Data Entry
+                </h2>
+                <p className="text-secondary mb-4" style={{ lineHeight: "1.7", fontSize: "0.98rem" }}>
+                  Our dedicated non-IT data operations team handles end-to-end data processing: from creating structured Microsoft Excel workbooks, dynamic formulas, and automated summary spreadsheets to executing rapid, error-free alphanumeric data entry across enterprise CRM, inventory, and billing databases.
+                </p>
+
+                {/* Checklist */}
+                <Row className="g-2 mb-4">
+                  <Col sm={6}>
+                    <div className="d-flex align-items-center gap-2 small text-secondary">
+                      <FaCheckCircle className="text-success flex-shrink-0" />
+                      <span>Excel Sheets & Formula Setup</span>
+                    </div>
+                  </Col>
+                  <Col sm={6}>
+                    <div className="d-flex align-items-center gap-2 small text-secondary">
+                      <FaCheckCircle className="text-success flex-shrink-0" />
+                      <span>Rapid Alphanumeric Data Entry</span>
+                    </div>
+                  </Col>
+                  <Col sm={6}>
+                    <div className="d-flex align-items-center gap-2 small text-secondary">
+                      <FaCheckCircle className="text-success flex-shrink-0" />
+                      <span>Invoice, Billing & Records Entry</span>
+                    </div>
+                  </Col>
+                  <Col sm={6}>
+                    <div className="d-flex align-items-center gap-2 small text-secondary">
+                      <FaCheckCircle className="text-success flex-shrink-0" />
+                      <span>99.8% Accuracy & Audit Verification</span>
+                    </div>
+                  </Col>
+                </Row>
+
+                {/* Tech & Skills tags */}
+                <div className="d-flex flex-wrap gap-1 mb-4">
+                  {["MS Excel", "Google Sheets", "Spreadsheet Formulas", "Data Entry", "Records Verification", "Data Cleaning", "Double-Key Verification"].map((tag, idx) => (
+                    <span 
+                      key={idx}
+                      className="badge rounded-pill px-3 py-2 fw-normal"
+                      style={{
+                        fontSize: "0.76rem",
+                        color: "#334155",
+                        background: "#f8fafc",
+                        border: "1px solid #e2e8f0"
+                      }}
+                    >
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+
+                <div className="d-flex flex-wrap gap-3">
+                  <Link to="/getintouch" className="action-btn text-decoration-none">
+                    <span>Outsource Data Entry Work</span>
+                    <FaArrowRight className="action-arrow" />
+                  </Link>
+                  <Link to="/applyjob" state={{ jobRole: "Data Entry Specialist / Operator", category: "Non-IT Data Operations" }} className="action-btn-outline text-decoration-none">
+                    <span>Apply For Data Entry Role</span>
+                  </Link>
+                </div>
+              </div>
+            </Col>
+          </Row>
         </div>
 
         {/* B2B Client Outsource Callout */}
