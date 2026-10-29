@@ -19,6 +19,8 @@ const Meet = lazy(() => import("./components/Meet"));
 const RegisterPage = lazy(() => import("./components/RegisterPage"));
 const NotFound = lazy(() => import("./components/NotFound"));
 
+import ScrollToTop from "./components/ScrollToTop";
+
 // Course Platform pages
 const Courses = lazy(() => import("./pages/Courses"));
 const CourseDetail = lazy(() => import("./pages/CourseDetail"));
@@ -28,6 +30,7 @@ const StudentDashboard = lazy(() => import("./pages/StudentDashboard"));
 function App() {
   return (
     <HashRouter>
+      <ScrollToTop />
       <Suspense
         fallback={
           <div
