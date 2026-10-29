@@ -1,6 +1,7 @@
 /* ============================================================
    GROWTHNEST TECH SOLUTION - PROFESSIONAL HERO SECTION
    Clean, authentic, human-designed hero with ambient growth video
+   Fully responsive across Desktop, Tablet, and Mobile devices
    ============================================================ */
 
 .hero-section {
@@ -11,7 +12,7 @@
   padding: 60px 0;
 }
 
-/* 1. AMBIENT BACKGROUND GROWTH VIDEO (FULL HERO COVERAGE & CLEARLY VISIBLE) */
+/* 1. AMBIENT BACKGROUND GROWTH VIDEO */
 .hero-bg-video-wrapper {
   position: absolute;
   top: 0;
@@ -48,19 +49,19 @@
   z-index: 1;
 }
 
-/* Glassmorphism panel for crystal clear text readability over bright video */
+/* Glassmorphism panel for crystal clear text readability */
 .hero-content-col {
-  background: rgba(255, 255, 255, 0.75);
+  background: rgba(255, 255, 255, 0.78);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
-  padding: 30px;
+  padding: 32px;
   border-radius: 24px;
-  border: 1px solid rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(255, 255, 255, 0.95);
   box-shadow: 0 12px 35px rgba(0, 0, 0, 0.05);
 }
 
 .hero-heading {
-  font-size: 3rem;
+  font-size: 2.85rem;
   font-weight: 800;
   color: #0f172a !important;
   line-height: 1.2;
@@ -68,13 +69,13 @@
 }
 
 .hero-subheading {
-  font-size: 1.12rem;
+  font-size: 1.1rem;
   color: #475569 !important;
   line-height: 1.7;
   max-width: 560px;
 }
 
-/* 2. HERO VISUAL CARD (COMPACT TECH VIDEO BOX) */
+/* 2. HERO VISUAL CARD (TECH VIDEO BOX) */
 .hero-image-card {
   position: relative;
   background: #ffffff;
@@ -84,7 +85,7 @@
   box-shadow: 0 14px 35px rgba(0, 0, 0, 0.10);
   display: inline-block;
   overflow: hidden;
-  max-width: 410px;
+  max-width: 420px;
   width: 100%;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
@@ -97,14 +98,14 @@
 .hero-main-video {
   border-radius: 12px;
   width: 100%;
-  max-width: 410px;
+  max-width: 420px;
   height: 250px;
   object-fit: cover;
   display: block;
   background: #0f172a;
 }
 
-/* 3. FLOATING STAT BADGE (COMPACT) */
+/* 3. FLOATING STAT BADGE */
 .growth-badge-floating {
   position: absolute;
   top: 16px;
@@ -174,7 +175,7 @@
   font-weight: 500;
 }
 
-/* 5. VIDEO PLAY/PAUSE & SOUND CONTROLS */
+/* 5. VIDEO CONTROLS */
 .video-quick-controls {
   position: absolute;
   bottom: 16px;
@@ -206,207 +207,173 @@
   transform: scale(1.08);
 }
 
-/* RESPONSIVE */
+/* ============================================================
+   TABLET RESPONSIVENESS (<= 991px)
+   ============================================================ */
 @media (max-width: 991px) {
-  .hero-heading {
-    font-size: 2.2rem;
-  }
-  
-  .hero-subheading {
-    font-size: 1rem;
+  .hero-section {
+    padding: 36px 0;
   }
 
-  .hero-section {
-    padding: 30px 0;
+  .hero-heading {
+    font-size: 2.1rem;
+    line-height: 1.25;
+  }
+
+  .hero-subheading {
+    font-size: 1rem;
+    max-width: 100%;
   }
 
   .hero-content-col {
-    padding: 20px 16px;
-    border-radius: 18px;
+    padding: 24px 20px;
+    border-radius: 20px;
   }
 
   .hero-image-card {
-    max-width: 360px;
+    max-width: 400px;
+    margin: 0 auto;
   }
 
   .hero-main-video {
-    height: 220px;
-  }
-
-  .growth-badge-floating {
-    top: 12px;
-    right: 12px;
-    padding: 4px 8px;
-  }
-
-  .hero-image-badge {
-    bottom: 12px;
-    left: 12px;
-    padding: 6px 10px;
-  }
-
-  .video-quick-controls {
-    bottom: 12px;
-    right: 12px;
+    height: 230px;
   }
 }
 
-.hero-image-card:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.12);
-}
-
-.hero-main-img,
-.hero-main-video {
-  border-radius: 14px;
-  width: 100%;
-  max-width: 540px;
-  height: 350px;
-  object-fit: cover;
-  display: block;
-  background: #0f172a;
-}
-
-/* 4. FLOATING STAT BADGE */
-.growth-badge-floating {
-  position: absolute;
-  top: 24px;
-  right: 24px;
-  background: rgba(255, 255, 255, 0.95);
-  backdrop-filter: blur(10px);
-  padding: 8px 14px;
-  border-radius: 12px;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  border: 1px solid rgba(22, 163, 74, 0.25);
-  text-align: left;
-  animation: floatBadge 4s ease-in-out infinite;
-  z-index: 2;
-}
-
-.growth-badge-icon {
-  font-size: 1.25rem;
-}
-
-.growth-badge-metric {
-  font-size: 1rem;
-  font-weight: 800;
-  color: #15803d;
-  line-height: 1.1;
-}
-
-.growth-badge-label {
-  font-size: 0.72rem;
-  font-weight: 600;
-  color: #64748b;
-}
-
-@keyframes floatBadge {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-5px); }
-}
-
-/* 5. BOTTOM OVERLAY BADGE */
-.hero-image-badge {
-  position: absolute;
-  bottom: 24px;
-  left: 24px;
-  background: rgba(15, 23, 42, 0.88);
-  backdrop-filter: blur(8px);
-  padding: 10px 18px;
-  border-radius: 10px;
-  display: flex;
-  flex-direction: column;
-  text-align: left;
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  z-index: 2;
-  max-width: 80%;
-}
-
-.hero-image-badge .badge-title {
-  color: #ffffff;
-  font-weight: 700;
-  font-size: 0.88rem;
-}
-
-.hero-image-badge .badge-subtitle {
-  color: #a7f3d0;
-  font-size: 0.75rem;
-  font-weight: 500;
-}
-
-/* 6. VIDEO PLAY/PAUSE & SOUND CONTROLS */
-.video-quick-controls {
-  position: absolute;
-  bottom: 24px;
-  right: 24px;
-  display: flex;
-  gap: 8px;
-  z-index: 3;
-}
-
-.btn-video-control {
-  background: rgba(15, 23, 42, 0.78);
-  backdrop-filter: blur(6px);
-  border: 1px solid rgba(255, 255, 255, 0.25);
-  color: #ffffff;
-  width: 32px;
-  height: 32px;
-  border-radius: 50%;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  transition: all 0.2s ease;
-  padding: 0;
-}
-
-.btn-video-control:hover {
-  background: #16a34a;
-  color: #ffffff;
-  transform: scale(1.08);
-}
-
-/* RESPONSIVE */
-@media (max-width: 991px) {
-  .hero-heading {
-    font-size: 2.2rem;
-  }
-  
-  .hero-subheading {
-    font-size: 1rem;
-  }
-
+/* ============================================================
+   MOBILE RESPONSIVENESS (<= 576px - iPhone, Android Phones)
+   ============================================================ */
+@media (max-width: 576px) {
   .hero-section {
-    padding: 30px 0;
+    padding: 16px 0 24px 0;
+  }
+
+  .hero-bg-video-elem {
+    opacity: 0.45;
   }
 
   .hero-content-col {
-    padding: 20px 16px;
-    border-radius: 18px;
+    padding: 18px 14px;
+    border-radius: 16px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
   }
 
-  .hero-main-img,
+  .hero-heading {
+    font-size: 1.65rem !important;
+    line-height: 1.28;
+    letter-spacing: -0.01em;
+    margin-bottom: 12px !important;
+  }
+
+  .hero-subheading {
+    font-size: 0.92rem !important;
+    line-height: 1.6;
+    margin-bottom: 18px !important;
+  }
+
+  /* Full-width thumb-friendly buttons on mobile */
+  .hero-content-col .d-flex.flex-wrap.gap-3.mb-4 {
+    flex-direction: column;
+    gap: 10px !important;
+    margin-bottom: 16px !important;
+  }
+
+  .hero-content-col .action-btn,
+  .hero-content-col .action-btn-outline {
+    width: 100% !important;
+    padding: 11px 16px !important;
+    font-size: 0.92rem !important;
+    text-align: center;
+    justify-content: center;
+  }
+
+  /* WhatsApp pill mobile wrapping */
+  .hero-content-col .d-inline-flex {
+    width: 100% !important;
+    border-radius: 12px !important;
+    padding: 10px 12px !important;
+    margin-bottom: 16px !important;
+  }
+
+  .hero-content-col .d-inline-flex span {
+    font-size: 0.8rem !important;
+    line-height: 1.4;
+  }
+
+  /* Trust metrics stack neatly on mobile */
+  .hero-trust-bar {
+    gap: 8px !important;
+    padding-top: 8px !important;
+  }
+
+  .hero-trust-bar > div {
+    width: 100%;
+    gap: 8px !important;
+  }
+
+  .hero-trust-bar span {
+    font-size: 0.78rem !important;
+  }
+
+  /* Mobile Video Player Card */
+  .hero-image-card {
+    max-width: 100% !important;
+    border-radius: 14px;
+    padding: 6px;
+    margin-top: 10px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+  }
+
   .hero-main-video {
-    height: 270px;
+    height: 200px !important;
+    border-radius: 10px;
   }
 
+  /* Badges on mobile don't collide */
   .growth-badge-floating {
-    top: 16px;
-    right: 16px;
-    padding: 6px 10px;
+    top: 10px;
+    right: 10px;
+    padding: 4px 8px;
+    border-radius: 8px;
+    gap: 6px;
+  }
+
+  .growth-badge-icon {
+    font-size: 0.95rem;
+  }
+
+  .growth-badge-metric {
+    font-size: 0.78rem;
+  }
+
+  .growth-badge-label {
+    font-size: 0.62rem;
   }
 
   .hero-image-badge {
-    bottom: 16px;
-    left: 16px;
-    padding: 8px 12px;
+    bottom: 10px;
+    left: 10px;
+    padding: 6px 10px;
+    border-radius: 6px;
+    max-width: 65%;
+  }
+
+  .hero-image-badge .badge-title {
+    font-size: 0.72rem;
+  }
+
+  .hero-image-badge .badge-subtitle {
+    font-size: 0.62rem;
   }
 
   .video-quick-controls {
-    bottom: 16px;
-    right: 16px;
+    bottom: 10px;
+    right: 10px;
+    gap: 4px;
+  }
+
+  .btn-video-control {
+    width: 26px;
+    height: 26px;
   }
 }

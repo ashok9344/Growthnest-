@@ -157,7 +157,7 @@ const NonITWork = () => {
 
         {/* Featured Data Entry & Excel Project Showcase */}
         <div 
-          className="p-4 p-lg-5 rounded-4 mb-5"
+          className="p-3 p-md-4 p-lg-5 rounded-4 mb-4 mb-md-5"
           style={{
             background: "#ffffff",
             border: "1px solid #e2e8f0",
@@ -174,19 +174,19 @@ const NonITWork = () => {
                   src={dataImage}
                   alt="Enterprise Excel Sheet Creation and Data Entry Operations"
                   className="w-100 img-fluid"
-                  style={{ height: "320px", objectFit: "cover" }}
+                  style={{ minHeight: "200px", maxHeight: "320px", width: "100%", objectFit: "cover" }}
                 />
                 <div 
                   className="position-absolute"
                   style={{
-                    top: "14px",
-                    left: "14px",
+                    top: "12px",
+                    left: "12px",
                     background: "rgba(15, 23, 42, 0.88)",
                     backdropFilter: "blur(6px)",
                     color: "#ffffff",
-                    padding: "6px 14px",
+                    padding: "5px 12px",
                     borderRadius: "8px",
-                    fontSize: "0.8rem",
+                    fontSize: "0.78rem",
                     fontWeight: "600",
                     border: "1px solid rgba(255, 255, 255, 0.15)"
                   }}
@@ -197,19 +197,19 @@ const NonITWork = () => {
                 <div 
                   className="position-absolute"
                   style={{
-                    bottom: "14px",
-                    left: "14px",
-                    right: "14px",
+                    bottom: "12px",
+                    left: "12px",
+                    right: "12px",
                     background: "rgba(15, 23, 42, 0.90)",
                     backdropFilter: "blur(8px)",
                     color: "#ffffff",
-                    padding: "10px 16px",
-                    borderRadius: "10px",
+                    padding: "8px 14px",
+                    borderRadius: "8px",
                     border: "1px solid rgba(255, 255, 255, 0.15)"
                   }}
                 >
                   <div className="fw-bold small text-white">Live Data Compilation & Validation Hub</div>
-                  <div style={{ fontSize: "0.75rem", color: "#a7f3d0" }}>
+                  <div style={{ fontSize: "0.72rem", color: "#a7f3d0" }}>
                     Tirunelveli Operations Center • 99.8% Alphanumeric Accuracy
                   </div>
                 </div>
@@ -274,12 +274,12 @@ const NonITWork = () => {
                   ))}
                 </div>
 
-                <div className="d-flex flex-wrap gap-3">
-                  <Link to="/getintouch" className="action-btn text-decoration-none">
+                <div className="d-flex flex-column flex-sm-row gap-2 gap-sm-3">
+                  <Link to="/getintouch" className="action-btn text-decoration-none text-center">
                     <span>Outsource Data Entry Work</span>
                     <FaArrowRight className="action-arrow" />
                   </Link>
-                  <Link to="/applyjob" state={{ jobRole: "Data Entry Specialist / Operator", category: "Non-IT Data Operations" }} className="action-btn-outline text-decoration-none">
+                  <Link to="/applyjob" state={{ jobRole: "Data Entry Specialist / Operator", category: "Non-IT Data Operations" }} className="action-btn-outline text-decoration-none text-center">
                     <span>Apply For Data Entry Role</span>
                   </Link>
                 </div>

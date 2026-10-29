@@ -297,3 +297,34 @@ p {
   color: #ffffff !important;
   transform: translateY(-1px);
 }
+
+/* GLOBAL MOBILE RESPONSIVENESS */
+@media (max-width: 576px) {
+  .tech-pill {
+    font-size: 0.72rem !important;
+    padding: 5px 12px !important;
+    letter-spacing: 0.02em !important;
+  }
+
+  .display-4 {
+    font-size: 2.1rem !important;
+  }
+
+  .display-5 {
+    font-size: 1.85rem !important;
+  }
+
+  .display-6 {
+    font-size: 1.65rem !important;
+  }
+
+  .action-btn,
+  .action-btn-outline {
+    font-size: 0.88rem;
+    padding: 9px 16px;
+  }
+
+  .enterprise-case-card {
+    border-radius: 14px;
+  }
+}
