@@ -48,7 +48,7 @@ const Navbar = () => {
               <Navitem path="/" name="Home" />
               <Navitem path="/service" name="Services" />
               <Navitem path="/it-project" name="Projects" />
-              <Navitem path="/non-it-work" name="Data & Image BPO" />
+              <Navitem path="/non-it-work" name="Non IT" />
               <Navitem path="/about" name="About Us" />
               <Navitem path="/it-career" name="Careers" />
               <Navitem path="/faq" name="FAQ" />
