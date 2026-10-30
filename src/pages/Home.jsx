@@ -7,7 +7,6 @@ import MobileProjects from "../components/homecomponents/MobileProjects";
 import Review from "../components/homecomponents/Review";
 import { JobOffered } from "../components/homecomponents/JobOffered";
 import Pastworks from "../components/homecomponents/Pastworks";
-import { Teammates } from "../components/aboutcomponents/Teammates";
 import GetinTouch from "../components/GetinTouch";
 
 const Home = () => {
@@ -37,10 +36,7 @@ const Home = () => {
       {/* 8. Institutional MoUs & Outreach */}
       <Pastworks />
 
-      {/* 9. Leadership & Engineering Team */}
-      <Teammates />
-
-      {/* 10. Project Proposal & Free Cost Estimate Form */}
+      {/* 9. Project Proposal & Free Cost Estimate Form */}
       <GetinTouch isEmbedded={true} />
     </div>
   );

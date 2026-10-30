@@ -20,7 +20,7 @@ const Whoweare = () => {
           </h1>
 
           <p className="mb-4 text-secondary" style={{ fontSize: "1.08rem", lineHeight: "1.7" }}>
-            GrowthNest Tech Solution is an agile software engineering and technology consulting company based in Tirunelveli, Tamil Nadu. We partner with ambitious startups, growing SMEs, and enterprise organizations to design, architect, and deploy custom web platforms, mobile applications, computer vision systems, and high-volume data operations.
+            GrowthNest Tech Solution is an agile software engineering and technology consulting company based in Adayakarungulam, Ambasumuthiram, Tamil Nadu. We partner with ambitious startups, growing SMEs, and enterprise organizations to design, architect, and deploy custom web platforms, mobile applications, computer vision systems, and high-volume data operations.
           </p>
 
           <div className="d-flex flex-wrap gap-3 mb-4">

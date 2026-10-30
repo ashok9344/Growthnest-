@@ -48,7 +48,7 @@ const faqData = [
   {
     category: "General",
     q: "Where is GrowthNest Tech Solution located?",
-    a: "Our main development campus is located in Tirunelveli, Tamil Nadu, with university MoU partner centers across South India.",
+    a: "Our main development campus is located in Adayakarungulam, Ambasumuthiram, Tamil Nadu, with university MoU partner centers across South India.",
   },
   {
     category: "General",

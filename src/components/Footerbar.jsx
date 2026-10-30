@@ -182,7 +182,7 @@ const Footerbar = () => {
               <div className="d-flex align-items-start gap-2">
                 <FaMapMarkerAlt className="text-success mt-1 flex-shrink-0" size={14} />
                 <span>
-                  GrowthNest Tech Solution, Tirunelveli, Tamil Nadu, India - 627001
+                  GrowthNest Tech Solution, Adayakarungulam, Ambasumuthiram, Tamil Nadu, India
                 </span>
               </div>
 
@@ -208,10 +208,10 @@ const Footerbar = () => {
             <div className="footer-map-container rounded-3 overflow-hidden border border-secondary border-opacity-50">
               <div className="bg-dark bg-opacity-50 d-flex align-items-center justify-content-between px-3 py-2 border-bottom border-secondary border-opacity-25">
                 <span className="small text-white-50 fw-semibold">
-                  <FaMapMarkerAlt className="text-success me-1" size={11} /> Tirunelveli Tech Hub
+                  <FaMapMarkerAlt className="text-success me-1" size={11} /> Ambasumuthiram Tech Hub
                 </span>
                 <a 
-                  href="https://maps.google.com/?q=GrowthNest+Tech+Solution+Tirunelveli" 
+                  href="https://maps.google.com/?q=GrowthNest+Tech+Solution" 
                   target="_blank" 
                   rel="noopener noreferrer"
                   className="small text-success text-decoration-none"
@@ -221,14 +221,14 @@ const Footerbar = () => {
                 </a>
               </div>
               <iframe
-                title="GrowthNest Tirunelveli Headquarters"
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3943.8!2d77.72!3d8.73!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b0411a000000000%3A0x0!2sTirunelveli%2C+Tamil+Nadu!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin"
+                title="GrowthNest Tech Solution Headquarters"
+                src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d985.9512725217838!2d77.416604!3d8.710051!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b0439003d56a7b7%3A0x2414b7237c95821!2sGrowthNest%20Tech%20Solution!5e0!3m2!1sen!2sin!4v1793359799802!5m2!1sen!2sin"
                 width="100%"
                 height="115"
                 style={{ border: 0 }}
                 allowFullScreen=""
                 loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
+                referrerPolicy="strict-origin-when-cross-origin"
               ></iframe>
             </div>
           </Col>
