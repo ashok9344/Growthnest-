@@ -211,22 +211,6 @@ const GetinTouch = ({ isEmbedded = false }) => {
                   <span>Chat With Our Technical Lead on WhatsApp</span>
                 </a>
               </div>
-
-              {/* Google Maps Location */}
-              <div className="pt-3 border-top border-light-subtle">
-                <div className="rounded-3 overflow-hidden border border-light-subtle shadow-sm">
-                  <iframe
-                    src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d985.9512725217838!2d77.416604!3d8.710051!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b0439003d56a7b7%3A0x2414b7237c95821!2sGrowthNest%20Tech%20Solution!5e0!3m2!1sen!2sin!4v1793359799802!5m2!1sen!2sin"
-                    width="100%"
-                    height="200"
-                    style={{ border: 0, display: "block" }}
-                    allowFullScreen=""
-                    loading="lazy"
-                    referrerPolicy="strict-origin-when-cross-origin"
-                    title="GrowthNest Tech Solution Location"
-                  ></iframe>
-                </div>
-              </div>
             </div>
           </Col>
 
