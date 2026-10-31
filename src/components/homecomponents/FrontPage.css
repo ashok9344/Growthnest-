@@ -105,45 +105,75 @@
   background: #0f172a;
 }
 
-/* 3. FLOATING STAT BADGE */
-.growth-badge-floating {
+/* 3. MEDIA TABS & FLOATING INDIA BADGE */
+.hero-media-tabs button {
+  transition: all 0.2s ease-in-out;
+}
+
+.hero-media-play-overlay {
   position: absolute;
-  top: 16px;
-  right: 16px;
-  background: rgba(255, 255, 255, 0.95);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 54px;
+  height: 54px;
+  border-radius: 50%;
+  background: rgba(22, 163, 74, 0.92);
+  border: 3px solid rgba(255, 255, 255, 0.95);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.30);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: transform 0.25s ease, background 0.25s ease, box-shadow 0.25s ease;
+  z-index: 3;
+}
+
+.hero-media-play-overlay:hover {
+  transform: translate(-50%, -50%) scale(1.12);
+  background: #15803d;
+  box-shadow: 0 10px 28px rgba(22, 163, 74, 0.45);
+}
+
+.india-badge-floating {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  background: rgba(255, 255, 255, 0.96);
   backdrop-filter: blur(10px);
   padding: 6px 12px;
   border-radius: 10px;
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.10);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
   display: flex;
   align-items: center;
   gap: 8px;
-  border: 1px solid rgba(22, 163, 74, 0.25);
+  border: 1px solid rgba(22, 163, 74, 0.30);
   text-align: left;
-  animation: floatBadge 4s ease-in-out infinite;
   z-index: 2;
+  animation: floatIndiaBadge 4s ease-in-out infinite;
 }
 
-.growth-badge-icon {
-  font-size: 1.1rem;
+.india-flag-icon {
+  font-size: 1.15rem;
+  line-height: 1;
 }
 
-.growth-badge-metric {
-  font-size: 0.9rem;
+.india-badge-metric {
+  font-size: 0.82rem;
   font-weight: 800;
   color: #15803d;
   line-height: 1.1;
 }
 
-.growth-badge-label {
-  font-size: 0.68rem;
+.india-badge-label {
+  font-size: 0.65rem;
   font-weight: 600;
   color: #64748b;
 }
 
-@keyframes floatBadge {
+@keyframes floatIndiaBadge {
   0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-5px); }
+  50% { transform: translateY(-4px); }
 }
 
 /* 4. BOTTOM OVERLAY BADGE */

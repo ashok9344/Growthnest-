@@ -15,11 +15,13 @@ import {
 } from "react-icons/fa";
 import growthStairsVideo from "../../assets/video/growth-stairs.mp4";
 import heroVideo from "../../assets/video/hero-video.mp4";
+import itCompanyWorking from "../../assets/home/it-company-working.jpg";
 import "./FrontPage.css";
 
 const FrontPage = () => {
   const [isPlaying, setIsPlaying] = useState(true);
   const [isMuted, setIsMuted] = useState(true);
+  const [activeMediaTab, setActiveMediaTab] = useState("office"); // "office" (Indian IT lab) or "video" (live coding)
 
   const mainVideoRef = useRef(null);
   const bgVideoRef = useRef(null);
@@ -30,11 +32,14 @@ const FrontPage = () => {
       bgVideoRef.current.muted = true;
       bgVideoRef.current.play().catch(() => {});
     }
-    if (mainVideoRef.current) {
+  }, []);
+
+  useEffect(() => {
+    if (activeMediaTab === "video" && mainVideoRef.current) {
       mainVideoRef.current.muted = isMuted;
       mainVideoRef.current.play().catch(() => {});
     }
-  }, []);
+  }, [activeMediaTab, isMuted]);
 
   const togglePlay = () => {
     if (!mainVideoRef.current) return;
@@ -126,55 +131,107 @@ const FrontPage = () => {
             </div>
           </Col>
 
-          {/* RIGHT VISUAL - TECH VIDEO EXCLUSIVELY */}
+          {/* RIGHT VISUAL - INDIAN TECH LAB & CODE VIDEO */}
           <Col lg={5} className="text-center">
-            <div className="hero-image-card">
-              <video
-                ref={mainVideoRef}
-                src={heroVideo}
-                autoPlay
-                loop
-                muted={isMuted}
-                playsInline
-                className="hero-main-video"
-              />
+            {/* Visual Media Tabs */}
+            <div className="hero-media-tabs d-inline-flex align-items-center gap-1 mb-2 p-1 rounded-pill bg-white border shadow-sm">
+              <button
+                type="button"
+                className={`btn btn-sm rounded-pill px-3 py-1 fw-semibold transition-all ${activeMediaTab === "office" ? "btn-success text-white shadow-sm" : "text-secondary border-0 bg-transparent"}`}
+                onClick={() => setActiveMediaTab("office")}
+                style={{ fontSize: "0.82rem" }}
+              >
+                🇮🇳 Indian Tech Lab
+              </button>
+              <button
+                type="button"
+                className={`btn btn-sm rounded-pill px-3 py-1 fw-semibold transition-all ${activeMediaTab === "video" ? "btn-success text-white shadow-sm" : "text-secondary border-0 bg-transparent"}`}
+                onClick={() => {
+                  setActiveMediaTab("video");
+                  if (mainVideoRef.current) mainVideoRef.current.play().catch(() => {});
+                }}
+                style={{ fontSize: "0.82rem" }}
+              >
+                💻 Live Code Demo
+              </button>
+            </div>
 
-              {/* Floating Tech Stat Pill */}
-              <div className="growth-badge-floating">
-                <span className="growth-badge-icon">🚀</span>
+            <div className="hero-image-card">
+              {activeMediaTab === "office" ? (
+                <div className="position-relative w-100">
+                  <img
+                    src={itCompanyWorking}
+                    alt="GrowthNest Indian Software Development Lab"
+                    className="hero-main-video"
+                    style={{ objectFit: "cover" }}
+                  />
+                  {/* Play Video Trigger Overlay Button */}
+                  <button
+                    type="button"
+                    onClick={() => {
+                      setActiveMediaTab("video");
+                      setTimeout(() => {
+                        if (mainVideoRef.current) mainVideoRef.current.play().catch(() => {});
+                      }, 100);
+                    }}
+                    className="hero-media-play-overlay"
+                    title="Watch Coding Video"
+                    aria-label="Watch Coding Video"
+                  >
+                    <FaPlay size={16} className="text-white ms-1" />
+                  </button>
+                </div>
+              ) : (
+                <video
+                  ref={mainVideoRef}
+                  src={heroVideo}
+                  poster={itCompanyWorking}
+                  autoPlay
+                  loop
+                  muted={isMuted}
+                  playsInline
+                  className="hero-main-video"
+                />
+              )}
+
+              {/* Floating India Location Badge (No 'Next-Gen Tech') */}
+              <div className="india-badge-floating">
+                <span className="india-flag-icon">🇮🇳</span>
                 <div>
-                  <div className="growth-badge-metric">Next-Gen Tech</div>
-                  <div className="growth-badge-label">Scalable Architecture</div>
+                  <div className="india-badge-metric">Indian Software Lab</div>
+                  <div className="india-badge-label">Tamil Nadu, India</div>
                 </div>
               </div>
 
               {/* Bottom Video Badge */}
               <div className="hero-image-badge">
-                <span className="badge-title">Enterprise Software Lab</span>
-                <span className="badge-subtitle">Scale Your Business With GrowthNest</span>
+                <span className="badge-title">GrowthNest Tech Solution</span>
+                <span className="badge-subtitle">Custom Software Engineering &bull; Tirunelveli</span>
               </div>
 
-              {/* Video Play/Pause & Sound Controls */}
-              <div className="video-quick-controls">
-                <button
-                  type="button"
-                  onClick={togglePlay}
-                  className="btn-video-control"
-                  title={isPlaying ? "Pause video" : "Play video"}
-                  aria-label="Play or Pause Video"
-                >
-                  {isPlaying ? <FaPause size={11} /> : <FaPlay size={11} />}
-                </button>
-                <button
-                  type="button"
-                  onClick={toggleMute}
-                  className="btn-video-control"
-                  title={isMuted ? "Unmute audio" : "Mute audio"}
-                  aria-label="Mute or Unmute Video"
-                >
-                  {isMuted ? <FaVolumeMute size={12} /> : <FaVolumeUp size={12} />}
-                </button>
-              </div>
+              {/* Video Play/Pause & Sound Controls (Active in Video Mode) */}
+              {activeMediaTab === "video" && (
+                <div className="video-quick-controls">
+                  <button
+                    type="button"
+                    onClick={togglePlay}
+                    className="btn-video-control"
+                    title={isPlaying ? "Pause video" : "Play video"}
+                    aria-label="Play or Pause Video"
+                  >
+                    {isPlaying ? <FaPause size={11} /> : <FaPlay size={11} />}
+                  </button>
+                  <button
+                    type="button"
+                    onClick={toggleMute}
+                    className="btn-video-control"
+                    title={isMuted ? "Unmute audio" : "Mute audio"}
+                    aria-label="Mute or Unmute Video"
+                  >
+                    {isMuted ? <FaVolumeMute size={12} /> : <FaVolumeUp size={12} />}
+                  </button>
+                </div>
+              )}
             </div>
           </Col>
         </Row>
