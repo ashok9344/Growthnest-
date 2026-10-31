@@ -11,9 +11,9 @@ import "./showcase.css";
 const projects = [
   {
     id: "inmba",
-    title: "INMBA - International Network of Modern Business Achievers",
-    category: "Business Platform",
-    badge: "Enterprise Business Portal",
+    title: "INMBA",
+    category: "INMBA",
+    badge: "INMBA",
     desc: "Global business networking and international trade delegation portal engineered for business leaders, featuring interactive member directories, conference event scheduling, and collaborative community forums.",
     img: project1,
     logo: inmbaLogo,
@@ -24,10 +24,10 @@ const projects = [
   },
   {
     id: "womensstyle",
-    title: "Women's Styles Store - Modern Fashion E-Commerce",
-    category: "E-Commerce",
-    badge: "Fashion E-Commerce",
-    desc: "Full-featured online fashion storefront engineered with fluid product catalogs, dynamic cart management, secure checkout, and mobile-first responsive shopping experience.",
+    title: "Women's Style",
+    category: "Women's Style",
+    badge: "Women's Style",
+    desc: "Full-featured online storefront engineered with fluid product catalogs, dynamic cart management, secure checkout, and mobile-first responsive shopping experience.",
     img: project2,
     logo: womensStyleLogo,
     liveUrl: "https://womensstyle.store",
@@ -57,7 +57,7 @@ export const ProjectShowCase = () => {
             PRODUCTION PORTFOLIO & CLIENT DELIVERABLES
           </span>
           <h2 className="display-6 fw-bold mt-2 text-dark">
-            Featured Enterprise <span style={{ color: "#16a34a" }}>Production Projects</span>
+            Featured <span style={{ color: "#16a34a" }}>Production Projects</span>
           </h2>
           <p className="text-secondary mx-auto" style={{ maxWidth: "680px", fontSize: "1.05rem" }}>
             Explore the real-world digital architectures and live production platforms engineered and deployed by GrowthNest Tech Solution.
@@ -115,7 +115,7 @@ export const ProjectShowCase = () => {
                       src={item.img} 
                       alt={item.title} 
                       className="case-img w-100 h-100" 
-                      style={{ objectFit: "cover" }}
+                      style={{ objectFit: "cover", objectPosition: "top center" }}
                     />
                     
                     {/* Category Badge */}
