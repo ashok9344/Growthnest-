@@ -51,6 +51,51 @@
   font-family: var(--font-body);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* Allow text selection in form inputs, textareas, and editable fields */
+input,
+textarea,
+select,
+[contenteditable="true"] {
+  -webkit-user-select: text !important;
+  -moz-user-select: text !important;
+  -ms-user-select: text !important;
+  user-select: text !important;
+}
+
+/* Prevent image dragging */
+img {
+  -webkit-user-drag: none;
+  user-drag: none;
+}
+
+/* Disable text selection highlight across content */
+::selection {
+  background: transparent;
+  color: inherit;
+}
+
+::-moz-selection {
+  background: transparent;
+  color: inherit;
+}
+
+/* Visible selection inside form fields */
+input::selection,
+textarea::selection {
+  background: #22c55e;
+  color: #ffffff;
+}
+
+input::-moz-selection,
+textarea::-moz-selection {
+  background: #22c55e;
+  color: #ffffff;
 }
 
 html,
