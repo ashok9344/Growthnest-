@@ -1,41 +1,39 @@
 import React, { useState } from "react";
 import { Container, Row, Col } from "react-bootstrap";
-import { FaCheckCircle, FaArrowRight } from "react-icons/fa";
+import { FaCheckCircle, FaArrowRight, FaExternalLinkAlt, FaGlobe } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import project1 from "../../assets/home/project1.png";
 import project2 from "../../assets/home/project2.png";
+import inmbaLogo from "../../assets/home/inmba-logo.png";
+import womensStyleLogo from "../../assets/home/womensstyle-logo.png";
 import "./showcase.css";
 
 const projects = [
   {
-    id: "p1",
-    title: "Next-Gen Enterprise ERP & Cloud Portal",
-    category: "Web & Cloud",
-    badge: "Enterprise SaaS",
-    desc: "A high-performance ERP and workflow platform engineered for real-time analytics, automated inventory forecasting, and multi-branch data synchronization.",
+    id: "inmba",
+    title: "INMBA - International Network of Modern Business Achievers",
+    category: "Business Platform",
+    badge: "Enterprise Business Portal",
+    desc: "Global business networking and international trade delegation portal engineered for business leaders, featuring interactive member directories, conference event scheduling, and collaborative community forums.",
     img: project1,
-    metrics: "40% Faster Load Time • 99.9% Uptime SLA",
-    tags: ["React 19", "Node.js", "MongoDB", "AWS S3", "Docker"],
+    logo: inmbaLogo,
+    liveUrl: "https://inmba.org",
+    displayUrl: "inmba.org",
+    metrics: "International Business Network • 100% Live Production",
+    tags: ["React", "Cloud Architecture", "REST APIs", "Modern UI", "Community Portal"],
   },
   {
-    id: "p4",
-    title: "Conversational AI & Customer Intelligence Suite",
-    category: "AI & Image Analysis",
-    badge: "Smart Automation",
-    desc: "Omnichannel customer support platform integrating predictive ticket classification, automated FAQ triage, and multilingual Tamil & English sentiment tagging.",
+    id: "womensstyle",
+    title: "Women's Styles Store - Modern Fashion E-Commerce",
+    category: "E-Commerce",
+    badge: "Fashion E-Commerce",
+    desc: "Full-featured online fashion storefront engineered with fluid product catalogs, dynamic cart management, secure checkout, and mobile-first responsive shopping experience.",
     img: project2,
-    metrics: "Over 10k Active Daily Sessions • 65% Instant Resolution",
-    tags: ["Python", "FastAPI", "React", "Docker", "NLP Models"],
-  },
-  {
-    id: "p6",
-    title: "FinTech Multi-Tenant Invoicing & Payment Engine",
-    category: "Web & Cloud",
-    badge: "FinTech & Banking",
-    desc: "Automated GST compliance, invoice reconciliation, and subscription recurring-billing engine supporting high-volume real-time transactions.",
-    img: project1,
-    metrics: "100k+ Transactions Processed • Instant Webhook Delivery",
-    tags: ["Spring Boot", "React", "Redis", "Razorpay API", "PostgreSQL"],
+    logo: womensStyleLogo,
+    liveUrl: "https://womensstyle.store",
+    displayUrl: "womensstyle.store",
+    metrics: "Mobile-First UX • High-Conversion Storefront",
+    tags: ["React", "E-Commerce", "Shopping Cart", "Responsive UX", "Vercel"],
   },
 ];
 
@@ -62,7 +60,7 @@ export const ProjectShowCase = () => {
             Featured Enterprise <span style={{ color: "#16a34a" }}>Production Projects</span>
           </h2>
           <p className="text-secondary mx-auto" style={{ maxWidth: "680px", fontSize: "1.05rem" }}>
-            Explore the real-world digital architectures, computer vision systems, and cloud platforms engineered and delivered by GrowthNest Tech Solution.
+            Explore the real-world digital architectures and live production platforms engineered and deployed by GrowthNest Tech Solution.
           </p>
 
           {/* Filter Tabs */}
@@ -90,9 +88,9 @@ export const ProjectShowCase = () => {
         </div>
 
         {/* Project Grid */}
-        <Row className="g-4">
-          {filteredProjects.map((item, index) => (
-            <Col key={item.id} lg={4} md={6}>
+        <Row className="g-4 justify-content-center">
+          {filteredProjects.map((item) => (
+            <Col key={item.id} lg={filteredProjects.length === 1 ? 8 : 6} md={6}>
               <div 
                 className="enterprise-case-card h-100 d-flex flex-column justify-content-between"
                 style={{
@@ -100,38 +98,122 @@ export const ProjectShowCase = () => {
                   border: "1px solid #e2e8f0",
                   borderRadius: "16px",
                   overflow: "hidden",
-                  boxShadow: "0 4px 16px rgba(0, 0, 0, 0.04)",
+                  boxShadow: "0 4px 16px rgba(0, 0, 0, 0.05)",
                   transition: "all 0.25s ease"
                 }}
               >
                 <div>
-                  <div className="case-img-box position-relative" style={{ height: "200px", overflow: "hidden", background: "#f1f5f9" }}>
+                  {/* Clickable Image Box */}
+                  <a
+                    href={item.liveUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="case-img-box position-relative d-block text-decoration-none"
+                    style={{ height: "230px", overflow: "hidden", background: "#f8fafc" }}
+                  >
                     <img 
                       src={item.img} 
                       alt={item.title} 
                       className="case-img w-100 h-100" 
                       style={{ objectFit: "cover" }}
                     />
+                    
+                    {/* Category Badge */}
                     <div 
                       className="case-category-pill position-absolute"
                       style={{
                         top: "12px",
                         left: "12px",
-                        background: "rgba(15, 23, 42, 0.85)",
+                        background: "rgba(15, 23, 42, 0.88)",
                         color: "#ffffff",
                         padding: "4px 12px",
                         borderRadius: "8px",
                         fontSize: "0.78rem",
-                        fontWeight: "600"
+                        fontWeight: "600",
+                        backdropFilter: "blur(4px)"
                       }}
                     >
                       {item.badge}
                     </div>
-                  </div>
 
+                    {/* Live Demo Pill */}
+                    <div 
+                      className="position-absolute d-flex align-items-center gap-1"
+                      style={{
+                        top: "12px",
+                        right: "12px",
+                        background: "#16a34a",
+                        color: "#ffffff",
+                        padding: "4px 12px",
+                        borderRadius: "20px",
+                        fontSize: "0.74rem",
+                        fontWeight: "700",
+                        boxShadow: "0 2px 8px rgba(0,0,0,0.25)"
+                      }}
+                    >
+                      <span style={{ width: "6px", height: "6px", borderRadius: "50%", background: "#ffffff", display: "inline-block" }}></span>
+                      <span>Live Site</span>
+                      <FaExternalLinkAlt size={9} className="ms-1" />
+                    </div>
+
+                    {/* Official Brand Logo */}
+                    <div
+                      className="position-absolute shadow-sm"
+                      style={{
+                        bottom: "12px",
+                        right: "14px",
+                        width: "56px",
+                        height: "56px",
+                        borderRadius: "14px",
+                        background: "#ffffff",
+                        padding: "6px",
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "center",
+                        border: "2px solid #ffffff",
+                        boxShadow: "0 4px 12px rgba(0,0,0,0.18)"
+                      }}
+                    >
+                      <img 
+                        src={item.logo} 
+                        alt={`${item.title} Logo`}
+                        style={{ maxWidth: "100%", maxHeight: "100%", objectFit: "contain" }}
+                      />
+                    </div>
+                  </a>
+
+                  {/* Card Content */}
                   <div className="case-body p-4">
-                    <h4 className="case-title fw-bold mb-2 fs-5 text-dark">{item.title}</h4>
-                    <p className="case-desc text-secondary mb-3 small" style={{ lineHeight: "1.6" }}>{item.desc}</p>
+                    <div className="d-flex align-items-center justify-content-between mb-2">
+                      <span className="badge bg-success-subtle text-success border border-success-subtle px-2 py-1 small fw-semibold">
+                        <FaGlobe className="me-1" size={11} />
+                        {item.displayUrl}
+                      </span>
+                      <a
+                        href={item.liveUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="small text-success fw-semibold text-decoration-none d-flex align-items-center gap-1"
+                      >
+                        <span>Open Live</span>
+                        <FaExternalLinkAlt size={10} />
+                      </a>
+                    </div>
+
+                    <h4 className="case-title fw-bold mb-2 fs-5">
+                      <a
+                        href={item.liveUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-dark text-decoration-none"
+                      >
+                        {item.title}
+                      </a>
+                    </h4>
+                    
+                    <p className="case-desc text-secondary mb-3 small" style={{ lineHeight: "1.6" }}>
+                      {item.desc}
+                    </p>
 
                     <div 
                       className="case-metric mb-3 p-2 rounded-3 small d-flex align-items-center"
@@ -160,7 +242,18 @@ export const ProjectShowCase = () => {
                   </div>
                 </div>
 
-                <div className="p-3 pt-0 border-top-0">
+                {/* Card Action Buttons */}
+                <div className="p-4 pt-0 border-top-0 d-flex flex-column gap-2">
+                  <a
+                    href={item.liveUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="btn btn-success w-100 py-2 d-flex align-items-center justify-content-center gap-2 fw-semibold text-decoration-none"
+                    style={{ background: "#16a34a", borderColor: "#16a34a", boxShadow: "0 2px 6px rgba(22, 163, 74, 0.25)" }}
+                  >
+                    <span>Visit Live Website ({item.displayUrl})</span>
+                    <FaExternalLinkAlt size={11} />
+                  </a>
                   <Link
                     to="/getintouch"
                     className="action-btn-outline w-100 text-decoration-none py-2 text-center small d-flex align-items-center justify-content-center gap-2"
