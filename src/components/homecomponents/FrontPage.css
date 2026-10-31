@@ -1,113 +1,253 @@
 /* ============================================================
-   GROWTHNEST TECH SOLUTION - PROFESSIONAL HERO SECTION
-   Clean, authentic, human-designed hero with ambient growth video
-   Fully responsive across Desktop, Tablet, and Mobile devices
+   GROWTHNEST TECH SOLUTION - CYBER DARK COSMIC HERO SECTION
+   Matching https://growthnesttechnologies.in visual identity
    ============================================================ */
 
 .hero-section {
   position: relative;
   overflow: hidden;
-  background: #f8fafc;
-  border-bottom: 1px solid #e2e8f0;
-  padding: 60px 0;
+  background: #070d1e;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 70px 0 80px 0;
+  min-height: 600px;
 }
 
-/* 1. AMBIENT BACKGROUND GROWTH VIDEO */
-.hero-bg-video-wrapper {
+/* 1. COSMIC GRADIENT & GRID PATTERN BACKGROUND */
+.hero-bg-cosmic {
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
+  inset: 0;
   overflow: hidden;
   pointer-events: none;
   z-index: 0;
+  background: 
+    radial-gradient(1200px 650px at 15% -10%, rgba(37, 99, 235, 0.35) 0%, transparent 60%),
+    radial-gradient(900px 550px at 95% 10%, rgba(16, 185, 129, 0.22) 0%, transparent 55%),
+    radial-gradient(800px 500px at 50% 100%, rgba(56, 189, 248, 0.15) 0%, transparent 50%),
+    linear-gradient(135deg, #070d1e 0%, #0b1530 50%, #080f24 100%);
 }
 
-.hero-bg-video-elem {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  opacity: 0.62;
-  filter: saturate(1.25) contrast(1.15) brightness(1.02);
-}
-
-.hero-bg-video-overlay {
+.hero-grid-pattern {
   position: absolute;
   inset: 0;
-  background: linear-gradient(
-    135deg,
-    rgba(248, 250, 252, 0.45) 0%,
-    rgba(255, 255, 255, 0.25) 50%,
-    rgba(240, 253, 244, 0.35) 100%
-  );
-  backdrop-filter: blur(0.5px);
+  background-image: 
+    linear-gradient(rgba(255, 255, 255, 0.055) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.055) 1px, transparent 1px);
+  background-size: 48px 48px;
+  mask-image: radial-gradient(ellipse 85% 85% at 50% 50%, #000 65%, transparent 100%);
+  -webkit-mask-image: radial-gradient(ellipse 85% 85% at 50% 50%, #000 65%, transparent 100%);
 }
 
+/* 2. FLOATING BLUR GLOW ORBS */
+.hero-glow-orb {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+  will-change: transform;
+}
+
+.hero-glow-1 {
+  width: 480px;
+  height: 480px;
+  top: -120px;
+  left: -80px;
+  background: radial-gradient(circle, rgba(37, 99, 235, 0.40) 0%, rgba(37, 99, 235, 0) 70%);
+  filter: blur(80px);
+  animation: floatSlow 14s ease-in-out infinite alternate;
+}
+
+.hero-glow-2 {
+  width: 420px;
+  height: 420px;
+  top: 15%;
+  right: -60px;
+  background: radial-gradient(circle, rgba(16, 185, 129, 0.32) 0%, rgba(16, 185, 129, 0) 70%);
+  filter: blur(85px);
+  animation: floatSlower 18s ease-in-out infinite alternate;
+}
+
+.hero-glow-3 {
+  width: 360px;
+  height: 360px;
+  bottom: -80px;
+  left: 35%;
+  background: radial-gradient(circle, rgba(56, 189, 248, 0.25) 0%, rgba(56, 189, 248, 0) 70%);
+  filter: blur(75px);
+  animation: floatSlow 12s ease-in-out infinite alternate-reverse;
+}
+
+@keyframes floatSlow {
+  0% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(30px, 25px) scale(1.08); }
+  100% { transform: translate(-20px, 35px) scale(0.96); }
+}
+
+@keyframes floatSlower {
+  0% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(-35px, 30px) scale(1.1); }
+  100% { transform: translate(25px, -20px) scale(0.95); }
+}
+
+/* 3. HERO CONTENT COLUMN */
 .hero-container {
   position: relative;
   z-index: 1;
 }
 
-/* Glassmorphism panel for crystal clear text readability */
-.hero-content-col {
-  background: rgba(255, 255, 255, 0.78);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  padding: 32px;
+.hero-content-col-dark {
+  background: rgba(11, 21, 48, 0.55);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  padding: 34px;
   border-radius: 24px;
-  border: 1px solid rgba(255, 255, 255, 0.95);
-  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.35);
 }
 
-.hero-heading {
-  font-size: 2.85rem;
+.hero-tech-pill-dark {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 14px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 9999px;
+  font-size: 0.76rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: #cbd5e1;
+  text-transform: uppercase;
+}
+
+.hero-tech-pill-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #22c55e;
+  box-shadow: 0 0 10px #22c55e, 0 0 20px #22c55e;
+  animation: pulseDot 2s ease-in-out infinite;
+}
+
+@keyframes pulseDot {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.35); opacity: 0.75; }
+}
+
+.hero-heading-dark {
+  font-size: 2.95rem;
   font-weight: 800;
-  color: #0f172a !important;
-  line-height: 1.2;
-  letter-spacing: -0.02em;
+  color: #ffffff !important;
+  line-height: 1.18;
+  letter-spacing: -0.025em;
 }
 
-.hero-subheading {
-  font-size: 1.1rem;
-  color: #475569 !important;
+.hero-heading-gradient {
+  background: linear-gradient(135deg, #22c55e 0%, #38bdf8 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline;
+}
+
+.hero-subheading-dark {
+  font-size: 1.08rem;
+  color: #cbd5e1 !important;
   line-height: 1.7;
-  max-width: 560px;
+  max-width: 580px;
 }
 
-/* 2. HERO VISUAL CARD (TECH VIDEO BOX) */
-.hero-image-card {
+.hero-whatsapp-pill-dark {
+  background: rgba(34, 197, 94, 0.10);
+  border: 1px solid rgba(34, 197, 94, 0.30);
+  backdrop-filter: blur(8px);
+}
+
+.text-light-silver {
+  color: #cbd5e1 !important;
+}
+
+.text-success-light {
+  color: #4ade80 !important;
+}
+
+.text-success-emerald {
+  color: #22c55e !important;
+}
+
+.action-btn-outline-dark {
+  background: rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  color: #f8fafc !important;
+  font-weight: 700;
+  border-radius: 9999px;
+  padding: 12px 24px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  transition: all 0.25s ease;
+}
+
+.action-btn-outline-dark:hover {
+  background: rgba(255, 255, 255, 0.14);
+  border-color: rgba(255, 255, 255, 0.40);
+  color: #ffffff !important;
+  transform: translateY(-2px);
+}
+
+/* 4. HERO VISUAL CARD (DARK GLASS CYBER BOX) */
+.hero-image-card-dark {
   position: relative;
-  background: #ffffff;
+  background: rgba(15, 23, 42, 0.72);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
   padding: 8px;
   border-radius: 18px;
-  border: 1px solid #e2e8f0;
-  box-shadow: 0 14px 35px rgba(0, 0, 0, 0.10);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.55), 0 0 35px rgba(34, 197, 94, 0.12);
   display: inline-block;
   overflow: hidden;
-  max-width: 420px;
+  max-width: 440px;
   width: 100%;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
 }
 
-.hero-image-card:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.14);
+.hero-image-card-dark:hover {
+  transform: translateY(-3px);
+  border-color: rgba(34, 197, 94, 0.40);
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.65), 0 0 45px rgba(34, 197, 94, 0.22);
 }
 
 .hero-main-video {
   border-radius: 12px;
   width: 100%;
-  max-width: 420px;
+  max-width: 440px;
   height: 250px;
   object-fit: cover;
   display: block;
-  background: #0f172a;
+  background: #070d1e;
 }
 
-/* 3. MEDIA TABS & FLOATING INDIA BADGE */
-.hero-media-tabs button {
-  transition: all 0.2s ease-in-out;
+.hero-media-tabs-dark {
+  background: rgba(15, 23, 42, 0.85);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  backdrop-filter: blur(10px);
+}
+
+.btn-emerald-active {
+  background: linear-gradient(135deg, #16a34a, #22c55e) !important;
+  color: #ffffff !important;
+  box-shadow: 0 4px 14px rgba(34, 197, 94, 0.40);
+  border: none !important;
+}
+
+.btn-emerald-inactive {
+  background: transparent !important;
+  color: #94a3b8 !important;
+  border: none !important;
+}
+
+.btn-emerald-inactive:hover {
+  color: #ffffff !important;
 }
 
 .hero-media-play-overlay {
@@ -120,7 +260,7 @@
   border-radius: 50%;
   background: rgba(22, 163, 74, 0.92);
   border: 3px solid rgba(255, 255, 255, 0.95);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.30);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.45);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -132,22 +272,22 @@
 .hero-media-play-overlay:hover {
   transform: translate(-50%, -50%) scale(1.12);
   background: #15803d;
-  box-shadow: 0 10px 28px rgba(22, 163, 74, 0.45);
+  box-shadow: 0 10px 28px rgba(34, 197, 94, 0.55);
 }
 
-.india-badge-floating {
+.india-badge-floating-dark {
   position: absolute;
   top: 14px;
   right: 14px;
-  background: rgba(255, 255, 255, 0.96);
-  backdrop-filter: blur(10px);
+  background: rgba(7, 13, 30, 0.92);
+  backdrop-filter: blur(12px);
   padding: 6px 12px;
   border-radius: 10px;
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.45);
   display: flex;
   align-items: center;
   gap: 8px;
-  border: 1px solid rgba(22, 163, 74, 0.30);
+  border: 1px solid rgba(34, 197, 94, 0.35);
   text-align: left;
   z-index: 2;
   animation: floatIndiaBadge 4s ease-in-out infinite;
@@ -158,17 +298,17 @@
   line-height: 1;
 }
 
-.india-badge-metric {
+.india-badge-floating-dark .india-badge-metric {
   font-size: 0.82rem;
   font-weight: 800;
-  color: #15803d;
+  color: #4ade80;
   line-height: 1.1;
 }
 
-.india-badge-label {
+.india-badge-floating-dark .india-badge-label {
   font-size: 0.65rem;
   font-weight: 600;
-  color: #64748b;
+  color: #94a3b8;
 }
 
 @keyframes floatIndiaBadge {
@@ -176,36 +316,34 @@
   50% { transform: translateY(-4px); }
 }
 
-/* 4. BOTTOM OVERLAY BADGE */
-.hero-image-badge {
+.hero-image-badge-dark {
   position: absolute;
   bottom: 16px;
   left: 16px;
-  background: rgba(15, 23, 42, 0.88);
-  backdrop-filter: blur(8px);
+  background: rgba(7, 13, 30, 0.90);
+  backdrop-filter: blur(10px);
   padding: 8px 14px;
   border-radius: 8px;
   display: flex;
   flex-direction: column;
   text-align: left;
-  border: 1px solid rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.14);
   z-index: 2;
   max-width: 75%;
 }
 
-.hero-image-badge .badge-title {
+.hero-image-badge-dark .badge-title {
   color: #ffffff;
   font-weight: 700;
   font-size: 0.82rem;
 }
 
-.hero-image-badge .badge-subtitle {
-  color: #a7f3d0;
+.hero-image-badge-dark .badge-subtitle {
+  color: #4ade80;
   font-size: 0.70rem;
   font-weight: 500;
 }
 
-/* 5. VIDEO CONTROLS */
 .video-quick-controls {
   position: absolute;
   bottom: 16px;
@@ -216,7 +354,7 @@
 }
 
 .btn-video-control {
-  background: rgba(15, 23, 42, 0.78);
+  background: rgba(7, 13, 30, 0.85);
   backdrop-filter: blur(6px);
   border: 1px solid rgba(255, 255, 255, 0.25);
   color: #ffffff;
@@ -242,25 +380,25 @@
    ============================================================ */
 @media (max-width: 991px) {
   .hero-section {
-    padding: 36px 0;
+    padding: 40px 0;
   }
 
-  .hero-heading {
-    font-size: 2.1rem;
+  .hero-heading-dark {
+    font-size: 2.15rem;
     line-height: 1.25;
   }
 
-  .hero-subheading {
+  .hero-subheading-dark {
     font-size: 1rem;
     max-width: 100%;
   }
 
-  .hero-content-col {
+  .hero-content-col-dark {
     padding: 24px 20px;
     border-radius: 20px;
   }
 
-  .hero-image-card {
+  .hero-image-card-dark {
     max-width: 400px;
     margin: 0 auto;
   }
@@ -275,41 +413,36 @@
    ============================================================ */
 @media (max-width: 576px) {
   .hero-section {
-    padding: 16px 0 24px 0;
+    padding: 20px 0 28px 0;
   }
 
-  .hero-bg-video-elem {
-    opacity: 0.45;
-  }
-
-  .hero-content-col {
+  .hero-content-col-dark {
     padding: 18px 14px;
     border-radius: 16px;
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
   }
 
-  .hero-heading {
-    font-size: 1.65rem !important;
+  .hero-heading-dark {
+    font-size: 1.68rem !important;
     line-height: 1.28;
     letter-spacing: -0.01em;
     margin-bottom: 12px !important;
   }
 
-  .hero-subheading {
+  .hero-subheading-dark {
     font-size: 0.92rem !important;
     line-height: 1.6;
     margin-bottom: 18px !important;
   }
 
-  /* Full-width thumb-friendly buttons on mobile */
-  .hero-content-col .d-flex.flex-wrap.gap-3.mb-4 {
+  .hero-content-col-dark .d-flex.flex-wrap.gap-3.mb-4 {
     flex-direction: column;
     gap: 10px !important;
     margin-bottom: 16px !important;
   }
 
-  .hero-content-col .action-btn,
-  .hero-content-col .action-btn-outline {
+  .hero-content-col-dark .action-btn,
+  .hero-content-col-dark .action-btn-outline-dark {
     width: 100% !important;
     padding: 11px 16px !important;
     font-size: 0.92rem !important;
@@ -317,20 +450,18 @@
     justify-content: center;
   }
 
-  /* WhatsApp pill mobile wrapping */
-  .hero-content-col .d-inline-flex {
+  .hero-whatsapp-pill-dark {
     width: 100% !important;
     border-radius: 12px !important;
     padding: 10px 12px !important;
     margin-bottom: 16px !important;
   }
 
-  .hero-content-col .d-inline-flex span {
+  .hero-whatsapp-pill-dark span {
     font-size: 0.8rem !important;
     line-height: 1.4;
   }
 
-  /* Trust metrics stack neatly on mobile */
   .hero-trust-bar {
     gap: 8px !important;
     padding-top: 8px !important;
@@ -345,13 +476,11 @@
     font-size: 0.78rem !important;
   }
 
-  /* Mobile Video Player Card */
-  .hero-image-card {
+  .hero-image-card-dark {
     max-width: 100% !important;
     border-radius: 14px;
     padding: 6px;
     margin-top: 10px;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
   }
 
   .hero-main-video {
@@ -359,8 +488,7 @@
     border-radius: 10px;
   }
 
-  /* Badges on mobile don't collide */
-  .growth-badge-floating {
+  .india-badge-floating-dark {
     top: 10px;
     right: 10px;
     padding: 4px 8px;
@@ -368,19 +496,19 @@
     gap: 6px;
   }
 
-  .growth-badge-icon {
+  .india-flag-icon {
     font-size: 0.95rem;
   }
 
-  .growth-badge-metric {
+  .india-badge-floating-dark .india-badge-metric {
     font-size: 0.78rem;
   }
 
-  .growth-badge-label {
+  .india-badge-floating-dark .india-badge-label {
     font-size: 0.62rem;
   }
 
-  .hero-image-badge {
+  .hero-image-badge-dark {
     bottom: 10px;
     left: 10px;
     padding: 6px 10px;
@@ -388,11 +516,11 @@
     max-width: 65%;
   }
 
-  .hero-image-badge .badge-title {
+  .hero-image-badge-dark .badge-title {
     font-size: 0.72rem;
   }
 
-  .hero-image-badge .badge-subtitle {
+  .hero-image-badge-dark .badge-subtitle {
     font-size: 0.62rem;
   }
 

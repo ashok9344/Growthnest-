@@ -13,7 +13,6 @@ import {
   FaVolumeMute,
   FaVolumeUp
 } from "react-icons/fa";
-import growthStairsVideo from "../../assets/video/growth-stairs.mp4";
 import heroVideo from "../../assets/video/hero-video.mp4";
 import itCompanyWorking from "../../assets/home/it-company-working.jpg";
 import "./FrontPage.css";
@@ -24,15 +23,6 @@ const FrontPage = () => {
   const [activeMediaTab, setActiveMediaTab] = useState("office"); // "office" (Indian IT lab) or "video" (live coding)
 
   const mainVideoRef = useRef(null);
-  const bgVideoRef = useRef(null);
-
-  // Auto-play videos reliably across all browsers (muted by default)
-  useEffect(() => {
-    if (bgVideoRef.current) {
-      bgVideoRef.current.muted = true;
-      bgVideoRef.current.play().catch(() => {});
-    }
-  }, []);
 
   useEffect(() => {
     if (activeMediaTab === "video" && mainVideoRef.current) {
@@ -60,36 +50,30 @@ const FrontPage = () => {
 
   return (
     <section className="hero-section py-5 position-relative">
-      {/* 1. AMBIENT BACKGROUND GROWTH VIDEO (COMPACT & SCALED) */}
-      <div className="hero-bg-video-wrapper">
-        <video
-          ref={bgVideoRef}
-          src={growthStairsVideo}
-          autoPlay
-          loop
-          muted
-          playsInline
-          className="hero-bg-video-elem"
-        />
-        <div className="hero-bg-video-overlay"></div>
+      {/* 1. COSMIC CYBER GRID & AMBIENT FLOATING GLOW ORBS (GROWTHNEST THEME) */}
+      <div className="hero-bg-cosmic" aria-hidden="true">
+        <div className="hero-grid-pattern"></div>
+        <div className="hero-glow-orb hero-glow-1"></div>
+        <div className="hero-glow-orb hero-glow-2"></div>
+        <div className="hero-glow-orb hero-glow-3"></div>
       </div>
 
       <Container className="hero-container py-2 py-lg-4">
         <Row className="align-items-center g-5">
           {/* LEFT CONTENT */}
-          <Col lg={7} className="hero-content-col">
+          <Col lg={7} className="hero-content-col-dark">
             <div className="mb-3">
-              <span className="tech-pill">
-                <span className="tech-pill-dot"></span>
+              <span className="hero-tech-pill-dark">
+                <span className="hero-tech-pill-dot"></span>
                 CUSTOM SOFTWARE & IT DEVELOPMENT PARTNER
               </span>
             </div>
 
-            <h1 className="hero-heading mb-3">
-              We Build Scalable <span className="text-success-corporate">Custom Software, Web & Mobile Apps</span> For Your Business
+            <h1 className="hero-heading-dark mb-3">
+              We Build Scalable <span className="hero-heading-gradient">Custom Software, Web & Mobile Apps</span> For Your Business
             </h1>
 
-            <p className="hero-subheading mb-4">
+            <p className="hero-subheading-dark mb-4">
               Turn your business ideas into robust production software. GrowthNest delivers end-to-end full-stack web platforms, mobile applications, AI computer vision engines, and scalable cloud architectures with guaranteed on-time delivery.
             </p>
 
@@ -101,32 +85,40 @@ const FrontPage = () => {
                 <FaArrowRight size={13} className="ms-1" />
               </Link>
 
-              <Link to="/it-project" className="action-btn-outline">
+              <Link to="/it-project" className="action-btn-outline-dark">
                 <span>View Our Client Work</span>
               </Link>
             </div>
 
             {/* Direct WhatsApp Quick Advisory */}
-            <div className="d-inline-flex align-items-center gap-2 p-2 px-3 rounded-pill mb-4" style={{ background: "#f0fdf4", border: "1px solid #bbf7d0" }}>
-              <FaWhatsapp className="text-success fs-5" />
-              <span className="small text-secondary">
-                Have an urgent project requirement? <a href="https://wa.me/916369347439?text=Hello%20GrowthNest,%20I%20have%20a%20project%20requirement%20and%20would%20like%20a%20quote." target="_blank" rel="noopener noreferrer" className="fw-bold text-success text-decoration-none">Chat With Our Technical Lead &rarr;</a>
+            <div className="hero-whatsapp-pill-dark d-inline-flex align-items-center gap-2 p-2 px-3 rounded-pill mb-4">
+              <FaWhatsapp className="text-success-emerald fs-5" />
+              <span className="small text-light-silver">
+                Have an urgent project requirement?{" "}
+                <a 
+                  href="https://wa.me/916369347439?text=Hello%20GrowthNest,%20I%20have%20a%20project%20requirement%20and%20would%20like%20a%20quote." 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className="fw-bold text-success-light text-decoration-none"
+                >
+                  Chat With Our Technical Lead &rarr;
+                </a>
               </span>
             </div>
 
             {/* Trust Metrics Bar for Clients */}
             <div className="hero-trust-bar pt-3 d-flex flex-wrap gap-3 gap-md-4 align-items-center">
               <div className="d-flex align-items-center gap-2">
-                <FaShieldAlt className="text-success" size={15} />
-                <span className="small fw-semibold text-secondary">100% Code & IP Ownership (NDA Protected)</span>
+                <FaShieldAlt className="text-success-emerald" size={15} />
+                <span className="small fw-semibold text-light-silver">100% Code & IP Ownership (NDA Protected)</span>
               </div>
               <div className="d-flex align-items-center gap-2">
-                <FaClock className="text-success" size={15} />
-                <span className="small fw-semibold text-secondary">Agile Sprints & On-Time Delivery</span>
+                <FaClock className="text-success-emerald" size={15} />
+                <span className="small fw-semibold text-light-silver">Agile Sprints & On-Time Delivery</span>
               </div>
               <div className="d-flex align-items-center gap-2">
-                <FaCheckCircle className="text-success" size={15} />
-                <span className="small fw-semibold text-secondary">Post-Deployment SLA & 24/7 Monitoring</span>
+                <FaCheckCircle className="text-success-emerald" size={15} />
+                <span className="small fw-semibold text-light-silver">Post-Deployment SLA & 24/7 Monitoring</span>
               </div>
             </div>
           </Col>
@@ -134,10 +126,10 @@ const FrontPage = () => {
           {/* RIGHT VISUAL - INDIAN TECH LAB & CODE VIDEO */}
           <Col lg={5} className="text-center">
             {/* Visual Media Tabs */}
-            <div className="hero-media-tabs d-inline-flex align-items-center gap-1 mb-2 p-1 rounded-pill bg-white border shadow-sm">
+            <div className="hero-media-tabs-dark d-inline-flex align-items-center gap-1 mb-2 p-1 rounded-pill">
               <button
                 type="button"
-                className={`btn btn-sm rounded-pill px-3 py-1 fw-semibold transition-all ${activeMediaTab === "office" ? "btn-success text-white shadow-sm" : "text-secondary border-0 bg-transparent"}`}
+                className={`btn btn-sm rounded-pill px-3 py-1 fw-semibold transition-all ${activeMediaTab === "office" ? "btn-emerald-active" : "btn-emerald-inactive"}`}
                 onClick={() => setActiveMediaTab("office")}
                 style={{ fontSize: "0.82rem" }}
               >
@@ -145,7 +137,7 @@ const FrontPage = () => {
               </button>
               <button
                 type="button"
-                className={`btn btn-sm rounded-pill px-3 py-1 fw-semibold transition-all ${activeMediaTab === "video" ? "btn-success text-white shadow-sm" : "text-secondary border-0 bg-transparent"}`}
+                className={`btn btn-sm rounded-pill px-3 py-1 fw-semibold transition-all ${activeMediaTab === "video" ? "btn-emerald-active" : "btn-emerald-inactive"}`}
                 onClick={() => {
                   setActiveMediaTab("video");
                   if (mainVideoRef.current) mainVideoRef.current.play().catch(() => {});
@@ -156,7 +148,7 @@ const FrontPage = () => {
               </button>
             </div>
 
-            <div className="hero-image-card">
+            <div className="hero-image-card-dark">
               {activeMediaTab === "office" ? (
                 <div className="position-relative w-100">
                   <img
@@ -194,8 +186,8 @@ const FrontPage = () => {
                 />
               )}
 
-              {/* Floating India Location Badge (No 'Next-Gen Tech') */}
-              <div className="india-badge-floating">
+              {/* Floating India Location Badge */}
+              <div className="india-badge-floating-dark">
                 <span className="india-flag-icon">🇮🇳</span>
                 <div>
                   <div className="india-badge-metric">Indian Software Lab</div>
@@ -204,7 +196,7 @@ const FrontPage = () => {
               </div>
 
               {/* Bottom Video Badge */}
-              <div className="hero-image-badge">
+              <div className="hero-image-badge-dark">
                 <span className="badge-title">GrowthNest Tech Solution</span>
                 <span className="badge-subtitle">Custom Software Engineering &bull; Tirunelveli</span>
               </div>
