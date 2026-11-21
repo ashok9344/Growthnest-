@@ -66,9 +66,9 @@ const Navbar = () => {
               <Navitem path="/" name="Home" onNavClick={closeMenu} />
               <Navitem path="/service" name="Services" onNavClick={closeMenu} />
               <Navitem path="/about" name="About" onNavClick={closeMenu} />
-              <Navitem path="/it-project" name="Projects" onNavClick={closeMenu} />
+              <Navitem path="/it-project" name="IT" onNavClick={closeMenu} />
               <Navitem path="/non-it-work" name="Non IT" onNavClick={closeMenu} />
-              <Navitem path="/it-career" name="Careers" onNavClick={closeMenu} />
+              <Navitem path="/it-career" name="Job Seeker" onNavClick={closeMenu} />
               <Navitem path="/faq" name="FAQ" onNavClick={closeMenu} />
             </Nav>
 

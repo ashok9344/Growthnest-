@@ -1,0 +1,396 @@
+/* ============================================================
+   GROWTHNEST TECH SOLUTION - IT SOLUTIONS & PROJECT CAPABILITIES
+   Matching Pinterest Figma Design Aesthetic
+   Forest Green (#1b3b2b) | Amber Gold (#f59e0b) | Clean Ivory/White
+   ============================================================ */
+
+.it-page-wrapper {
+  background-color: #fbfbfa;
+  color: #111827;
+  overflow-x: hidden;
+}
+
+/* 1. HERO SECTION */
+.it-hero-section {
+  background: #ffffff;
+  border-bottom: 1px solid #f3f4f6;
+  padding: 60px 0 50px 0;
+}
+
+.it-dash-label {
+  font-size: 0.84rem;
+  font-weight: 700;
+  color: #d97706;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  display: inline-block;
+  background: #fef3c7;
+  padding: 4px 14px;
+  border-radius: 9999px;
+  border: 1px solid #fde68a;
+}
+
+.it-main-title {
+  font-size: 3rem;
+  font-weight: 800;
+  color: #111827;
+  letter-spacing: -0.025em;
+  line-height: 1.2;
+}
+
+.text-amber-glow {
+  color: #f59e0b !important;
+}
+
+.it-main-subtitle {
+  font-size: 1.1rem;
+  color: #4b5563;
+  line-height: 1.7;
+  max-width: 720px;
+}
+
+/* Stats Cards */
+.it-stat-card {
+  background: #fbfbfa;
+  border: 1.5px solid #f3f4f6;
+  border-radius: 16px;
+  padding: 20px;
+  transition: all 0.25s ease;
+  height: 100%;
+}
+
+.it-stat-card:hover {
+  transform: translateY(-3px);
+  border-color: #fde68a;
+  box-shadow: 0 10px 25px rgba(245, 158, 11, 0.1);
+}
+
+.it-stat-number {
+  font-size: 1.85rem;
+  font-weight: 800;
+  color: #1b3b2b;
+  line-height: 1.1;
+}
+
+.it-stat-label {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #6b7280;
+  margin-top: 4px;
+}
+
+/* 2. SECTION HEADINGS */
+.section-title-wrap {
+  text-align: center;
+  margin-bottom: 48px;
+}
+
+.section-badge-label {
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: #1b3b2b;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  display: inline-block;
+  background: #e8f5e9;
+  padding: 4px 14px;
+  border-radius: 9999px;
+  border: 1px solid #c8e6c9;
+}
+
+.section-heading-dark {
+  font-size: 2.35rem;
+  font-weight: 800;
+  color: #111827;
+  letter-spacing: -0.02em;
+}
+
+/* 3. CORE IT SERVICES CARDS ("NAANGA IT LA ENNA PANNUM") */
+.it-service-card {
+  background: #ffffff;
+  border: 1.5px solid #f3f4f6;
+  border-radius: 20px;
+  padding: 32px 26px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+  position: relative;
+  overflow: hidden;
+}
+
+.it-service-card:hover {
+  transform: translateY(-5px);
+  border-color: #fde68a;
+  box-shadow: 0 16px 35px rgba(245, 158, 11, 0.12);
+}
+
+.it-service-icon-box {
+  width: 52px;
+  height: 52px;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+  font-size: 1.4rem;
+}
+
+.box-green { background: #e8f5e9; color: #1b3b2b; }
+.box-amber { background: #fef3c7; color: #d97706; }
+.box-blue { background: #e0f2fe; color: #0284c7; }
+.box-purple { background: #f3e8ff; color: #7e22ce; }
+.box-rose { background: #ffe4e6; color: #e11d48; }
+.box-cyan { background: #cffafe; color: #0891b2; }
+
+.it-service-title {
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: #111827;
+  margin-bottom: 12px;
+}
+
+.it-service-desc {
+  font-size: 0.92rem;
+  color: #6b7280;
+  line-height: 1.65;
+  margin-bottom: 20px;
+  flex-grow: 1;
+}
+
+.it-tags-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.it-tag-pill {
+  font-size: 0.72rem;
+  font-weight: 600;
+  padding: 4px 10px;
+  border-radius: 9999px;
+  background: #f3f4f6;
+  color: #374151;
+}
+
+/* 4. WHAT KIND OF PROJECTS WE BUILD ("ENNA PROJECT LAA PANNUM") */
+.it-projects-showcase-section {
+  background: #ffffff;
+  border-top: 1px solid #f3f4f6;
+  border-bottom: 1px solid #f3f4f6;
+}
+
+.project-category-card {
+  background: #fbfbfa;
+  border: 1.5px solid #f3f4f6;
+  border-radius: 18px;
+  padding: 28px 24px;
+  height: 100%;
+  transition: all 0.25s ease;
+}
+
+.project-category-card:hover {
+  background: #ffffff;
+  border-color: #1b3b2b;
+  transform: translateY(-4px);
+  box-shadow: 0 14px 30px rgba(27, 59, 43, 0.08);
+}
+
+.project-cat-header {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 14px;
+}
+
+.project-cat-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  background: #1b3b2b;
+  color: #f59e0b;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.25rem;
+  flex-shrink: 0;
+}
+
+.project-cat-title {
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: #111827;
+  margin: 0;
+}
+
+.project-cat-desc {
+  font-size: 0.9rem;
+  color: #6b7280;
+  line-height: 1.6;
+  margin-bottom: 16px;
+}
+
+.project-features-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.project-features-list li {
+  font-size: 0.82rem;
+  color: #374151;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 6px;
+  font-weight: 500;
+}
+
+.feature-check-icon {
+  color: #16a34a;
+  flex-shrink: 0;
+}
+
+/* 5. PROCESS LIFECYCLE SECTION */
+.it-process-section {
+  background: #1b3b2b;
+  color: #ffffff;
+}
+
+.process-step-card {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 18px;
+  padding: 28px 22px;
+  height: 100%;
+  transition: all 0.25s ease;
+  position: relative;
+}
+
+.process-step-card:hover {
+  background: rgba(255, 255, 255, 0.12);
+  transform: translateY(-3px);
+  border-color: #f59e0b;
+}
+
+.process-step-num {
+  font-size: 1.8rem;
+  font-weight: 800;
+  color: #f59e0b;
+  margin-bottom: 12px;
+}
+
+.process-step-title {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 10px;
+}
+
+.process-step-desc {
+  font-size: 0.88rem;
+  color: #cbd5e1;
+  line-height: 1.6;
+}
+
+/* 6. CTA BANNER */
+.it-cta-banner {
+  background: linear-gradient(135deg, #1b3b2b 0%, #142e22 100%);
+  border-radius: 28px;
+  padding: 50px 36px;
+  color: #ffffff;
+  box-shadow: 0 16px 40px rgba(27, 59, 43, 0.25);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.it-cta-title {
+  font-size: 2.2rem;
+  font-weight: 800;
+  color: #ffffff;
+}
+
+.it-cta-desc {
+  font-size: 1.05rem;
+  color: #cbd5e1;
+  max-width: 650px;
+  line-height: 1.65;
+}
+
+.it-btn-amber {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 28px;
+  background: #f59e0b;
+  color: #111827 !important;
+  font-size: 0.95rem;
+  font-weight: 800;
+  border-radius: 9999px;
+  text-decoration: none;
+  box-shadow: 0 6px 20px rgba(245, 158, 11, 0.35);
+  transition: all 0.25s ease;
+}
+
+.it-btn-amber:hover {
+  background: #fbbf24;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(245, 158, 11, 0.5);
+}
+
+.it-btn-whatsapp {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 26px;
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  color: #ffffff !important;
+  font-size: 0.95rem;
+  font-weight: 700;
+  border-radius: 9999px;
+  text-decoration: none;
+  transition: all 0.25s ease;
+}
+
+.it-btn-whatsapp:hover {
+  background: #22c55e;
+  border-color: #22c55e;
+  transform: translateY(-2px);
+}
+
+/* RESPONSIVE */
+@media (max-width: 991px) {
+  .it-main-title {
+    font-size: 2.4rem;
+  }
+  .section-heading-dark {
+    font-size: 2rem;
+  }
+  .it-cta-title {
+    font-size: 1.8rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .it-hero-section {
+    padding: 36px 0;
+  }
+  .it-main-title {
+    font-size: 1.95rem !important;
+  }
+  .section-heading-dark {
+    font-size: 1.65rem !important;
+  }
+  .it-cta-banner {
+    padding: 32px 20px;
+  }
+  .it-cta-title {
+    font-size: 1.5rem !important;
+  }
+  .it-btn-amber,
+  .it-btn-whatsapp {
+    width: 100% !important;
+    justify-content: center;
+  }
+}
