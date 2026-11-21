@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Navbar as BSNavbar, Nav, Container } from "react-bootstrap";
-import { Link, NavLink, useLocation } from "react-router-dom";
+import { NavLink, useLocation } from "react-router-dom";
 import { FaArrowRight } from "react-icons/fa";
 import logoImg from "../assets/logo-bird.png";
 import "./navbar.css";
@@ -15,7 +15,6 @@ const Navitem = ({ name, path, onNavClick }) => {
       onClick={onNavClick}
     >
       <span className="nav-item-text">{name}</span>
-      <span className="nav-active-bar" aria-hidden="true"></span>
     </Nav.Link>
   );
 };
@@ -24,7 +23,6 @@ const Navbar = () => {
   const [expanded, setExpanded] = useState(false);
   const location = useLocation();
 
-  // Automatically close mobile menu on route change
   useEffect(() => {
     setExpanded(false);
   }, [location.pathname]);
@@ -39,15 +37,14 @@ const Navbar = () => {
         onToggle={(isExpanded) => setExpanded(isExpanded)}
         className="custom-navbar"
       >
-        <Container fluid className="px-3 px-lg-4">
+        <Container fluid className="px-2 px-md-3">
           {/* Brand Logo & Title */}
           <BSNavbar.Brand as={NavLink} to="/" onClick={closeMenu} className="brand-container">
             <div className="brand-logo-wrap">
               <img src={logoImg} alt="GrowthNest Logo" className="brand-logo-img" />
             </div>
             <div className="brand-text-wrap">
-              <span className="brand-title">Growth<span className="text-success-corporate">Nest</span></span>
-              <span className="brand-tagline">Tech Solution</span>
+              <span className="brand-title">Growth<span className="text-amber-glow">Nest</span>.</span>
             </div>
           </BSNavbar.Brand>
 
@@ -67,23 +64,25 @@ const Navbar = () => {
             <Nav className="mx-auto text-center gap-1 gap-xl-2 my-2 my-lg-0 align-items-center">
               <Navitem path="/" name="Home" onNavClick={closeMenu} />
               <Navitem path="/service" name="Services" onNavClick={closeMenu} />
+              <Navitem path="/about" name="About" onNavClick={closeMenu} />
               <Navitem path="/it-project" name="Projects" onNavClick={closeMenu} />
               <Navitem path="/non-it-work" name="Non IT" onNavClick={closeMenu} />
-              <Navitem path="/about" name="About Us" onNavClick={closeMenu} />
               <Navitem path="/it-career" name="Careers" onNavClick={closeMenu} />
               <Navitem path="/faq" name="FAQ" onNavClick={closeMenu} />
             </Nav>
 
-            {/* Action Button: Request a Quote */}
+            {/* Action Button: White Pill Contact Me */}
             <div className="d-flex align-items-center justify-content-center mt-3 mt-lg-0">
-              <Link 
+              <NavLink 
                 to="/getintouch" 
                 onClick={closeMenu} 
-                className="action-btn nav-action-btn text-decoration-none"
+                className="pinterest-nav-btn text-decoration-none"
               >
-                <span>Request a Quote</span>
-                <FaArrowRight className="ms-1" size={13} />
-              </Link>
+                <span>Contact Us</span>
+                <span className="nav-btn-arrow-wrap">
+                  <FaArrowRight size={10} />
+                </span>
+              </NavLink>
             </div>
           </BSNavbar.Collapse>
         </Container>

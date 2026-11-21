@@ -1,123 +1,136 @@
 /* ============================================================
-   GROWTHNEST TECH SOLUTION - CYBER DARK GLASS NAVBAR
-   Matching https://growthnesttechnologies.in visual identity
+   GROWTHNEST TECH SOLUTION - FIGMA FLOATING PILL NAVBAR
+   Matching https://pin.it/3dr1AP03I design aesthetic
    ============================================================ */
 
 .navbar-wrapper {
   position: sticky;
-  top: 0;
+  top: 14px;
   z-index: 1050;
   width: 100%;
+  padding: 0 16px;
 }
 
 .custom-navbar {
-  background: rgba(7, 13, 30, 0.92) !important;
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-  box-shadow: 0 4px 25px rgba(0, 0, 0, 0.35);
-  padding: 12px 0 !important;
-  transition: all 0.25s ease;
+  max-width: 1140px;
+  margin: 0 auto;
+  background: #1b3b2b !important; /* Deep Forest Green */
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 9999px !important;
+  box-shadow: 0 12px 35px rgba(27, 59, 43, 0.28), 0 2px 8px rgba(0, 0, 0, 0.12);
+  padding: 8px 18px !important;
+  transition: all 0.3s ease;
 }
 
 /* BRAND STYLING */
 .brand-container {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 10px;
   text-decoration: none;
 }
 
 .brand-logo-wrap {
-  width: 44px;
-  height: 44px;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: #f59e0b; /* Warm Amber Gold */
   display: flex;
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
+  padding: 5px;
 }
 
 .brand-logo-img {
   width: 100%;
   height: 100%;
   object-fit: contain;
+  filter: brightness(0) invert(1);
 }
 
 .brand-text-wrap {
   display: flex;
   flex-direction: column;
-  line-height: 1.15;
 }
 
 .brand-title {
-  font-size: 1.35rem;
+  font-size: 1.28rem;
   font-weight: 800;
   color: #ffffff !important;
   letter-spacing: -0.02em;
 }
 
-.text-success-corporate {
-  color: #22c55e !important;
-}
-
-.brand-tagline {
-  font-size: 0.72rem;
-  font-weight: 700;
-  color: #94a3b8;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
+.text-amber-glow {
+  color: #f59e0b !important;
 }
 
 /* NAV ITEMS */
 .nav-item-custom {
   position: relative;
-  font-size: 0.95rem;
-  font-weight: 600;
+  font-size: 0.92rem;
+  font-weight: 500;
   color: rgba(255, 255, 255, 0.85) !important;
-  padding: 8px 14px !important;
-  border-radius: 6px;
+  padding: 6px 14px !important;
+  border-radius: 9999px;
   transition: all 0.2s ease;
   display: inline-flex;
-  flex-direction: column;
   align-items: center;
 }
 
 .nav-item-custom:hover {
-  color: #22c55e !important;
-}
-
-.nav-active-bar {
-  position: absolute;
-  bottom: 0;
-  left: 14px;
-  right: 14px;
-  height: 2.5px;
-  background: #22c55e;
-  border-radius: 2px;
-  opacity: 0;
-  transition: opacity 0.2s ease;
+  color: #fbbf24 !important;
 }
 
 .nav-item-custom.active {
-  color: #22c55e !important;
+  color: #ffffff !important;
+  background: rgba(255, 255, 255, 0.14);
+  font-weight: 600;
+}
+
+/* PINTEREST WHITE PILL BUTTON */
+.pinterest-nav-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 20px;
+  background: #ffffff !important;
+  color: #1b3b2b !important;
+  font-size: 0.88rem;
   font-weight: 700;
+  border-radius: 9999px;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15);
+  transition: all 0.25s ease;
 }
 
-.nav-item-custom.active .nav-active-bar {
-  opacity: 1;
+.pinterest-nav-btn:hover {
+  background: #f59e0b !important;
+  color: #ffffff !important;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(245, 158, 11, 0.4);
 }
 
-/* ACTION BUTTON */
-.nav-action-btn {
-  font-size: 0.9rem !important;
-  padding: 8px 18px !important;
+.nav-btn-arrow-wrap {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: rgba(27, 59, 43, 0.1);
+  transition: transform 0.2s ease;
+}
+
+.pinterest-nav-btn:hover .nav-btn-arrow-wrap {
+  transform: translateX(2px);
+  background: rgba(255, 255, 255, 0.25);
 }
 
 /* MOBILE TOGGLE BUTTON */
 .corporate-toggle {
-  border: 1px solid rgba(255, 255, 255, 0.18) !important;
-  padding: 8px 10px !important;
-  border-radius: 6px !important;
+  border: 1px solid rgba(255, 255, 255, 0.22) !important;
+  padding: 6px 10px !important;
+  border-radius: 9999px !important;
   outline: none !important;
   box-shadow: none !important;
   background: rgba(255, 255, 255, 0.08) !important;
@@ -125,7 +138,7 @@
 
 .corporate-toggle .toggle-line {
   display: block;
-  width: 22px;
+  width: 20px;
   height: 2px;
   background-color: #ffffff;
   margin: 4px 0;
@@ -135,15 +148,18 @@
 
 /* RESPONSIVE COLLAPSE */
 @media (max-width: 991px) {
+  .custom-navbar {
+    border-radius: 20px !important;
+    padding: 10px 16px !important;
+  }
+
   .custom-navbar .navbar-collapse {
-    background: rgba(7, 13, 30, 0.97);
+    background: #142e22;
     border: 1px solid rgba(255, 255, 255, 0.12);
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
-    border-radius: 12px;
+    border-radius: 16px;
     padding: 16px;
     margin-top: 12px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
   }
 
   .nav-item-custom {
@@ -154,13 +170,15 @@
     color: rgba(255, 255, 255, 0.9) !important;
   }
 
-  .nav-active-bar {
-    display: none;
+  .nav-item-custom.active {
+    background: rgba(245, 158, 11, 0.2);
+    color: #fbbf24 !important;
+    border-radius: 10px;
   }
 
-  .nav-item-custom.active {
-    background: rgba(34, 197, 94, 0.12);
-    color: #22c55e !important;
-    border-radius: 6px;
+  .pinterest-nav-btn {
+    width: 100%;
+    text-align: center;
+    justify-content: center;
   }
 }

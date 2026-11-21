@@ -1,537 +1,685 @@
 /* ============================================================
-   GROWTHNEST TECH SOLUTION - CYBER DARK COSMIC HERO SECTION
-   Matching https://growthnesttechnologies.in visual identity
+   GROWTHNEST TECH SOLUTION - PINTEREST FIGMA UI/UX THEME
+   Directly inspired by https://pin.it/3dr1AP03I (Olivia Smith Figma Portfolio)
+   Colors: Forest Green (#1b3b2b), Warm Amber Gold (#f59e0b), Ivory (#fbfbfa)
    ============================================================ */
 
-.hero-section {
+.pinterest-page-wrapper {
+  background-color: #fbfbfa;
+  color: #111827;
+  overflow-x: hidden;
+}
+
+/* ============================================================
+   1. HERO SECTION
+   ============================================================ */
+.pinterest-hero-section {
   position: relative;
-  overflow: hidden;
-  background: #070d1e;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-  padding: 70px 0 80px 0;
-  min-height: 600px;
+  background-color: #fbfbfa;
+  padding: 60px 0 80px 0;
 }
 
-/* 1. COSMIC GRADIENT & GRID PATTERN BACKGROUND */
-.hero-bg-cosmic {
-  position: absolute;
-  inset: 0;
-  overflow: hidden;
-  pointer-events: none;
-  z-index: 0;
-  background: 
-    radial-gradient(1200px 650px at 15% -10%, rgba(37, 99, 235, 0.35) 0%, transparent 60%),
-    radial-gradient(900px 550px at 95% 10%, rgba(16, 185, 129, 0.22) 0%, transparent 55%),
-    radial-gradient(800px 500px at 50% 100%, rgba(56, 189, 248, 0.15) 0%, transparent 50%),
-    linear-gradient(135deg, #070d1e 0%, #0b1530 50%, #080f24 100%);
-}
-
-.hero-grid-pattern {
-  position: absolute;
-  inset: 0;
-  background-image: 
-    linear-gradient(rgba(255, 255, 255, 0.055) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 255, 255, 0.055) 1px, transparent 1px);
-  background-size: 48px 48px;
-  mask-image: radial-gradient(ellipse 85% 85% at 50% 50%, #000 65%, transparent 100%);
-  -webkit-mask-image: radial-gradient(ellipse 85% 85% at 50% 50%, #000 65%, transparent 100%);
-}
-
-/* 2. FLOATING BLUR GLOW ORBS */
-.hero-glow-orb {
-  position: absolute;
-  border-radius: 50%;
-  pointer-events: none;
-  will-change: transform;
-}
-
-.hero-glow-1 {
-  width: 480px;
-  height: 480px;
-  top: -120px;
-  left: -80px;
-  background: radial-gradient(circle, rgba(37, 99, 235, 0.40) 0%, rgba(37, 99, 235, 0) 70%);
-  filter: blur(80px);
-  animation: floatSlow 14s ease-in-out infinite alternate;
-}
-
-.hero-glow-2 {
-  width: 420px;
-  height: 420px;
-  top: 15%;
-  right: -60px;
-  background: radial-gradient(circle, rgba(16, 185, 129, 0.32) 0%, rgba(16, 185, 129, 0) 70%);
-  filter: blur(85px);
-  animation: floatSlower 18s ease-in-out infinite alternate;
-}
-
-.hero-glow-3 {
-  width: 360px;
-  height: 360px;
-  bottom: -80px;
-  left: 35%;
-  background: radial-gradient(circle, rgba(56, 189, 248, 0.25) 0%, rgba(56, 189, 248, 0) 70%);
-  filter: blur(75px);
-  animation: floatSlow 12s ease-in-out infinite alternate-reverse;
-}
-
-@keyframes floatSlow {
-  0% { transform: translate(0, 0) scale(1); }
-  50% { transform: translate(30px, 25px) scale(1.08); }
-  100% { transform: translate(-20px, 35px) scale(0.96); }
-}
-
-@keyframes floatSlower {
-  0% { transform: translate(0, 0) scale(1); }
-  50% { transform: translate(-35px, 30px) scale(1.1); }
-  100% { transform: translate(25px, -20px) scale(0.95); }
-}
-
-/* 3. HERO CONTENT COLUMN */
-.hero-container {
-  position: relative;
-  z-index: 1;
-}
-
-.hero-content-col-dark {
-  background: rgba(11, 21, 48, 0.55);
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
-  padding: 34px;
-  border-radius: 24px;
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.35);
-}
-
-.hero-tech-pill-dark {
+/* Figma Corner-Node "Hello There!" Badge */
+.hello-figma-badge {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
-  padding: 6px 14px;
-  background: rgba(255, 255, 255, 0.06);
-  border: 1px solid rgba(255, 255, 255, 0.14);
-  border-radius: 9999px;
-  font-size: 0.76rem;
+  position: relative;
+  padding: 6px 18px;
+  background: #ffffff;
+  border: 1.5px solid #d97706;
+  border-radius: 4px;
+}
+
+.figma-node {
+  position: absolute;
+  width: 7px;
+  height: 7px;
+  background: #f59e0b;
+  border: 1px solid #b45309;
+}
+
+.node-tl { top: -4px; left: -4px; }
+.node-tr { top: -4px; right: -4px; }
+.node-bl { bottom: -4px; left: -4px; }
+.node-br { bottom: -4px; right: -4px; }
+
+.hello-badge-text {
+  font-size: 0.88rem;
   font-weight: 700;
-  letter-spacing: 0.08em;
-  color: #cbd5e1;
-  text-transform: uppercase;
+  color: #111827;
+  letter-spacing: -0.01em;
 }
 
-.hero-tech-pill-dot {
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background: #22c55e;
-  box-shadow: 0 0 10px #22c55e, 0 0 20px #22c55e;
-  animation: pulseDot 2s ease-in-out infinite;
-}
-
-@keyframes pulseDot {
-  0%, 100% { transform: scale(1); opacity: 1; }
-  50% { transform: scale(1.35); opacity: 0.75; }
-}
-
-.hero-heading-dark {
-  font-size: 2.95rem;
+/* Hero Title & Subtitle */
+.pinterest-hero-title {
+  font-size: 3.4rem;
   font-weight: 800;
-  color: #ffffff !important;
-  line-height: 1.18;
-  letter-spacing: -0.025em;
+  color: #111827;
+  line-height: 1.15;
+  letter-spacing: -0.03em;
 }
 
-.hero-heading-gradient {
-  background: linear-gradient(135deg, #22c55e 0%, #38bdf8 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  display: inline;
+.text-amber-highlight {
+  color: #f59e0b !important;
 }
 
-.hero-subheading-dark {
+.pinterest-hero-subtitle {
   font-size: 1.08rem;
-  color: #cbd5e1 !important;
-  line-height: 1.7;
-  max-width: 580px;
+  color: #6b7280;
+  line-height: 1.65;
+  max-width: 520px;
 }
 
-.hero-whatsapp-pill-dark {
-  background: rgba(34, 197, 94, 0.10);
-  border: 1px solid rgba(34, 197, 94, 0.30);
-  backdrop-filter: blur(8px);
-}
-
-.text-light-silver {
-  color: #cbd5e1 !important;
-}
-
-.text-success-light {
-  color: #4ade80 !important;
-}
-
-.text-success-emerald {
-  color: #22c55e !important;
-}
-
-.action-btn-outline-dark {
-  background: rgba(255, 255, 255, 0.06);
-  backdrop-filter: blur(8px);
-  border: 1px solid rgba(255, 255, 255, 0.22);
-  color: #f8fafc !important;
+/* Action Buttons */
+.pinterest-btn-dark {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 24px;
+  background: #1b3b2b;
+  color: #ffffff !important;
+  font-size: 0.95rem;
   font-weight: 700;
   border-radius: 9999px;
-  padding: 12px 24px;
+  text-decoration: none;
+  box-shadow: 0 6px 20px rgba(27, 59, 43, 0.25);
+  transition: all 0.25s ease;
+}
+
+.pinterest-btn-dark:hover {
+  background: #142e22;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(27, 59, 43, 0.35);
+}
+
+.btn-circle-icon {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: #f59e0b;
+  color: #ffffff;
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  padding-left: 2px;
+  transition: transform 0.2s ease;
+}
+
+.pinterest-btn-dark:hover .btn-circle-icon {
+  transform: scale(1.1);
+}
+
+.pinterest-btn-outline {
+  display: inline-flex;
+  align-items: center;
+  padding: 12px 26px;
+  background: #ffffff;
+  border: 1.5px solid #111827;
+  color: #111827 !important;
+  font-size: 0.95rem;
+  font-weight: 700;
+  border-radius: 9999px;
   text-decoration: none;
   transition: all 0.25s ease;
 }
 
-.action-btn-outline-dark:hover {
-  background: rgba(255, 255, 255, 0.14);
-  border-color: rgba(255, 255, 255, 0.40);
+.pinterest-btn-outline:hover {
+  background: #111827;
   color: #ffffff !important;
   transform: translateY(-2px);
 }
 
-/* 4. HERO VISUAL CARD (DARK GLASS CYBER BOX) */
-.hero-image-card-dark {
+/* Hero Right Visual Graphic */
+.hero-visual-container {
   position: relative;
-  background: rgba(15, 23, 42, 0.72);
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
-  padding: 8px;
-  border-radius: 18px;
-  border: 1px solid rgba(255, 255, 255, 0.14);
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.55), 0 0 35px rgba(34, 197, 94, 0.12);
-  display: inline-block;
+  max-width: 460px;
+  margin: 0 auto;
+}
+
+.amber-arch-backdrop {
+  position: absolute;
+  top: 10%;
+  left: 5%;
+  width: 90%;
+  height: 85%;
+  background: #f59e0b;
+  border-radius: 46% 54% 60% 40% / 45% 45% 55% 55%;
+  z-index: 1;
+}
+
+.hero-img-mask {
+  position: relative;
+  z-index: 2;
+  border-radius: 40px;
   overflow: hidden;
-  max-width: 440px;
-  width: 100%;
-  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
 }
 
-.hero-image-card-dark:hover {
-  transform: translateY(-3px);
-  border-color: rgba(34, 197, 94, 0.40);
-  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.65), 0 0 45px rgba(34, 197, 94, 0.22);
-}
-
-.hero-main-video {
-  border-radius: 12px;
+.hero-main-photo {
   width: 100%;
-  max-width: 440px;
-  height: 250px;
+  height: 380px;
   object-fit: cover;
   display: block;
-  background: #070d1e;
 }
 
-.hero-media-tabs-dark {
-  background: rgba(15, 23, 42, 0.85);
-  border: 1px solid rgba(255, 255, 255, 0.14);
-  backdrop-filter: blur(10px);
-}
-
-.btn-emerald-active {
-  background: linear-gradient(135deg, #16a34a, #22c55e) !important;
-  color: #ffffff !important;
-  box-shadow: 0 4px 14px rgba(34, 197, 94, 0.40);
-  border: none !important;
-}
-
-.btn-emerald-inactive {
-  background: transparent !important;
-  color: #94a3b8 !important;
-  border: none !important;
-}
-
-.btn-emerald-inactive:hover {
-  color: #ffffff !important;
-}
-
-.hero-media-play-overlay {
+/* Rotating "HIRE US" Circular Stamp Badge */
+.hire-stamp-badge {
   position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 54px;
-  height: 54px;
+  top: -15px;
+  right: -15px;
+  width: 100px;
+  height: 100px;
+  background: #1b3b2b;
   border-radius: 50%;
-  background: rgba(22, 163, 74, 0.92);
-  border: 3px solid rgba(255, 255, 255, 0.95);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.45);
+  z-index: 3;
   display: flex;
   align-items: center;
   justify-content: center;
-  cursor: pointer;
-  transition: transform 0.25s ease, background 0.25s ease, box-shadow 0.25s ease;
-  z-index: 3;
+  box-shadow: 0 8px 24px rgba(27, 59, 43, 0.35);
+  animation: spinStamp 20s linear infinite;
 }
 
-.hero-media-play-overlay:hover {
-  transform: translate(-50%, -50%) scale(1.12);
-  background: #15803d;
-  box-shadow: 0 10px 28px rgba(34, 197, 94, 0.55);
+.stamp-svg {
+  width: 100%;
+  height: 100%;
 }
 
-.india-badge-floating-dark {
+.stamp-text {
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 2px;
+  fill: #f59e0b;
+}
+
+.stamp-center-arrow {
   position: absolute;
-  top: 14px;
-  right: 14px;
-  background: rgba(7, 13, 30, 0.92);
-  backdrop-filter: blur(12px);
-  padding: 6px 12px;
-  border-radius: 10px;
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.45);
+  color: #ffffff;
   display: flex;
   align-items: center;
-  gap: 8px;
-  border: 1px solid rgba(34, 197, 94, 0.35);
-  text-align: left;
-  z-index: 2;
-  animation: floatIndiaBadge 4s ease-in-out infinite;
+  justify-content: center;
+  pointer-events: none;
+  animation: counterSpin 20s linear infinite;
 }
 
-.india-flag-icon {
-  font-size: 1.15rem;
-  line-height: 1;
+@keyframes spinStamp {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
 }
 
-.india-badge-floating-dark .india-badge-metric {
-  font-size: 0.82rem;
-  font-weight: 800;
-  color: #4ade80;
-  line-height: 1.1;
+@keyframes counterSpin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(-360deg); }
 }
 
-.india-badge-floating-dark .india-badge-label {
-  font-size: 0.65rem;
-  font-weight: 600;
-  color: #94a3b8;
-}
-
-@keyframes floatIndiaBadge {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-4px); }
-}
-
-.hero-image-badge-dark {
+/* Floating Skill Pills */
+.floating-skill-pill {
   position: absolute;
-  bottom: 16px;
-  left: 16px;
-  background: rgba(7, 13, 30, 0.90);
-  backdrop-filter: blur(10px);
-  padding: 8px 14px;
-  border-radius: 8px;
-  display: flex;
-  flex-direction: column;
-  text-align: left;
-  border: 1px solid rgba(255, 255, 255, 0.14);
-  z-index: 2;
-  max-width: 75%;
-}
-
-.hero-image-badge-dark .badge-title {
-  color: #ffffff;
-  font-weight: 700;
-  font-size: 0.82rem;
-}
-
-.hero-image-badge-dark .badge-subtitle {
-  color: #4ade80;
-  font-size: 0.70rem;
-  font-weight: 500;
-}
-
-.video-quick-controls {
-  position: absolute;
-  bottom: 16px;
-  right: 16px;
-  display: flex;
-  gap: 6px;
   z-index: 3;
+  padding: 8px 18px;
+  border-radius: 9999px;
+  font-size: 0.84rem;
+  font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+  animation: floatPill 3.5s ease-in-out infinite alternate;
 }
 
-.btn-video-control {
-  background: rgba(7, 13, 30, 0.85);
-  backdrop-filter: blur(6px);
-  border: 1px solid rgba(255, 255, 255, 0.25);
+.pill-amber {
+  bottom: 25%;
+  right: -20px;
+  background: #f59e0b;
+  color: #111827;
+}
+
+.pill-forest {
+  bottom: 15px;
+  left: -20px;
+  background: #1b3b2b;
   color: #ffffff;
-  width: 28px;
-  height: 28px;
+}
+
+.pill-cursor-dot {
+  width: 8px;
+  height: 8px;
   border-radius: 50%;
+  background: #f59e0b;
+}
+
+@keyframes floatPill {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-8px); }
+}
+
+/* ============================================================
+   2. MARQUEE RIBBON
+   ============================================================ */
+.marquee-ribbon-wrapper {
+  background: #f59e0b;
+  overflow: hidden;
+  padding: 16px 0;
+  white-space: nowrap;
+  position: relative;
+  transform: rotate(-0.5deg);
+  box-shadow: 0 4px 15px rgba(245, 158, 11, 0.25);
+}
+
+.marquee-ribbon-track {
+  display: flex;
+  width: max-content;
+  animation: marqueeScroll 25s linear infinite;
+}
+
+.marquee-ribbon-content {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  padding-right: 24px;
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: #111827;
+  letter-spacing: -0.01em;
+  text-transform: capitalize;
+}
+
+.ribbon-star {
+  font-size: 1.4rem;
+  color: #111827;
+  opacity: 0.85;
+}
+
+@keyframes marqueeScroll {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+/* ============================================================
+   3. "SERVICES WE PROVIDE"
+   ============================================================ */
+.services-provide-section {
+  background: #ffffff;
+}
+
+.section-dash-label {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #6b7280;
+  text-transform: capitalize;
+  letter-spacing: 0.05em;
+  display: inline-block;
+}
+
+.section-main-heading {
+  font-size: 2.3rem;
+  font-weight: 800;
+  color: #111827;
+  letter-spacing: -0.02em;
+}
+
+.view-all-services-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 22px;
+  background: #1b3b2b;
+  color: #ffffff !important;
+  font-size: 0.9rem;
+  font-weight: 700;
+  border-radius: 9999px;
+  text-decoration: none;
+  transition: all 0.25s ease;
+}
+
+.view-all-services-btn:hover {
+  background: #142e22;
+  transform: translateY(-2px);
+}
+
+.btn-circle-arrow {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: #f59e0b;
+  color: #ffffff;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  cursor: pointer;
-  transition: all 0.2s ease;
-  padding: 0;
 }
 
-.btn-video-control:hover {
-  background: #16a34a;
-  color: #ffffff;
-  transform: scale(1.08);
+/* Minimal Cards */
+.service-minimal-card {
+  background: #ffffff;
+  border: 1px solid #f3f4f6;
+  border-radius: 20px;
+  padding: 36px 30px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
+  transition: all 0.3s ease;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.service-minimal-card:hover {
+  transform: translateY(-5px);
+  border-color: #fde68a;
+  box-shadow: 0 18px 40px rgba(245, 158, 11, 0.12);
+}
+
+.service-icon-box {
+  width: 54px;
+  height: 54px;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 24px;
+}
+
+.box-mint { background: #e8f5e9; }
+.box-amber { background: #fef3c7; }
+.box-sand { background: #fef9c3; }
+
+.text-forest { color: #1b3b2b !important; }
+.text-amber-icon { color: #d97706 !important; }
+
+.service-card-title {
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: #111827;
+  margin-bottom: 12px;
+}
+
+.service-card-desc {
+  font-size: 0.92rem;
+  color: #6b7280;
+  line-height: 1.6;
+  margin-bottom: 24px;
+  flex-grow: 1;
+}
+
+.service-learn-more {
+  display: inline-flex;
+  align-items: center;
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: #111827 !important;
+  text-decoration: none;
+  transition: gap 0.2s ease, color 0.2s ease;
+}
+
+.service-learn-more:hover {
+  color: #f59e0b !important;
 }
 
 /* ============================================================
-   TABLET RESPONSIVENESS (<= 991px)
+   4. "WHO IS GROWTHNEST?" (FOREST GREEN DEEP SHOWCASE)
+   ============================================================ */
+.who-is-section {
+  background: #1b3b2b;
+  color: #ffffff;
+  position: relative;
+  overflow: hidden;
+}
+
+.who-circle-container {
+  position: relative;
+  max-width: 440px;
+  margin: 0 auto;
+}
+
+.who-circle-amber-bg {
+  width: 320px;
+  height: 320px;
+  background: #f59e0b;
+  border-radius: 50%;
+  margin: 0 auto;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.25);
+}
+
+.who-circle-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Orbiting Tags */
+.orbit-tag {
+  position: absolute;
+  padding: 6px 14px;
+  border-radius: 9999px;
+  font-size: 0.76rem;
+  font-weight: 700;
+  background: rgba(255, 255, 255, 0.95);
+  color: #1b3b2b;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+  white-space: nowrap;
+}
+
+.tag-pos-1 { top: 10%; left: 0; background: #f59e0b; color: #111827; }
+.tag-pos-2 { top: 25%; right: -10px; background: #142e22; color: #ffffff; border: 1px solid rgba(255, 255, 255, 0.2); }
+.tag-pos-3 { bottom: 25%; left: -15px; background: #ffffff; color: #111827; }
+.tag-pos-4 { bottom: 10%; right: 10px; background: #142e22; color: #ffffff; border: 1px solid rgba(255, 255, 255, 0.2); }
+.tag-pos-5 { bottom: -10px; left: 25%; background: #f59e0b; color: #111827; }
+.tag-pos-6 { top: -5px; right: 25%; background: #ffffff; color: #111827; }
+
+.who-dash-label {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #cbd5e1;
+  letter-spacing: 0.05em;
+  display: inline-block;
+}
+
+.who-main-title {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: #ffffff;
+  letter-spacing: -0.02em;
+}
+
+.who-desc-text {
+  font-size: 1.02rem;
+  color: #d1d5db;
+  line-height: 1.7;
+  max-width: 520px;
+}
+
+/* Metrics Row */
+.who-stats-row {
+  display: flex;
+  gap: 36px;
+  padding: 16px 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.stat-block {
+  display: flex;
+  flex-direction: column;
+}
+
+.stat-number {
+  font-size: 2.2rem;
+  font-weight: 800;
+  color: #f59e0b;
+  line-height: 1.1;
+}
+
+.stat-label {
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: #cbd5e1;
+  text-transform: capitalize;
+}
+
+/* Who CTA + Signature */
+.who-cta-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 24px;
+  background: #142e22;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  color: #ffffff !important;
+  font-size: 0.92rem;
+  font-weight: 700;
+  border-radius: 9999px;
+  text-decoration: none;
+  transition: all 0.25s ease;
+}
+
+.who-cta-btn:hover {
+  background: #f59e0b;
+  color: #111827 !important;
+  transform: translateY(-2px);
+}
+
+.who-btn-arrow {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: #f59e0b;
+  color: #111827;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.who-cta-btn:hover .who-btn-arrow {
+  background: #111827;
+  color: #ffffff;
+}
+
+.who-signature {
+  font-family: 'Brush Script MT', 'Dancing Script', cursive, sans-serif;
+  font-size: 2.4rem;
+  color: #f59e0b;
+  opacity: 0.9;
+  letter-spacing: 0.04em;
+}
+
+/* ============================================================
+   5. TECH TOOLS SECTION
+   ============================================================ */
+.tech-tools-section {
+  background: #ffffff;
+}
+
+.tools-icons-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
+.tool-circle-card {
+  width: 90px;
+  height: 90px;
+  background: #fbfbfa;
+  border: 1.5px solid #f3f4f6;
+  border-radius: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.04);
+  transition: all 0.25s ease;
+  cursor: pointer;
+}
+
+.tool-circle-card:hover {
+  transform: translateY(-4px) scale(1.05);
+  border-color: #f59e0b;
+  box-shadow: 0 8px 25px rgba(245, 158, 11, 0.18);
+}
+
+.tool-name {
+  font-size: 0.68rem;
+  font-weight: 700;
+  color: #4b5563;
+}
+
+/* ============================================================
+   RESPONSIVENESS (Mobile & Tablet)
    ============================================================ */
 @media (max-width: 991px) {
-  .hero-section {
-    padding: 40px 0;
+  .pinterest-hero-title {
+    font-size: 2.6rem;
   }
 
-  .hero-heading-dark {
-    font-size: 2.15rem;
-    line-height: 1.25;
+  .who-main-title {
+    font-size: 2.1rem;
   }
 
-  .hero-subheading-dark {
-    font-size: 1rem;
-    max-width: 100%;
-  }
-
-  .hero-content-col-dark {
-    padding: 24px 20px;
-    border-radius: 20px;
-  }
-
-  .hero-image-card-dark {
-    max-width: 400px;
-    margin: 0 auto;
-  }
-
-  .hero-main-video {
-    height: 230px;
+  .who-circle-container {
+    margin-bottom: 20px;
   }
 }
 
-/* ============================================================
-   MOBILE RESPONSIVENESS (<= 576px - iPhone, Android Phones)
-   ============================================================ */
 @media (max-width: 576px) {
-  .hero-section {
-    padding: 20px 0 28px 0;
+  .pinterest-hero-section {
+    padding: 30px 0 50px 0;
   }
 
-  .hero-content-col-dark {
-    padding: 18px 14px;
-    border-radius: 16px;
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+  .pinterest-hero-title {
+    font-size: 2.05rem !important;
+    line-height: 1.2;
   }
 
-  .hero-heading-dark {
-    font-size: 1.68rem !important;
-    line-height: 1.28;
-    letter-spacing: -0.01em;
-    margin-bottom: 12px !important;
-  }
-
-  .hero-subheading-dark {
+  .pinterest-hero-subtitle {
     font-size: 0.92rem !important;
-    line-height: 1.6;
-    margin-bottom: 18px !important;
   }
 
-  .hero-content-col-dark .d-flex.flex-wrap.gap-3.mb-4 {
-    flex-direction: column;
-    gap: 10px !important;
-    margin-bottom: 16px !important;
-  }
-
-  .hero-content-col-dark .action-btn,
-  .hero-content-col-dark .action-btn-outline-dark {
+  .pinterest-btn-dark,
+  .pinterest-btn-outline {
     width: 100% !important;
-    padding: 11px 16px !important;
-    font-size: 0.92rem !important;
-    text-align: center;
     justify-content: center;
   }
 
-  .hero-whatsapp-pill-dark {
-    width: 100% !important;
-    border-radius: 12px !important;
-    padding: 10px 12px !important;
-    margin-bottom: 16px !important;
+  .hire-stamp-badge {
+    width: 75px;
+    height: 75px;
+    top: -10px;
+    right: -10px;
   }
 
-  .hero-whatsapp-pill-dark span {
-    font-size: 0.8rem !important;
-    line-height: 1.4;
+  .stamp-text {
+    font-size: 9px;
   }
 
-  .hero-trust-bar {
-    gap: 8px !important;
-    padding-top: 8px !important;
+  .hero-main-photo {
+    height: 280px;
   }
 
-  .hero-trust-bar > div {
-    width: 100%;
-    gap: 8px !important;
+  .who-stats-row {
+    gap: 16px;
   }
 
-  .hero-trust-bar span {
-    font-size: 0.78rem !important;
+  .stat-number {
+    font-size: 1.7rem;
   }
 
-  .hero-image-card-dark {
-    max-width: 100% !important;
-    border-radius: 14px;
-    padding: 6px;
-    margin-top: 10px;
-  }
-
-  .hero-main-video {
-    height: 200px !important;
-    border-radius: 10px;
-  }
-
-  .india-badge-floating-dark {
-    top: 10px;
-    right: 10px;
-    padding: 4px 8px;
-    border-radius: 8px;
-    gap: 6px;
-  }
-
-  .india-flag-icon {
-    font-size: 0.95rem;
-  }
-
-  .india-badge-floating-dark .india-badge-metric {
-    font-size: 0.78rem;
-  }
-
-  .india-badge-floating-dark .india-badge-label {
-    font-size: 0.62rem;
-  }
-
-  .hero-image-badge-dark {
-    bottom: 10px;
-    left: 10px;
-    padding: 6px 10px;
-    border-radius: 6px;
-    max-width: 65%;
-  }
-
-  .hero-image-badge-dark .badge-title {
+  .stat-label {
     font-size: 0.72rem;
   }
 
-  .hero-image-badge-dark .badge-subtitle {
-    font-size: 0.62rem;
+  .who-circle-amber-bg {
+    width: 260px;
+    height: 260px;
   }
 
-  .video-quick-controls {
-    bottom: 10px;
-    right: 10px;
-    gap: 4px;
+  .orbit-tag {
+    font-size: 0.68rem;
+    padding: 4px 10px;
   }
 
-  .btn-video-control {
-    width: 26px;
-    height: 26px;
+  .tool-circle-card {
+    width: 75px;
+    height: 75px;
   }
 }
