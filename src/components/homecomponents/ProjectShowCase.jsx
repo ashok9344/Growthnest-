@@ -1,11 +1,13 @@
 import React, { useState } from "react";
 import { Container, Row, Col } from "react-bootstrap";
-import { FaCheckCircle, FaArrowRight, FaExternalLinkAlt, FaGlobe } from "react-icons/fa";
+import { FaCheckCircle, FaArrowRight, FaGlobe } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import project1 from "../../assets/home/project1.png";
 import project2 from "../../assets/home/project2.png";
+import foodDeliveryImg from "../../assets/home/food-delivery-1.jpg";
 import inmbaLogo from "../../assets/home/inmba-logo.png";
 import womensStyleLogo from "../../assets/home/womensstyle-logo.png";
+import foodnestLogo from "../../assets/home/foodnest-logo.svg";
 import "./showcase.css";
 
 const projects = [
@@ -13,27 +15,37 @@ const projects = [
     id: "inmba",
     title: "INMBA",
     category: "INMBA",
-    badge: "INMBA",
+    badge: "Business Platform",
     desc: "Global business networking and international trade delegation portal engineered for business leaders, featuring interactive member directories, conference event scheduling, and collaborative community forums.",
     img: project1,
     logo: inmbaLogo,
-    liveUrl: "https://inmba.org",
     displayUrl: "inmba.org",
-    metrics: "International Business Network • 100% Live Production",
+    metrics: "International Business Network • Production Verified",
     tags: ["React", "Cloud Architecture", "REST APIs", "Modern UI", "Community Portal"],
   },
   {
     id: "womensstyle",
     title: "Women's Style",
     category: "Women's Style",
-    badge: "Women's Style",
+    badge: "E-Commerce",
     desc: "Full-featured online storefront engineered with fluid product catalogs, dynamic cart management, secure checkout, and mobile-first responsive shopping experience.",
     img: project2,
     logo: womensStyleLogo,
-    liveUrl: "https://womensstyle.store",
     displayUrl: "womensstyle.store",
     metrics: "Mobile-First UX • High-Conversion Storefront",
     tags: ["React", "E-Commerce", "Shopping Cart", "Responsive UX", "Vercel"],
+  },
+  {
+    id: "foodnest",
+    title: "FoodNest",
+    category: "Food Delivery",
+    badge: "Food Ordering Platform",
+    desc: "Cloud kitchen and multi-restaurant food delivery platform engineered with live menus, real-time GPS delivery tracking, dish customization add-ons, and instant UPI checkout.",
+    img: foodDeliveryImg,
+    logo: foodnestLogo,
+    displayUrl: "foodnest.delivery",
+    metrics: "Real-Time Cart • Live GPS Order Tracking",
+    tags: ["React", "Node.js", "Food Delivery", "Live Tracking", "Payment Gateway"],
   },
 ];
 
@@ -90,7 +102,11 @@ export const ProjectShowCase = () => {
         {/* Project Grid */}
         <Row className="g-4 justify-content-center">
           {filteredProjects.map((item) => (
-            <Col key={item.id} lg={filteredProjects.length === 1 ? 8 : 6} md={6}>
+            <Col 
+              key={item.id} 
+              lg={filteredProjects.length === 1 ? 8 : filteredProjects.length === 2 ? 6 : 4} 
+              md={6}
+            >
               <div 
                 className="enterprise-case-card h-100 d-flex flex-column justify-content-between"
                 style={{
@@ -103,12 +119,9 @@ export const ProjectShowCase = () => {
                 }}
               >
                 <div>
-                  {/* Clickable Image Box */}
-                  <a
-                    href={item.liveUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="case-img-box position-relative d-block text-decoration-none"
+                  {/* Image Box (Non-navigating preview) */}
+                  <div
+                    className="case-img-box position-relative d-block"
                     style={{ height: "230px", overflow: "hidden", background: "#f8fafc" }}
                   >
                     <img 
@@ -136,7 +149,7 @@ export const ProjectShowCase = () => {
                       {item.badge}
                     </div>
 
-                    {/* Live Demo Pill */}
+                    {/* Verified Status Pill */}
                     <div 
                       className="position-absolute d-flex align-items-center gap-1"
                       style={{
@@ -152,8 +165,7 @@ export const ProjectShowCase = () => {
                       }}
                     >
                       <span style={{ width: "6px", height: "6px", borderRadius: "50%", background: "#ffffff", display: "inline-block" }}></span>
-                      <span>Live Site</span>
-                      <FaExternalLinkAlt size={9} className="ms-1" />
+                      <span>Production Verified</span>
                     </div>
 
                     {/* Official Brand Logo */}
@@ -180,7 +192,7 @@ export const ProjectShowCase = () => {
                         style={{ maxWidth: "100%", maxHeight: "100%", objectFit: "contain" }}
                       />
                     </div>
-                  </a>
+                  </div>
 
                   {/* Card Content */}
                   <div className="case-body p-4">
@@ -189,26 +201,14 @@ export const ProjectShowCase = () => {
                         <FaGlobe className="me-1" size={11} />
                         {item.displayUrl}
                       </span>
-                      <a
-                        href={item.liveUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="small text-success fw-semibold text-decoration-none d-flex align-items-center gap-1"
-                      >
-                        <span>Open Live</span>
-                        <FaExternalLinkAlt size={10} />
-                      </a>
+                      <span className="small text-muted fw-semibold d-flex align-items-center gap-1">
+                        <FaCheckCircle className="text-success" size={11} />
+                        <span>Live Architecture</span>
+                      </span>
                     </div>
 
-                    <h4 className="case-title fw-bold mb-2 fs-5">
-                      <a
-                        href={item.liveUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-dark text-decoration-none"
-                      >
-                        {item.title}
-                      </a>
+                    <h4 className="case-title fw-bold mb-2 fs-5 text-dark">
+                      {item.title}
                     </h4>
                     
                     <p className="case-desc text-secondary mb-3 small" style={{ lineHeight: "1.6" }}>
@@ -244,16 +244,19 @@ export const ProjectShowCase = () => {
 
                 {/* Card Action Buttons */}
                 <div className="p-4 pt-0 border-top-0 d-flex flex-column gap-2">
-                  <a
-                    href={item.liveUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="btn btn-success w-100 py-2 d-flex align-items-center justify-content-center gap-2 fw-semibold text-decoration-none"
-                    style={{ background: "#16a34a", borderColor: "#16a34a", boxShadow: "0 2px 6px rgba(22, 163, 74, 0.25)" }}
+                  <div 
+                    className="w-100 py-2 px-3 rounded-3 d-flex align-items-center justify-content-center gap-2 fw-semibold"
+                    style={{
+                      background: "#f0fdf4",
+                      border: "1px solid #bbf7d0",
+                      color: "#166534",
+                      fontSize: "0.88rem",
+                      userSelect: "none"
+                    }}
                   >
-                    <span>Visit Live Website ({item.displayUrl})</span>
-                    <FaExternalLinkAlt size={11} />
-                  </a>
+                    <FaCheckCircle className="text-success" size={13} />
+                    <span>Engineered & Delivered by GrowthNest</span>
+                  </div>
                   <Link
                     to="/getintouch"
                     className="action-btn-outline w-100 text-decoration-none py-2 text-center small d-flex align-items-center justify-content-center gap-2"

@@ -25,7 +25,7 @@ import {
   SiMongodb, 
   SiGit 
 } from "react-icons/si";
-import itCompanyWorking from "../../assets/home/it-company-working.jpg";
+import clientDiscussionImg from "../../assets/home/client-discussion.jpg";
 import "./FrontPage.css";
 
 const FrontPage = () => {
@@ -81,11 +81,11 @@ const FrontPage = () => {
                 {/* Warm Amber Sunburst Arch Backdrop */}
                 <div className="amber-arch-backdrop"></div>
 
-                {/* Team / Lab Image with Organic Mask */}
+                {/* Team / Client Discussion Image with Organic Mask */}
                 <div className="hero-img-mask">
                   <img 
-                    src={itCompanyWorking} 
-                    alt="GrowthNest Software Lab" 
+                    src={clientDiscussionImg} 
+                    alt="GrowthNest Client Discussion & Consultation" 
                     className="hero-main-photo"
                   />
                 </div>
@@ -259,8 +259,8 @@ const FrontPage = () => {
               <div className="who-circle-container">
                 <div className="who-circle-amber-bg">
                   <img 
-                    src={itCompanyWorking} 
-                    alt="GrowthNest Team" 
+                    src={clientDiscussionImg} 
+                    alt="GrowthNest Team & Client Consulting" 
                     className="who-circle-img"
                   />
                 </div>
