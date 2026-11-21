@@ -129,7 +129,7 @@ p, span, li, a, label, input, textarea, select {
 }
 
 p {
-  color: #475569 !important;
+  color: #475569;
   line-height: 1.7;
 }
 

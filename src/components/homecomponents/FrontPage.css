@@ -465,35 +465,45 @@
 .tag-pos-5 { bottom: -10px; left: 25%; background: #f59e0b; color: #111827; }
 .tag-pos-6 { top: -5px; right: 25%; background: #ffffff; color: #111827; }
 
+.text-amber-glow,
+.text-amber-highlight {
+  color: #fbbf24 !important;
+}
+
 .who-dash-label {
-  font-size: 0.85rem;
+  font-size: 0.9rem;
   font-weight: 700;
-  color: #cbd5e1;
-  letter-spacing: 0.05em;
+  color: #fbbf24 !important;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
   display: inline-block;
+  margin-bottom: 6px;
 }
 
 .who-main-title {
   font-size: 2.5rem;
   font-weight: 800;
-  color: #ffffff;
+  color: #ffffff !important;
   letter-spacing: -0.02em;
 }
 
-.who-desc-text {
-  font-size: 1.02rem;
-  color: #d1d5db;
-  line-height: 1.7;
-  max-width: 520px;
+.who-is-section p,
+.who-is-section .who-desc-text {
+  font-size: 1.08rem !important;
+  color: #ffffff !important;
+  line-height: 1.8 !important;
+  max-width: 540px;
+  font-weight: 400;
+  opacity: 0.98;
 }
 
 /* Metrics Row */
 .who-stats-row {
   display: flex;
   gap: 36px;
-  padding: 16px 0;
-  border-top: 1px solid rgba(255, 255, 255, 0.12);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+  padding: 18px 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.16);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.16);
 }
 
 .stat-block {
@@ -502,17 +512,19 @@
 }
 
 .stat-number {
-  font-size: 2.2rem;
+  font-size: 2.3rem;
   font-weight: 800;
-  color: #f59e0b;
+  color: #fbbf24 !important;
   line-height: 1.1;
 }
 
-.stat-label {
-  font-size: 0.78rem;
-  font-weight: 600;
-  color: #cbd5e1;
+.who-is-section .stat-label {
+  font-size: 0.86rem !important;
+  font-weight: 600 !important;
+  color: #ffffff !important;
   text-transform: capitalize;
+  opacity: 0.95;
+  margin-top: 4px;
 }
 
 /* Who CTA + Signature */
@@ -521,35 +533,38 @@
   align-items: center;
   gap: 12px;
   padding: 12px 24px;
-  background: #142e22;
-  border: 1px solid rgba(255, 255, 255, 0.18);
-  color: #ffffff !important;
+  background: #fbbf24;
+  border: 1px solid #f59e0b;
+  color: #111827 !important;
   font-size: 0.92rem;
-  font-weight: 700;
+  font-weight: 800;
   border-radius: 9999px;
   text-decoration: none;
+  box-shadow: 0 4px 14px rgba(251, 191, 36, 0.3);
   transition: all 0.25s ease;
 }
 
 .who-cta-btn:hover {
-  background: #f59e0b;
-  color: #111827 !important;
+  background: #ffffff;
+  color: #1b3b2b !important;
+  border-color: #ffffff;
   transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(255, 255, 255, 0.2);
 }
 
 .who-btn-arrow {
   width: 22px;
   height: 22px;
   border-radius: 50%;
-  background: #f59e0b;
-  color: #111827;
+  background: #111827;
+  color: #ffffff;
   display: inline-flex;
   align-items: center;
   justify-content: center;
 }
 
 .who-cta-btn:hover .who-btn-arrow {
-  background: #111827;
+  background: #1b3b2b;
   color: #ffffff;
 }
 
