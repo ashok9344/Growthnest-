@@ -50,7 +50,7 @@ const FrontPage = () => {
 
               {/* Bold Hero Headline */}
               <h1 className="pinterest-hero-title mb-3">
-                We're <span className="text-amber-highlight">GrowthNest</span>,<br />
+                We're <span className="text-amber-highlight">GrowthNest Tech Solution</span>,<br />
                 Product & Software Studio<br />
                 Based in India.
               </h1>
@@ -100,7 +100,7 @@ const FrontPage = () => {
                     />
                     <text className="stamp-text">
                       <textPath href="#circlePath" startOffset="0%">
-                        • HIRE US • TOP RATED IT LAB •
+                        • GROWTHNEST • TECH SOLUTION •
                       </textPath>
                     </text>
                   </svg>
@@ -279,7 +279,7 @@ const FrontPage = () => {
             <Col lg={6}>
               <span className="who-dash-label">- About Us</span>
               <h2 className="who-main-title mb-3">
-                Who is <span className="text-amber-glow">GrowthNest</span>?
+                Who is <span className="text-amber-glow">GrowthNest Tech Solution</span>?
               </h2>
 
               <p className="who-desc-text mb-4">

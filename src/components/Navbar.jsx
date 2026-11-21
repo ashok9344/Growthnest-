@@ -41,10 +41,11 @@ const Navbar = () => {
           {/* Brand Logo & Title */}
           <BSNavbar.Brand as={NavLink} to="/" onClick={closeMenu} className="brand-container">
             <div className="brand-logo-wrap">
-              <img src={logoImg} alt="GrowthNest Logo" className="brand-logo-img" />
+              <img src={logoImg} alt="GrowthNest Tech Solution" className="brand-logo-img" />
             </div>
             <div className="brand-text-wrap">
-              <span className="brand-title">Growth<span className="text-amber-glow">Nest</span>.</span>
+              <span className="brand-title">Growth<span className="text-amber-glow">Nest</span></span>
+              <span className="brand-tagline">Tech Solution</span>
             </div>
           </BSNavbar.Brand>
 
